@@ -36,10 +36,10 @@ export class QuizService {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    this.retrieveQuizzes();
+    this.setQuizzesFromUrl();
   }
 
-  retrieveQuizzes(): void {
+  setQuizzesFromUrl(): void {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
@@ -47,7 +47,7 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz): void {
-    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   setSelectedQuiz(quizId: string): void {
@@ -59,7 +59,7 @@ export class QuizService {
 
   deleteQuiz(quiz: Quiz): void {
     const urlWithId = this.quizUrl + '/' + quiz.id;
-    this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   addQuestion(quiz: Quiz, question: Question): void {
