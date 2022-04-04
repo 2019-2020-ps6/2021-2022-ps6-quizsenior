@@ -2,8 +2,8 @@ const { Router } = require('express')
 
 const { QuizGame } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
-const { buildQuiz } = require('../quizGame/gameManager')
-const { buildQuizz } = require('../quizzes/manager')
+const { buildQuizGame } = require('./gameManager')
+const { buildQuizGames } = require('./gameManager')
 
 const router = new Router()
 
@@ -17,10 +17,10 @@ router.post('/', (req, res) => {
   }
 })
 
-router.get('/:quizId', (req, res) => {
+router.get('/:gameId', (req, res) => {
   try {
-    const quizz = buildQuizz(req.params.quizId)
-    res.status(200).json(quizz)
+    const game = QuizGame.getById(req.params.quizId)
+    res.status(200).json(game)
   } catch (err) {
     manageAllErrors(res, err)
   }
@@ -28,8 +28,8 @@ router.get('/:quizId', (req, res) => {
 
 router.get('/', (req, res) => {
   try {
-    const quizzes = buildQuiz(req.params.id)
-    res.status(200).json(quizzes)
+    const games = QuizGame.get()
+    res.status(200).json(games)
   } catch (err) {
     manageAllErrors(res, err)
   }

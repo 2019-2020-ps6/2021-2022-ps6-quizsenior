@@ -25,7 +25,7 @@ export class QuizGameService {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
-    this.quizUrl = serverUrl + '/quizGame';
+    this.quizUrl = serverUrl + '/quizGames';
     this.setQuizzesFromUrl();
   }
 
