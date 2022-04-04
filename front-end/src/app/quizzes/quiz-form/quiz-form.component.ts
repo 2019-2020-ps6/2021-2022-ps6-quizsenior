@@ -19,15 +19,23 @@ export class QuizFormComponent implements OnInit {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
   public quizForm: FormGroup;
+  public repetition = false;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     this.quizForm = this.formBuilder.group({
       name: [''],
-      theme: ['']
+      theme: [''],
+      repetition: ['false'],
+      nbRepetition: [''],
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
+  }
+
+  changeRepetition(): void{
+    this.repetition = !this.repetition;
+    this.quizForm.controls.repetition.setValue(String(this.repetition));
   }
 
   ngOnInit(): void {

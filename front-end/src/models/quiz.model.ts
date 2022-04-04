@@ -5,4 +5,6 @@ export interface Quiz {
     name: string;
     theme?: string;
     questions: Question[];
+    repetition: string;
+    nbRepetition: string;
 }
