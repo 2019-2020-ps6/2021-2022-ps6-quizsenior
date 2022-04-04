@@ -28,7 +28,7 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]>
     = new BehaviorSubject(this.quizzes);
 
-  public quizSelected$: Subject<Quiz> = new Subject();
+  public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject<Quiz>(null);
 
   private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';

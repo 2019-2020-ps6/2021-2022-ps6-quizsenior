@@ -29,3 +29,10 @@ export const QUIZ_LIST: Quiz[] = [
         questions: [],
     }
 ];
+
+export const QUIZ: Quiz = {
+      name: 'Jours de la semaine',
+      theme: 'Week',
+      id: '1',
+      questions: []
+};
