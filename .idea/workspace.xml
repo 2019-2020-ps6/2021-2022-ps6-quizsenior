@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0944f14-3c56-4e13-8c1b-6fd8e95b2ea9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back-end/app/api/games/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/app/models/game.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/configs/server.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/models/question.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/models/quiz.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/models/user.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/quiz.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quizsenior/src/app-choosequiz-dmla-root/app-choosequiz-dmla-root.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quizsenior/src/app-choosequiz-dmla-root/app-choosequiz-dmla.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/quizzes/manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/quizzes/manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/answers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/answers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/answers/manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/answers/manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/api/quizzes/questions/manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/models/question.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/models/question.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/utils/base-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/utils/base-model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app/utils/routes/error-management.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app/utils/routes/error-management.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/mock-quiz.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/header/header.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/header/header.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/header/header.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-form/question-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-form/question-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-form/question-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-list/question-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-list/question-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question-list/question-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question/question.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question/question.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/questions/question/question.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/edit-quiz/edit-quiz.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/edit-quiz/edit-quiz.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/edit-quiz/edit-quiz.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-form/quiz-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-form/quiz-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-form/quiz-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-list/quiz-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-list/quiz-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz-list/quiz-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz/quiz.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz/quiz.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/quizzes/quiz/quiz.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/configs/server.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/mocks/quiz-list.mock.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/models/question.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/models/quiz.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/services/quiz.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/styles/card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/styles/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/tslint.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="27KFbQGlirHnB6JOiWILslSQDjc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/back-end/database" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\outilprog\workspace\ps6\projet\2021-2022-ps6-quizsenior\quizsenior\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\outilprog\workspace\ps6\projet\2021-2022-ps6-quizsenior\back-end\database" />
+      <recent name="C:\outilprog\workspace\ps6\projet\2021-2022-ps6-quizsenior\frontend\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0944f14-3c56-4e13-8c1b-6fd8e95b2ea9" name="Changes" comment="" />
+      <created>1649060942399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649060942399</updated>
+      <workItem from="1649060944462" duration="14160000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
