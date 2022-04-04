@@ -1,7 +1,7 @@
 <div class="card">
   <h2>Create a new Quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
-    <label for="title">
+    <label for="name">
       Title <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
@@ -11,8 +11,20 @@
       <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
     </label>
     <br>
+    <label for="repetition">
+      Repetition <br>
+      <input class="input-custom" type="checkbox" id="repetition" (change)="changeRepetition()">
+    </label>
+    <br>
+    <ng-container *ngIf="repetition">
+      <label for="nbRepetition">
+        Number of repetition <br>
+        <input class="input-custom" type="text" id="nbRepetition" [formControlName]="'nbRepetition'">
+      </label>
+    </ng-container>
+    <br>
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
   </form>
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->
+ <br><br>{{quizForm.getRawValue() | json}}

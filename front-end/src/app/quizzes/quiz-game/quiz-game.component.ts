@@ -13,12 +13,11 @@ import {QuizService} from 'src/services/quiz.service';
 
 export class QuizGameComponent implements OnInit {
 
-  public currentQuestion = 0;
+  public currentQuestion;
   public answerSelected = false;
-  public correctAnswers = 0;
-  public incorrectAnswers = 0;
+  public correctAnswers;
+  public incorrectAnswers;
   public result = false;
-  public randomize: number;
   public quiz: Quiz;
 
 
@@ -26,13 +25,17 @@ export class QuizGameComponent implements OnInit {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
       console.log(this.quiz);
+      console.log(this.quiz.repetition);
+      console.log(this.quiz.nbRepetition);
     });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-    this.randomize = Math.floor(Math.random() * this.quiz.questions.length);
+    this.currentQuestion = 0;
+    this.correctAnswers = 0;
+    this.incorrectAnswers = 0;
   }
 
 
@@ -41,7 +44,6 @@ export class QuizGameComponent implements OnInit {
     this.answerSelected = true;
     setTimeout(() => {
       this.currentQuestion++;
-      this.randomize = Math.floor(Math.random() * this.quiz.questions.length);
       this.answerSelected = false;
     }, 1000);
 
@@ -54,5 +56,7 @@ export class QuizGameComponent implements OnInit {
 
   showResult(): void{
     this.result = true;
+
+    // let quizGame = new QuizGameComponent()
   }
 }

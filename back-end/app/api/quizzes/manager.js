@@ -22,9 +22,9 @@ const buildQuizz = (quizId) => {
  * This function aggregates the questions and answers from the database to build entire quizzes.
  */
 const buildQuizzes = () => {
-    const quizzes = Quiz.get();
+    const quizzes = Quiz.get()
     return quizzes.map((quiz) => buildQuizz(quiz.id))
-} 
+}
 
 module.exports = {
     buildQuizz,
