@@ -8,7 +8,7 @@
         <ul class="question-list" *ngFor="let answer of quiz.questions[currentQuestion].answers">
           <label>
             <li class="list-group-item" appBackground [correctAnswer]="answer.isCorrect">
-              <input type="radio" name="answer" (change)="onAnswer(answer.isCorrect)" [disabled]="answerSelected">
+              <input type="radio" name="answer" (change)="onAnswer(answer)" [disabled]="answerSelected">
               {{answer.value}}
             </li>
           </label>

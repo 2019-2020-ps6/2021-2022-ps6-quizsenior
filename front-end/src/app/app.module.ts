@@ -14,7 +14,7 @@ import { QuestionFormComponent } from './questions/question-form/question-form.c
 import { QuestionComponent } from './questions/question/question.component';
 import { QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import { HttpClientModule } from '@angular/common/http';
-import {BackgroundDirective} from "../background.directive";
+import {BackgroundDirective} from '../background.directive';
 
 @NgModule({
   declarations: [

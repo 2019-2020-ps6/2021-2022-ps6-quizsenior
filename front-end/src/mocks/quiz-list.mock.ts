@@ -16,7 +16,7 @@ export const QUESTION_ACTOR: Question = {
     ]
 };
 
-export const QUIZ_LIST: Quiz[] = [
+/*export const QUIZ_LIST: Quiz[] = [
     {
         id: '1',
         name: 'Les Acteurs', // What's happening if I change this value..?
@@ -35,4 +35,4 @@ export const QUIZ: Quiz = {
       theme: 'Week',
       id: '1',
       questions: []
-};
+};*/

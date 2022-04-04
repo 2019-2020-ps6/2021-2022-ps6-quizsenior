@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
+import {QuizGame} from "../../../models/quizgame.model";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Answer} from "../../../models/question.model";
 
 @Component({
   selector: 'app-edit-quiz',
@@ -19,28 +22,39 @@ export class QuizGameComponent implements OnInit {
   public incorrectAnswers;
   public result = false;
   public quiz: Quiz;
+  public game: QuizGame;
+  public quizGameForm: FormGroup;
 
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
-      console.log(this.quiz);
-      console.log(this.quiz.repetition);
-      console.log(this.quiz.nbRepetition);
+    });
+    this.quizService.game$.subscribe((quizGame) => {
+      this.game = quizGame;
+    });
+    this.quizGameForm = this.formBuilder.group({
+      correctAnswers: ['0'],
+      incorrectAnswers: ['0'],
+      quiz: [''],
+      nbRepetition: [''],
     });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
+    this.quizGameForm.controls.nbRepetition.setValue( this.quiz.nbRepetition);
+    this.quizGameForm.controls.quiz.setValue( String(this.quiz.id));
     this.currentQuestion = 0;
-    this.correctAnswers = 0;
-    this.incorrectAnswers = 0;
+    const quizGameToCreate: QuizGame = this.quizGameForm.getRawValue() as QuizGame;
+    console.log(quizGameToCreate);
+    this.quizService.addQuizGame(quizGameToCreate);
   }
 
 
 
-  onAnswer(option: boolean): void {
+  onAnswer(option: Answer): void {
     this.answerSelected = true;
     setTimeout(() => {
       this.currentQuestion++;
@@ -56,7 +70,5 @@ export class QuizGameComponent implements OnInit {
 
   showResult(): void{
     this.result = true;
-
-    // let quizGame = new QuizGameComponent()
   }
 }
