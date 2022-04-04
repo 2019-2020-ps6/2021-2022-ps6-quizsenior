@@ -27,7 +27,7 @@ export class QuizService {
   //public quizzes$: BehaviorSubject<Quiz[]>
   //  = new BehaviorSubject(this.quizzes);
 
-  public quizSelected$: Subject<Quiz> = new Subject();
+  public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject<Quiz>(null);
 
   private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';
@@ -36,6 +36,13 @@ export class QuizService {
 
 
 
+<<<<<<< HEAD:frontend/src/services/quiz.service.ts
+=======
+  addQuiz(quiz: Quiz): void {
+    console.log(quiz);
+    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
+  }
+>>>>>>> ae9bdb37a2e00a8084cd025e0dd6f21cd388ec3c:front-end/src/services/quiz.service.ts
 
 
 
