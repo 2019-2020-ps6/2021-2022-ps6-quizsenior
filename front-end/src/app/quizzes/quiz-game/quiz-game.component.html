@@ -17,7 +17,7 @@
       <div *ngIf="currentQuestion>= quiz.questions.length">
         <button class="btn btn-success btn-block" (click)="showResult()">Show Result</button>
         <div *ngIf="result">
-          Correct Answers: {{correctAnswers}} | Incorrect Answers: {{incorrectAnswers}}
+          Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
         </div>
       </div>
     </div>
