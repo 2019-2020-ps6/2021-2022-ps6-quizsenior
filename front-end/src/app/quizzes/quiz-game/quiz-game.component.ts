@@ -18,8 +18,9 @@ export class QuizGameComponent implements OnInit {
 
   public currentQuestion;
   public answerSelected = false;
-  public correctAnswers;
-  public incorrectAnswers;
+  // public correctAnswers;
+  // public incorrectAnswers;
+  public quizGameToCreate: QuizGame;
   public result = false;
   public quiz: Quiz;
   public game: QuizGame;
@@ -47,9 +48,9 @@ export class QuizGameComponent implements OnInit {
     this.quizGameForm.controls.nbRepetition.setValue( this.quiz.nbRepetition);
     this.quizGameForm.controls.quiz.setValue( String(this.quiz.id));
     this.currentQuestion = 0;
-    const quizGameToCreate: QuizGame = this.quizGameForm.getRawValue() as QuizGame;
-    console.log(quizGameToCreate);
-    this.quizService.addQuizGame(quizGameToCreate);
+    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
+    console.log(this.quizGameToCreate);
+    this.quizService.addQuizGame(this.quizGameToCreate);
   }
 
 
@@ -61,10 +62,10 @@ export class QuizGameComponent implements OnInit {
       this.answerSelected = false;
     }, 1000);
 
-    if (option){
-      this.correctAnswers++;
+    if (option.isCorrect){
+      this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
     }else{
-      this.incorrectAnswers++;
+      this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
     }
   }
 
