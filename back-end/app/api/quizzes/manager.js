@@ -8,13 +8,13 @@ const { filterAnswersFromQuestion } = require('./questions/answers/manager')
  * @param quizId
  */
 const buildQuizz = (quizId) => {
-    const quiz = Quiz.getById(quizId)
-    const questions = filterQuestionsFromQuizz(quiz.id)
-    const questionWithAnswers = questions.map((question) =>  {
-        const answers = filterAnswersFromQuestion(question.id)
-        return { ...question, answers: answers }
-    })
-    return { ...quiz, questions: questionWithAnswers }
+  const quiz = Quiz.getById(quizId)
+  const questions = filterQuestionsFromQuizz(quiz.id)
+  const questionWithAnswers = questions.map((question) => {
+    const answers = filterAnswersFromQuestion(question.id)
+    return { ...question, answers }
+  })
+  return { ...quiz, questions: questionWithAnswers }
 }
 
 /**
@@ -27,6 +27,6 @@ const buildQuizzes = () => {
 }
 
 module.exports = {
-    buildQuizz,
-    buildQuizzes
+  buildQuizz,
+  buildQuizzes,
 }
