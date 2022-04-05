@@ -2,9 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
+<<<<<<< HEAD
 import {QuizGame} from '../../../models/quizgame.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer} from '../../../models/question.model';
+=======
+import {QuizGame} from "../../../models/quizgame.model";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Answer} from "../../../models/question.model";
+>>>>>>> develop
 
 @Component({
   selector: 'app-edit-quiz',
