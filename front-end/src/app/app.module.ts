@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app.routing.module';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
 import { QuestionComponent } from './questions/question/question.component';
+import { QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import { HttpClientModule } from '@angular/common/http';
+import {BackgroundDirective} from '../background.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     EditQuizComponent,
     QuestionListComponent,
     QuestionFormComponent,
-    QuestionComponent
+    QuestionComponent,
+    QuizGameComponent,
+    BackgroundDirective
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {QuizGame} from '../models/quizgame.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,9 @@ export class QuizService {
    The list of quiz.
    The list is retrieved from the mock.
    */
-  private quizzes: Quiz[] = QUIZ_LIST;
+  private quizzes: Quiz[] = [];
+
+  private quizGames: QuizGame[] = [];
 
   /*
    Observable which contains the list of the quiz.
@@ -28,9 +30,15 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]>
     = new BehaviorSubject(this.quizzes);
 
-  public quizSelected$: Subject<Quiz> = new Subject();
+  public quizGames$: BehaviorSubject<QuizGame[]>
+    = new BehaviorSubject(this.quizGames);
+
+  public quizSelected$: BehaviorSubject<Quiz> = new BehaviorSubject<Quiz>(null);
+
+  public game$: BehaviorSubject<QuizGame> = new BehaviorSubject<QuizGame>(null);
 
   private quizUrl = serverUrl + '/quizzes';
+  private quizGameUrl = serverUrl + '/quizGames';
   private questionsPath = 'questions';
 
   private httpOptions = httpOptionsBase;
@@ -43,6 +51,13 @@ export class QuizService {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
+    });
+  }
+
+  setQuizGamesFromUrl(): void {
+    this.http.get<QuizGame[]>(this.quizGameUrl).subscribe((quizGameList) => {
+      this.quizGames = quizGameList;
+      this.quizGames$.next(this.quizGames);
     });
   }
 
@@ -70,6 +85,11 @@ export class QuizService {
   deleteQuestion(quiz: Quiz, question: Question): void {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
+  }
+
+  addQuizGame(quizGame: QuizGame): void{
+    this.http.post<QuizGame>(this.quizGameUrl, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
+    console.log(this.quizGames);
   }
 
   /*
