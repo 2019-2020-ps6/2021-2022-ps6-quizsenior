@@ -2,8 +2,6 @@ const { Router } = require('express')
 
 const { QuizGame } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
-const { buildQuizGame } = require('./gameManager')
-const { buildQuizGames } = require('./gameManager')
 
 const router = new Router()
 

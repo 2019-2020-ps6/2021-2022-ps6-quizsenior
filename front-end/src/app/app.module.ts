@@ -28,7 +28,7 @@ import {BackgroundDirective} from '../background.directive';
     QuestionFormComponent,
     QuestionComponent,
     QuizGameComponent,
-    BackgroundDirective
+    BackgroundDirective,
   ],
   imports: [
     BrowserModule,
