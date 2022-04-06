@@ -1,6 +1,6 @@
 const { Router } = require('express')
 
-const { AnswerDmla, QuizDmla, QuestionDmla } = require('../../../models')
+const { QuizDmla, QuestionDmla, AnswerDmla } = require('../../../models')
 const manageAllErrors = require('../../../utils/routes/error-management')
 const AnswersRouter = require('./answersDmla')
 const { filterQuestionsFromQuizz, getQuestionFromQuiz } = require('./manager')
@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
     let question = QuestionDmla.create({ label: req.body.label, quizId })
     // If answersDmla have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
-      const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
-      question = {...question, answers}
+      const answers = req.body.answers.map((answer) => AnswerDmla.create({ ...answer, questionId: question.id }))
+      question = { ...question, answers }
     }
     res.status(201).json(question)
   } catch (err) {
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
 router.put('/:questionId', (req, res) => {
   try {
     const question = getQuestionFromQuiz(req.params.quizId, req.params.questionId)
-    let updatedQuestion = QuestionDmla.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
+    const updatedQuestion = QuestionDmla.update(req.params.questionId, { label: req.body.label, quizId: question.quizId })
     res.status(200).json(updatedQuestion)
   } catch (err) {
     manageAllErrors(res, err)

@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'quiz-listDmla', component: QuizListDmlaComponent},
   {path: 'edit-quizDmla/:id', component: EditQuizDmlaComponent},
   {path: 'quiz-gameDmla/:id', component: QuizGameDmlaComponent},
-  {path: '', redirectTo: '/quiz-list', pathMatch: 'full'},
+  {path: '', redirectTo: '/quiz-listDmla', pathMatch: 'full'},
 ];
 
 @NgModule({

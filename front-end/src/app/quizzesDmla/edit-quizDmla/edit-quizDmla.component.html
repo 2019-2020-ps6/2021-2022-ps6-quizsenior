@@ -1,7 +1,7 @@
-<button class="button-card" routerLink="/quiz-list">Back</button>
+<button class="button-card" routerLink="/quiz-listDmla">Back</button>
 
 <ng-container *ngIf="quiz">
-    <h2>{{quiz.name}}</h2>
-    <app-question-form [quiz]="quiz"></app-question-form>
-    <app-question-list [quiz]="quiz"></app-question-list>
+  <h2>{{quiz.name}}</h2>
+  <app-question-formdmla [quiz]="quiz"></app-question-formdmla>
+  <app-question-listdmla [quiz]="quiz"></app-question-listdmla>
 </ng-container>

@@ -25,17 +25,10 @@ export class QuizFormDmlaComponent implements OnInit {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: [''],
-      repetition: ['false'],
-      nbRepetition: ['0'],
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
-  }
-
-  changeRepetition(): void{
-    this.repetition = !this.repetition;
-    this.quizForm.controls.repetition.setValue(String(this.repetition));
   }
 
   ngOnInit(): void {

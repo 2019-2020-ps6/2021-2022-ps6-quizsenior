@@ -1,15 +1,18 @@
-<button class="button-card" routerLink="/quiz-list">Back</button>
+<button class="button-card" routerLink="/quiz-listDmla">Back</button>
 <ng-container *ngIf="quiz">
   <div class="row">
     <div class="col-sm-8 offset-2">
       <div *ngIf="currentQuestion < quiz.questions.length">
-        <p class="text-center">{{currentQuestion +1}} of {{quiz.questions.length}}</p>
+        <p class="text-center">{{currentQuestion + 1}} of {{quiz.questions.length}}</p>
         <h1>{{quiz.questions[currentQuestion].label}}</h1>
         <ul class="question-list" *ngFor="let answer of quiz.questions[currentQuestion].answers">
           <label>
             <li class="list-group-item" appBackground [correctAnswer]="answer.isCorrect">
               <input type="radio" name="answer" (change)="onAnswer(answer)" [disabled]="answerSelected">
               {{answer.value}}
+              <button class="bouton1">
+                <FONT size="10pt" face="Verdana" color="black">{{answer.value}}</FONT>
+              </button>
             </li>
           </label>
         </ul>
@@ -17,7 +20,8 @@
       <div *ngIf="currentQuestion>= quiz.questions.length">
         <button class="btn btn-success btn-block" (click)="showResult()">Show Result</button>
         <div *ngIf="result">
-          Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
+          Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect
+          Answers: {{quizGameToCreate.incorrectAnswers}}
         </div>
       </div>
     </div>

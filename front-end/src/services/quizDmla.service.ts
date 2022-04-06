@@ -78,7 +78,9 @@ export class QuizServiceDmla {
   }
 
   addQuestion(quiz: QuizDmla, question: QuestionDmla): void {
+    console.log('ADDDMLA', this.quizzes);
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath;
+    console.log('ADDDMLA2', questionUrl);
     this.http.post<QuestionDmla>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 

@@ -22,6 +22,7 @@ export class QuizListDmlaComponent implements OnInit {
   }
 
   quizSelected(selected: QuizDmla): void {
+    console.log('fwergwregweg');
     this.router.navigate(['/quiz-gameDmla/' + selected.id]);
   }
 

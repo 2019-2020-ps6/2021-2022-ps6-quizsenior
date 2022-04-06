@@ -20,10 +20,16 @@ import { QuizFormDmlaComponent } from './quizzesDmla/quiz-formDmla/quiz-formDmla
 import { EditQuizDmlaComponent } from './quizzesDmla/edit-quizDmla/edit-quizDmla.component';
 import { QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.component';
 import { QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
+import { QuestionListDmlaComponent } from './questionsDmla/question-listDmla/question-listDmla.component';
+import { QuestionFormDmlaComponent } from './questionsDmla/question-formDmla/question-formDmla.component';
+import { QuestionDmlaComponent } from './questionsDmla/questionDmla/questionDmla.component';
 
 
 @NgModule({
   declarations: [
+    QuestionListDmlaComponent,
+    QuestionFormDmlaComponent,
+    QuestionDmlaComponent,
     AppComponent,
     QuizListComponent,
     QuizComponent,
