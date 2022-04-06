@@ -1,4 +1,4 @@
-const { Answer } = require('../../../../models')
+const { AnswerDmla } = require('../../../../models')
 const { getQuestionFromQuiz } = require('../manager')
 
 /**
@@ -6,7 +6,9 @@ const { getQuestionFromQuiz } = require('../manager')
  * This function filters among the questionsDmla to return only the question linked with the given quizId.
  * @param questionId
  */
-const filterAnswersFromQuestion = (questionId) => Answer.get().filter((answer) => (answer.questionId === questionId))
+const filterAnswersFromQuestion = (questionId) => {
+    return AnswerDmla.get().filter((answer) => (answer.questionId === questionId))
+}
 
 /**
  * getAnswerFromQuestion.
@@ -16,13 +18,13 @@ const filterAnswersFromQuestion = (questionId) => Answer.get().filter((answer) =
  * @param answerId
  */
 const getAnswerFromQuestion = (quizId, questionId, answerId) => {
-  const question = getQuestionFromQuiz(quizId, questionId)
-  const answer = Answer.getById(answerId)
-  if (answer.questionId !== question.id) throw new NotFoundError(`${answer.name} id=${answerId} was not found for ${question.name} id=${question.id} : not found`)
-  return answer
+    const question = getQuestionFromQuiz(quizId, questionId)
+    const answer = AnswerDmla.getById(answerId)
+    if (answer.questionId !== question.id) throw new NotFoundError(`${answer.name} id=${answerId} was not found for ${question.name} id=${question.id} : not found`)
+    return answer
 }
 
 module.exports = {
-  getAnswerFromQuestion,
-  filterAnswersFromQuestion,
+    getAnswerFromQuestion,
+    filterAnswersFromQuestion
 }

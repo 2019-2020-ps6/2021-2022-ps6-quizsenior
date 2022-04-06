@@ -15,7 +15,7 @@ export class QuizGameService {
   public game: Subject<QuizGame> = new Subject();
 
   /*
-   Observable which contains the list of the quiz.
+   Observable which contains the list of the quizDmla.
    Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
 

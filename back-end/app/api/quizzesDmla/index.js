@@ -1,13 +1,13 @@
 const { Router } = require('express')
 
-const { Quiz} = require('../../models')
+const { QuizDmla } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
-const QuestionsRouter = require('./questions')
+const QuestionsRouter = require('./questionsDmla')
 const { buildQuizz, buildQuizzes } = require('./manager')
 
 const router = new Router()
 
-router.use('/:quizId/questions', QuestionsRouter)
+router.use('/:quizId/questionsDmla', QuestionsRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -29,7 +29,7 @@ router.get('/:quizId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const quiz = Quiz.create({ ...req.body })
+    const quiz = QuizDmla.create({ ...req.body })
     res.status(201).json(quiz)
   } catch (err) {
     manageAllErrors(res, err)
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
 
 router.put('/:quizId', (req, res) => {
   try {
-    res.status(200).json(Quiz.update(req.params.quizId, req.body))
+    res.status(200).json(QuizDmla.update(req.params.quizId, req.body))
   } catch (err) {
     manageAllErrors(res, err)
   }
@@ -46,7 +46,7 @@ router.put('/:quizId', (req, res) => {
 
 router.delete('/:quizId', (req, res) => {
   try {
-    Quiz.delete(req.params.quizId)
+    QuizDmla.delete(req.params.quizId)
     res.status(204).end()
   } catch (err) {
     manageAllErrors(res, err)

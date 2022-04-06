@@ -7,5 +7,5 @@ module.exports = new BaseModel('QuizGame', {
   incorrectAnswers: Joi.string().required(),
   quiz: Joi.string().required(),
   nbRepetition: Joi.string().required(),
-  // answers: Joi.string,
+  // answersDmla: Joi.string,
 })
