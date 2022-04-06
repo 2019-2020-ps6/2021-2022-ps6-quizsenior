@@ -4,7 +4,7 @@ const { QuizGame } = require('../../models')
 
 /**
  * Function buildQuizz.
- * This function aggregates the questions and answers from the database to build a quizz with all the data needed by the clients.
+ * This function aggregates the questionsDmla and answersDmla from the database to build a quizz with all the data needed by the clients.
  * @param quizGameId
  */
 const buildQuizGame = (quizGameId) => {
@@ -19,7 +19,7 @@ const buildQuizGames = () => {
 
 /**
  * Function buildQuizzes.
- * This function aggregates the questions and answers from the database to build entire quizzes.
+ * This function aggregates the questionsDmla and answersDmla from the database to build entire quizzes.
  */
 
 module.exports = {

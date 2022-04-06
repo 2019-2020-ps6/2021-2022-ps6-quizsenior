@@ -21,12 +21,12 @@ export const QUESTION_ACTOR: Question = {
         id: '1',
         name: 'Les Acteurs', // What's happening if I change this value..?
         theme: 'Actor',
-        questions: [],
+        questionsDmla: [],
     },
     {
         id: '2',
         name: 'Les technos WEB',
-        questions: [],
+        questionsDmla: [],
     }
 ];
 
@@ -34,5 +34,5 @@ export const QUIZ: Quiz = {
       name: 'Jours de la semaine',
       theme: 'Week',
       id: '1',
-      questions: []
+      questionsDmla: []
 };*/

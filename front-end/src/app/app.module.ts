@@ -15,6 +15,12 @@ import { QuestionComponent } from './questions/question/question.component';
 import { QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import { HttpClientModule } from '@angular/common/http';
 import {BackgroundDirective} from '../background.directive';
+import { QuizDmlaComponent } from './quizzesDmla/quizDmla/quizDmla.component';
+import { QuizFormDmlaComponent } from './quizzesDmla/quiz-formDmla/quiz-formDmla.component';
+import { EditQuizDmlaComponent } from './quizzesDmla/edit-quizDmla/edit-quizDmla.component';
+import { QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.component';
+import { QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +35,11 @@ import {BackgroundDirective} from '../background.directive';
     QuestionComponent,
     QuizGameComponent,
     BackgroundDirective,
+    QuizListDmlaComponent,
+    QuizDmlaComponent,
+    QuizFormDmlaComponent,
+    EditQuizDmlaComponent,
+    QuizGameDmlaComponent,
   ],
   imports: [
     BrowserModule,
