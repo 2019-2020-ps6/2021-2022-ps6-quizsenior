@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { QuizDmla } from 'src/models/quizDmla.model';
+import {ActivatedRoute} from '@angular/router';
+import {QuizDmla} from 'src/models/quizDmla.model';
 import {QuizServiceDmla} from 'src/services/quizDmla.service';
 
 import {QuizGameDmla} from '../../../models/quizgameDmla.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AnswerDmla, QuestionDmla} from '../../../models/questionDmla.model';
-
-
 
 
 @Component({
@@ -17,12 +15,11 @@ import {AnswerDmla, QuestionDmla} from '../../../models/questionDmla.model';
 })
 
 
-
 export class QuizGameDmlaComponent implements OnInit {
 
-  public currentQuestion;
-  public answerSelected: string;
-  public answerConfirmed = false;
+  public currentQuestion: number;
+  public answerSelected: number;
+  public index;
   public correctAnswers;
   public incorrectAnswers;
   public quizGameToCreate: QuizGameDmla;
@@ -48,62 +45,81 @@ export class QuizGameDmlaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    this.answerSelected = 0;
     this.quizService.setSelectedQuiz(id);
-    this.quizGameForm.controls.quiz.setValue( String(this.quiz.id));
+    this.quizGameForm.controls.quiz.setValue(String(this.quiz.id));
     this.currentQuestion = 0;
     this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
     console.log(this.quizGameToCreate);
     this.quizService.addQuizGame(this.quizGameToCreate);
-
+    console.log('test3', this.quiz.questions[this.currentQuestion].answers[0].index);
 
   }
 
 
-/**
-  onAnswer(option: AnswerDmla): void {
-    this.answerSelected = true;
-    setTimeout(() => {
-      this.currentQuestion++;
-      this.answerSelected = false;
-    }, 1000);
-
-    if (option.isCorrect){
-      this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
-    }else{
-      this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
-    }
-  }
-
- **/
-  onSet(option: QuestionDmla): void{
-    this.answerSelected = option.answers[0].value;
-  }
-
-  onClick(option: AnswerDmla): void {
-    if (this.answerSelected === option.value){
-      setTimeout(() => {
-        this.currentQuestion++;
-        this.answerSelected = this.currentQuestion.answers[0];
-      }, 1000);
-
-      if (option.isCorrect){
-        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
-      }else{
-        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
-      }
-    }
-    else {
-      this.answerSelected = option.value;
-    }
-    }
-
-
-  showResult(): void{
+  showResult = (): void => {
     this.result = true;
   }
 
+  answerSelectedForClass(nb: number): void {
+    this.answerSelected = nb;
+    console.log('test4', nb);
+  }
+
+  answerConfirmedForClass(i, nb: number, option: AnswerDmla): void {
+    if (this.answerSelected === nb) {
+      setTimeout(() => {
+        this.currentQuestion++;
+        this.answerSelected = 0;
+      }, 2000);
 
 
+      if (option.isCorrect) {
+        if (nb === 0) {
+          const classList = document.getElementById('selected1').classList;
+          classList.remove('bouton1selected');
+          classList.add('bouton1correct');
+        }
+        if (nb === 1) {
+          const classList = document.getElementById('selected2').classList;
+          classList.remove('bouton2selected');
+          classList.add('bouton2correct');
+        }
+        if (nb === 2) {
+          const classList = document.getElementById('selected3').classList;
+          classList.remove('bouton3selected');
+          classList.add('bouton3correct');
+        }
+        if (nb === 3) {
+          const classList = document.getElementById('selected4').classList;
+          classList.remove('bouton4selected');
+          classList.add('bouton4correct');
+        }
+        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
+      } else {
+        if (nb === 0) {
+          const classList = document.getElementById('selected1').classList;
+          classList.remove('bouton1selected');
+          classList.add('bouton1false');
+        }
+        if (nb === 1) {
+          const classList = document.getElementById('selected2').classList;
+          classList.remove('bouton2selected');
+          classList.add('bouton2false');
+        }
+        if (nb === 2) {
+          const classList = document.getElementById('selected3').classList;
+          classList.remove('bouton3selected');
+          classList.add('bouton3false');
+        }
+        if (nb === 3) {
+          const classList = document.getElementById('selected4').classList;
+          classList.remove('bouton4selected');
+          classList.add('bouton4false');
+        }
+        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
+      }
+    }
 
-
+  }
 }
