@@ -1,10 +1,135 @@
 @import '../../../styles/card.scss';
 
+.fullwidthwithborder{
+  position: fixed;
+  left: 0;
+  top: 10%;
+  height: 85%;
+  width: 100%;
+  z-index: 1000000;
+}
+
+.fullwidth{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000000;
+}
 
 .bouton1 {
-  background-color: darkolivegreen;
-  width:40%;
-  height:70mm;
-  margin-top:5mm;
-  margin-left:5mm;
+  background-color: dodgerblue;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
 }
+.bouton2 {
+  background-color: dodgerblue;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
+
+}
+.bouton3 {
+  background-color: dodgerblue;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton4 {
+  background-color: dodgerblue;
+  width:45%;
+  height:45%;
+  margin-bottom:3%;
+  margin-left: 3%;
+}
+.bouton1selected {
+  background-color: purple;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
+}
+.bouton2selected {
+  background-color: purple;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton3selected {
+  background-color: purple;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton4selected {
+  background-color: purple;
+  width:45%;
+  height:45%;
+  margin-bottom:3%;
+  margin-left: 3%;
+}
+.bouton1correct {
+  background-color: darkgreen;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
+}
+.bouton2correct {
+  background-color: darkgreen;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton3correct {
+  background-color: darkgreen;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton4correct {
+  background-color: darkgreen;
+  width:45%;
+  height:45%;
+  margin-bottom:3%;
+  margin-left: 3%;
+}
+.bouton1false {
+  background-color: darkred;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
+}
+.bouton2false {
+  background-color: darkred;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton3false {
+  background-color: darkred;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left: 3%;
+}
+.bouton4false {
+  background-color: darkred;
+  width:45%;
+  height:45%;
+  margin-bottom:3%;
+  margin-left: 3%;
+}
+
+

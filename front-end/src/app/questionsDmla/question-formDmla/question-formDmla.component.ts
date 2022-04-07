@@ -15,6 +15,7 @@ export class QuestionFormDmlaComponent implements OnInit {
   quiz: QuizDmla;
 
   public questionForm: FormGroup;
+  public index: number;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizServiceDmla) {
     // Form creation
@@ -39,11 +40,13 @@ export class QuestionFormDmlaComponent implements OnInit {
     return this.formBuilder.group({
       value: '',
       isCorrect: false,
+      index: 0,
     });
   }
 
   addAnswer(): void {
     this.answers.push(this.createAnswer());
+    this.index++;
   }
 
   addQuestion(): void {
