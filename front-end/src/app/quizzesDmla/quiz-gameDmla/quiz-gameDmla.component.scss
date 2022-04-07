@@ -1,10 +1,24 @@
 @import '../../../styles/card.scss';
 
+.fullwidthwithborder {
+  //background-color: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
 
-.bouton1 {
-  background-color: darkolivegreen;
-  width:40%;
-  height:70mm;
-  margin-top:5mm;
-  margin-left:5mm;
+.bouton {
+  background-color: dodgerblue;
+  width: 48%;
+  height: 48%;
+  margin: 1% 1% 1% 1%;
+}
+
+.boutonselected {
+  background-color: purple;
+  width: 48%;
+  height: 48%;
+  margin: 1% 1% 1% 1%;
 }
