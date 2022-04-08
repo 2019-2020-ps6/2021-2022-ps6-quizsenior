@@ -61,13 +61,65 @@ export class QuizGameDmlaComponent implements OnInit {
     this.result = true;
   }
 
-  answerSelectedForClass(nb: number): void {
-    this.answerSelected = nb;
-    console.log('test4', nb);
+  readAnswer(option: AnswerDmla): void {
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(option.value);
+    utterThis.lang = 'fr-FR';
+    synth.speak(utterThis);
   }
 
-  answerConfirmedForClass(i, nb: number, option: AnswerDmla): void {
-    if (this.answerSelected === nb) {
+  answerSelectedForClass(nb: number, option: AnswerDmla): void {
+    this.answerSelected = nb;
+    this.readAnswer(option);
+    console.log('test4', nb);
+    this.navigate(option, nb);
+  }
+
+  navigate(option: AnswerDmla, nb: number): void {
+    console.log('ici', 1);
+    document.addEventListener('keydown', (event) => {
+        const nomTouche = event.key;
+        console.log('touche', nomTouche);
+        if (nomTouche === ' ' && nb === this.answerSelected) {
+          console.log('key1', nomTouche);
+          this.readAnswer(option);
+        }
+        if (nomTouche === 'ArrowRight') {
+          this.answerSelected = nb + 1;
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('test4', nb);
+          this.navigate(option, nb);
+        }
+        if (nomTouche === 'ArrowLeft') {
+          this.answerSelected = nb - 1;
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('test4', nb);
+          this.navigate(option, nb);
+        }
+        if (nomTouche === 'ArrowUp') {
+          console.log('touche', nomTouche);
+        }
+        if (nomTouche === 'ArrowDown') { //fleche du bas
+          console.log('touche', nomTouche);
+        }
+      }
+
+      ,
+      true
+    )
+    ;
+  }
+
+
+  answerConfirmedForClass(i, nb
+    :
+    number, option
+                            :
+                            AnswerDmla
+  ):
+    void {
+    if (this.answerSelected === nb
+    ) {
       setTimeout(() => {
         this.currentQuestion++;
         this.answerSelected = 0;
@@ -122,4 +174,5 @@ export class QuizGameDmlaComponent implements OnInit {
     }
 
   }
+
 }

@@ -2,28 +2,28 @@
   <div *ngIf="quiz">
     <div *ngIf="currentQuestion < quiz.questions.length" class="fullwidthwithborder">
       <ng-container class="fullwidth" *ngFor="let answer of quiz.questions[currentQuestion].answers" >
-        <button class="bouton1selected" id="selected1" (click)="answerConfirmedForClass($event,0,answer)" *ngIf="answer.index===0 && answerSelected===answer.index" >
+        <button class="bouton1selected" id="selected1"   (click)="answerConfirmedForClass($event,0,answer)" *ngIf="answer.index===0 && answerSelected===answer.index" >
           <FONT  size="20pt" face="Verdana" color="black">A</FONT>
         </button>
-        <button class="bouton1"  (click)="answerSelectedForClass(0)" *ngIf="answer.index===0 && answerSelected!==answer.index">
+        <button class="bouton1"  (click)="answerSelectedForClass(0,answer)" *ngIf="answer.index===0 && answerSelected!==answer.index">
           <FONT  size="20pt" face="Verdana" color="black">A</FONT>
         </button>
-        <button class="bouton2selected"  id="selected2" (click)="answerConfirmedForClass($event,1,answer)" *ngIf="answer.index===1 && answerSelected===answer.index">
+        <button class="bouton2selected"  id="selected2"  (click)="answerConfirmedForClass($event,1,answer)" *ngIf="answer.index===1 && answerSelected===answer.index">
           <FONT  size="20pt" face="Verdana" color="black">B</FONT>
         </button>
-        <button class="bouton2" (click)="answerSelectedForClass(1)" *ngIf="answer.index===1 && answerSelected!==answer.index">
+        <button class="bouton2" (click)="answerSelectedForClass(1,answer)" *ngIf="answer.index===1 && answerSelected!==answer.index">
           <FONT  size="20pt" face="Verdana" color="black">B</FONT>
         </button>
-        <button class="bouton3selected"  id="selected3" (click)="answerConfirmedForClass($event,2,answer)" *ngIf="answer.index===2 && answerSelected===answer.index">
+        <button class="bouton3selected"  id="selected3"  (click)="answerConfirmedForClass($event,2,answer)" *ngIf="answer.index===2 && answerSelected===answer.index">
           <FONT  size="20pt" face="Verdana" color="black">C</FONT>
         </button>
-        <button class="bouton3" (click)="answerSelectedForClass(2)" *ngIf="answer.index===2 && answerSelected!==answer.index">
+        <button class="bouton3" (click)="answerSelectedForClass(2,answer)" *ngIf="answer.index===2 && answerSelected!==answer.index">
           <FONT  size="20pt" face="Verdana" color="black">C</FONT>
         </button>
-        <button class="bouton4selected" id="selected4" (click)="answerConfirmedForClass($event,3,answer)"  *ngIf="answer.index===3 && answerSelected===answer.index">
+        <button class="bouton4selected" id="selected4"  (click)="answerConfirmedForClass($event,3,answer)"  *ngIf="answer.index===3 && answerSelected===answer.index">
           <FONT  size="20pt" face="Verdana" color="black">D</FONT>
         </button>
-        <button class="bouton4" (click)="answerSelectedForClass(3)" *ngIf="answer.index===3 && answerSelected!==answer.index">
+        <button class="bouton4" (click)="answerSelectedForClass(3,answer)" *ngIf="answer.index===3 && answerSelected!==answer.index">
           <FONT  size="20pt" face="Verdana" color="black">D</FONT>
         </button>
 
