@@ -1,6 +1,7 @@
 @import '../../../styles/card.scss';
 
 .fullwidthwithborder{
+  background-color: $grey;
   position: fixed;
   left: 0;
   top: 10%;
@@ -19,14 +20,14 @@
 }
 
 .bouton1 {
-  background-color: dodgerblue;
+  background-color: $blueAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
   margin-left:3%;
 }
 .bouton2 {
-  background-color: dodgerblue;
+  background-color: $blueAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
@@ -34,42 +35,42 @@
 
 }
 .bouton3 {
-  background-color: dodgerblue;
+  background-color: $blueAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
   margin-left: 3%;
 }
 .bouton4 {
-  background-color: dodgerblue;
+  background-color: $blueAnswers;
   width:45%;
   height:45%;
   margin-bottom:3%;
   margin-left: 3%;
 }
 .bouton1selected {
-  background-color: purple;
+  background-color: $purpleAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
   margin-left:3%;
 }
 .bouton2selected {
-  background-color: purple;
+  background-color: $purpleAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
   margin-left: 3%;
 }
 .bouton3selected {
-  background-color: purple;
+  background-color: $purpleAnswers;
   width:45%;
   height:45%;
   margin-top:3%;
   margin-left: 3%;
 }
 .bouton4selected {
-  background-color: purple;
+  background-color: $purpleAnswers;
   width:45%;
   height:45%;
   margin-bottom:3%;
