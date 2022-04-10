@@ -1,6 +1,10 @@
 <div *ngIf="quiz">
   <div class="fullwidthwithborder" *ngIf="currentQuestion < quiz.questions.length">
-
+    <a *ngIf="currentQuestion < quiz.questions.length && showQuestion" class="fullwidthwithborder">
+      <button class="bouton1selected" (click)="passQuestion()">
+        <FONT size="20pt" face="Verdana" color="black">QUESTION</FONT>
+      </button>
+    </a>
     <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
       <button class="boutonselected" (click)="answerSelectedForClass($event, i, answer)"  *ngIf="i===0">{{i}}</button>
       <button class="bouton" (click)="answerSelectedForClass($event, i, answer)"  *ngIf="i!==0">{{i}}</button>

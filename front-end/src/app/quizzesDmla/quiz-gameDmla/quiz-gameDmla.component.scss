@@ -1,7 +1,7 @@
 @import '../../../styles/card.scss';
 
 .fullwidthwithborder {
-  //background-color: #000;
+  background-color: $grey;
   position: fixed;
   left: 0;
   top: 0;
@@ -10,14 +10,14 @@
 }
 
 .bouton {
-  background-color: dodgerblue;
+  background-color: $blueAnswers;
   width: 48%;
   height: 48%;
   margin: 1% 1% 1% 1%;
 }
 
 .boutonselected {
-  background-color: purple;
+  background-color: $purpleAnswers;
   width: 48%;
   height: 48%;
   margin: 1% 1% 1% 1%;
