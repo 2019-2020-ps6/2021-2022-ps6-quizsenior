@@ -7,7 +7,6 @@ import {QuizGameDmla} from '../../../models/quizgameDmla.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AnswerDmla} from '../../../models/questionDmla.model';
 
-
 @Component({
   selector: 'app-edit-quizdmla',
   templateUrl: './quiz-gameDmla.component.html',
@@ -17,8 +16,8 @@ import {AnswerDmla} from '../../../models/questionDmla.model';
 
 export class QuizGameDmlaComponent implements OnInit {
 
-  public currentQuestion;
-  public answerSelected = false;
+  public currentQuestion: number;
+  public answerSelected: number;
   // public correctAnswers;
   // public incorrectAnswers;
   public quizGameToCreate: QuizGameDmla;
@@ -27,7 +26,7 @@ export class QuizGameDmlaComponent implements OnInit {
   public game: QuizGameDmla;
   public quizGameForm: FormGroup;
   public listAnswer = [];
-  public currentAnswerSelectedNb = 1;
+  public index;
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizServiceDmla) {
     this.quizService.quizSelected$.subscribe((quiz) => {
@@ -42,8 +41,9 @@ export class QuizGameDmlaComponent implements OnInit {
       quiz: [''],
     });
   }
-  
+
   ngOnInit(): void {
+    this.answerSelected = 0;
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
     this.quizGameForm.controls.quiz.setValue(String(this.quiz.id));
@@ -53,36 +53,54 @@ export class QuizGameDmlaComponent implements OnInit {
     this.quizService.addQuizGame(this.quizGameToCreate);
   }
 
-
-  onAnswer(option: AnswerDmla): void {
-    this.answerSelected = true;
-    setTimeout(() => {
-      this.currentQuestion++;
-      this.answerSelected = false;
-    }, 1000);
-
-    if (option.isCorrect) {
-      this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
-    } else {
-      this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
-    }
-  }
+  // onAnswer(option: AnswerDmla): void {
+  //   this.answerSelected = true;
+  //   setTimeout(() => {
+  //     this.currentQuestion++;
+  //     this.answerSelected = false;
+  //   }, 1000);
+  //
+  //   if (option.isCorrect) {
+  //     this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
+  //   } else {
+  //     this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
+  //   }
+  // }
 
   showResult(): void {
     this.result = true;
   }
 
-  addAnswer(i): void {
-    this.listAnswer.push(i);
-  }
+  answerSelectedForClass(i, nb: number, option: AnswerDmla): void {
+    const linkbuttons = document.getElementsByTagName('button');
+    console.log('List: ', this.quiz.questions[0].answers.length);
+    console.log('TEST', this.currentQuestion);
+    console.log(nb);
+    if (this.answerSelected !== nb) {
+      const bouttonBefort = linkbuttons[this.answerSelected].classList;
+      const bouttonAfter = linkbuttons[nb].classList;
+      bouttonBefort.remove('boutonselected');
+      bouttonBefort.add('bouton');
+      bouttonAfter.remove('bouton');
+      bouttonAfter.add('boutonselected');
+      this.answerSelected = nb;
+    } else {
+      setTimeout(() => {
+        this.currentQuestion++;
+        this.answerSelected = 0;
+      }, 2000);
 
-  answerSelectedForClass(i, nb: number): void {
-    nb++;
-    console.log('TES', document.getElementById('myButton').classList);
-    if (this.currentAnswerSelectedNb === nb) {
-      const classList = document.getElementById('myButton').classList;
-      classList.remove('bouton');
-      classList.add('boutonselected');
+      if (option.isCorrect) {
+        const classList = linkbuttons[this.answerSelected].classList;
+        classList.remove('boutonselected');
+        classList.add('boutonselectedTrue');
+        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
+      } else {
+        const classList = linkbuttons[this.answerSelected].classList;
+        classList.remove('boutonselected');
+        classList.add('boutonselectedFalse');
+        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
+      }
     }
   }
 }
