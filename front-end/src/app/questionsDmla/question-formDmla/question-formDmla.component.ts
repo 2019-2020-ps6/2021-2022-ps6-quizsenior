@@ -44,7 +44,7 @@ export class QuestionFormDmlaComponent implements OnInit {
 
 
 
-    addAnswer(length: number): void {
+    addAnswer(): void {
     this.answers.push(this.createAnswer());
   }
 

@@ -23,6 +23,8 @@ import { QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.
 import { QuestionListDmlaComponent } from './questionsDmla/question-listDmla/question-listDmla.component';
 import { QuestionFormDmlaComponent } from './questionsDmla/question-formDmla/question-formDmla.component';
 import { QuestionDmlaComponent } from './questionsDmla/questionDmla/questionDmla.component';
+import {MenuNameComponent} from './menu/menu-name/menu-name.component';
+import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { QuestionDmlaComponent } from './questionsDmla/questionDmla/questionDmla
     QuizFormDmlaComponent,
     EditQuizDmlaComponent,
     QuizGameDmlaComponent,
+    MenuNameComponent,
+    MenuThemeComponent,
   ],
   imports: [
     BrowserModule,

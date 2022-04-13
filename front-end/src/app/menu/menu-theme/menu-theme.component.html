@@ -1,0 +1,9 @@
+<div *ngIf="themeSelect==='null'">
+  <a *ngFor="let theme of themeListDMLA">
+    <button (click)="showMenu(theme)">{{theme}}</button>
+  </a>
+</div>
+<div *ngIf="themeSelect!=='null'">
+  <a>NAME: </a>
+  <app-menu-name [theme]="themeSelect"></app-menu-name>
+</div>
