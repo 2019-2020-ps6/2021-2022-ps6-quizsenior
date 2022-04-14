@@ -1,54 +1,24 @@
-<ng-container ngform>
-  <div *ngIf="quiz">
-    <div *ngIf="currentQuestion < quiz.questions.length && readQuestion" class="fullwidthwithborder">
-      <button class="bouton1selected" (click)="passQuestion()">
+<div *ngIf="quiz">
+  <div class="fullwidthwithborder" *ngIf="currentQuestion < quiz.questions.length">
+    <a *ngIf="currentQuestion < quiz.questions.length && showQuestion" class="fullwidthwithborder">
+      <button class="question" (click)="passQuestion()">
         <FONT size="20pt" face="Verdana" color="black">QUESTION</FONT>
       </button>
-    </div>
-    <div *ngIf="currentQuestion < quiz.questions.length && !readQuestion" class="fullwidthwithborder">
-      <ng-container class="fullwidth" *ngFor="let answer of quiz.questions[currentQuestion].answers">
-        <button class="bouton1selected" id="selected1" (click)="answerConfirmedForClass(0,answer)"
-                *ngIf="answer.index===0 && answerSelected===answer.index">
-          <FONT size="20pt" face="Verdana" color="black">A</FONT>
-        </button>
-        <button class="bouton1" (click)="answerSelectedForClass(0,answer)"
-                *ngIf="answer.index===0 && answerSelected!==answer.index">
-          <FONT size="20pt" face="Verdana" color="black">A</FONT>
-        </button>
-        <button class="bouton2selected" id="selected2" (click)="answerConfirmedForClass(1,answer)"
-                *ngIf="answer.index===1 && answerSelected===answer.index">
-          <FONT size="20pt" face="Verdana" color="black">B</FONT>
-        </button>
-        <button class="bouton2" (click)="answerSelectedForClass(1,answer)"
-                *ngIf="answer.index===1 && answerSelected!==answer.index">
-          <FONT size="20pt" face="Verdana" color="black">B</FONT>
-        </button>
-        <button class="bouton3selected" id="selected3" (click)="answerConfirmedForClass(2,answer)"
-                *ngIf="answer.index===2 && answerSelected===answer.index">
-          <FONT size="20pt" face="Verdana" color="black">C</FONT>
-        </button>
-        <button class="bouton3" (click)="answerSelectedForClass(2,answer)"
-                *ngIf="answer.index===2 && answerSelected!==answer.index">
-          <FONT size="20pt" face="Verdana" color="black">C</FONT>
-        </button>
-        <button class="bouton4selected" id="selected4" (click)="answerConfirmedForClass(3,answer)"
-                *ngIf="answer.index===3 && answerSelected===answer.index">
-          <FONT size="20pt" face="Verdana" color="black">D</FONT>
-        </button>
-        <button class="bouton4" (click)="answerSelectedForClass(3,answer)"
-                *ngIf="answer.index===3 && answerSelected!==answer.index">
-          <FONT size="20pt" face="Verdana" color="black">D</FONT>
-        </button>
-
-      </ng-container>
-    </div>
+    </a>
+    <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
+      <button class="boutonselected" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
+        <FONT size="20pt" face="Verdana" color="black">{{listAnswer[i]}}</FONT>
+      </button>
+      <button class="bouton" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
+        <FONT size="20pt" face="Verdana" color="black">{{listAnswer[i]}}</FONT>
+      </button>
+    </a>
   </div>
   <div *ngIf="currentQuestion>= quiz.questions.length">
     <button class="btn btn-success btn-block" (click)="showResult()">Show Result</button>
     <div *ngIf="result">
-      Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
+      Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect
+      Answers: {{quizGameToCreate.incorrectAnswers}}
     </div>
   </div>
-</ng-container>
-
-
+</div>

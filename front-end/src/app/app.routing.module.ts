@@ -6,6 +6,8 @@ import {QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import {EditQuizDmlaComponent} from './quizzesDmla/edit-quizDmla/edit-quizDmla.component';
 import {QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.component';
 import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
+import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
+import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'quiz-listDmla', component: QuizListDmlaComponent},
   {path: 'edit-quizDmla/:id', component: EditQuizDmlaComponent},
   {path: 'quiz-gameDmla/:id', component: QuizGameDmlaComponent},
+  {path: 'menuTheme', component: MenuThemeComponent},
+  {path: 'menuTheme/menuQuestionnaire', component: MenuQuestionnaireComponent},
   {path: '', redirectTo: '/quiz-listDmla', pathMatch: 'full'},
 ];
 
@@ -21,6 +25,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 
 }

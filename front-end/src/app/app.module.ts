@@ -23,6 +23,8 @@ import { QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.
 import { QuestionListDmlaComponent } from './questionsDmla/question-listDmla/question-listDmla.component';
 import { QuestionFormDmlaComponent } from './questionsDmla/question-formDmla/question-formDmla.component';
 import { QuestionDmlaComponent } from './questionsDmla/questionDmla/questionDmla.component';
+import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
+import {MenuQuestionnaireComponent} from "./menu/menu-questionnaire/menu-questionnaire.component";
 
 
 
@@ -47,6 +49,8 @@ import { QuestionDmlaComponent } from './questionsDmla/questionDmla/questionDmla
     QuizFormDmlaComponent,
     EditQuizDmlaComponent,
     QuizGameDmlaComponent,
+    MenuThemeComponent,
+    MenuQuestionnaireComponent,
   ],
   imports: [
     BrowserModule,
