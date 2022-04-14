@@ -6,7 +6,7 @@ import {QuizService} from 'src/services/quiz.service';
 import {QuizGame} from '../../../models/quizgame.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer, Question} from '../../../models/question.model';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject} from 'rxjs';
 
 
 @Component({
@@ -94,14 +94,33 @@ export class QuizGameComponent implements OnInit {
     this.questions$.next(this.questions);
   }
 
-  deleteIncorrectQuestion(questionToDelete: Question): void{
+  deleteIncorrectQuestion(questionToDelete: Question, answerToDelete: Answer): void{
     for ( let i = 0; i < this.questions.length; i ++){
       if ( this.questions[i] === questionToDelete) {
         this.questions.splice(i, 1);
         break;
       }
     }
+    this.deleteIncorrectAnswer(questionToDelete, answerToDelete);
     this.questions$.next(this.questions);
+  }
+
+  deleteIncorrectAnswer(question: Question, answerToDelete: Answer): void{
+    for (const item of this.questions) {
+      if ( item === question) {
+        for (let j = 0; j < question.answers.length; j ++){
+          if (item.answers[j] === answerToDelete){
+            item.answers.splice(j, 1);
+          }
+        }
+      }
+    }
+    this.questions$.next(this.questions);
+  }
+
+  skip(questionToSkip: Question): void{
+    this.deleteCorrectQuestion(questionToSkip);
+    this.checkEnd();
   }
 
   checkEnd(): void{
@@ -118,17 +137,15 @@ export class QuizGameComponent implements OnInit {
         this.shuffle();
         this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
       }else{
-        this.deleteIncorrectQuestion(question);
+        this.deleteIncorrectQuestion(question, option);
         this.shuffle();
         this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
       }
       console.log(this.questions);
       // TODO -> this.saveInstance() voir pour avoir un id;
       this.checkEnd();
-      }, 1000);
+      }, 3000);
+    console.log(this.questions$.getValue());
   }
 
-  showResult(): void{
-    this.result = true;
-  }
 }

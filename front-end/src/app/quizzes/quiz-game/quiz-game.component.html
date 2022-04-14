@@ -1,22 +1,31 @@
-<button class="button-card" routerLink="/quiz-list">Back</button>
 <ng-container *ngIf="quiz">
   <div class="fullwidthwithborder">
     <div *ngIf="!end">
-      <h1>{{questions$.getValue()[0].label}}</h1>
-      <ul class="question-list" *ngFor="let answer of questions$.getValue()[0].answers">
-        <label>
-          <li class="list-group-item" appBackground [correctAnswer]="answer.isCorrect">
-            <input type="radio" name="answer" (change)="onAnswer(answer, questions$.getValue()[0])" [disabled]="answerSelected">
-            {{answer.value}}
-          </li>
-        </label>
-      </ul>
+      <h1 class="center">{{questions$.getValue()[0].label}}</h1>
+      <ng-container *ngIf="questions$.getValue()[0].image === 'true'">
+        <img class="image" alt="QuestionImage" src="{{questions$.getValue()[0].imageUrl}}">
+      </ng-container>
+      <ng-container *ngFor="let answer of questions$.getValue()[0].answers">
+        <button [ngClass]="answer.isCorrect && answerSelected ? 'buttonCorrect' : 'button'" (click)="onAnswer(answer, questions$.getValue()[0])">
+          {{answer.value}}
+        </button>
+      </ng-container>
+
+
+    </div>
+    <div *ngIf="!end">
+      <button class="buttonNext" style="float: right;" (click)="skip(questions$.getValue()[0])">
+        Question suivante
+      </button>
     </div>
 
-
     <div *ngIf="end">
-      <h1 class="text-center" >Quiz terminé !</h1>
-        Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
+      <h1 class="center" >Vous avez terminé le quiz !</h1>
+        <h2 class="center: whiteBox">Votre score est de {{quizGameToCreate.correctAnswers}}/{{quiz.questions.length}}
+          <br>{{quizGameToCreate.correctAnswers> (quiz.questions.length/2) ? "Bien joué !!" : ""}}
+        </h2>
+      <button class="buttonGreen" style="float: left" routerLink="/quiz-list">Changer de quiz</button>
+      <button class="buttonGreen" style="float: right" routerLink="/quiz-list">Retour à l'accueil</button>
     </div>
   </div>
 </ng-container>

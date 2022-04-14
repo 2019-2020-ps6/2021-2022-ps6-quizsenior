@@ -3,7 +3,18 @@
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
       Title <br>
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+      <input class="input-custom" type="text" id="label" [formControlName]="'label'"><br>
+      <label for="image">
+      Image
+      <input type="checkbox" id="image" (change)="changeImage()">
+      </label>
+      <ng-container *ngIf="imageBool">
+        <br>
+        <label for="url">
+          Url <br>
+          <input class="input-custom" type="text" id="url" [formControlName]="'imageUrl'">
+        </label>
+      </ng-container>
     </label>
     <br>
     <button class="button-card" (click)="addAnswer()">Add Answer</button>
@@ -25,4 +36,4 @@
 </div>
 
 <!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->
+<!--<br><br>{{questionForm.getRawValue() | json}}-->

@@ -15,6 +15,7 @@ export class QuestionFormComponent implements OnInit {
   quiz: Quiz;
 
   public questionForm: FormGroup;
+  public imageBool = false;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
     // Form creation
@@ -24,7 +25,9 @@ export class QuestionFormComponent implements OnInit {
   private initializeQuestionForm(): void {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
-      answers: this.formBuilder.array([])
+      answers: this.formBuilder.array([]),
+      image: '',
+      imageUrl: '',
     });
   }
 
@@ -49,8 +52,14 @@ export class QuestionFormComponent implements OnInit {
   addQuestion(): void {
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
+      console.log(question);
       this.quizService.addQuestion(this.quiz, question);
       this.initializeQuestionForm();
     }
+  }
+
+  changeImage(): void {
+    this.imageBool = !this.imageBool;
+    this.questionForm.controls.image.setValue(String(this.imageBool));
   }
 }

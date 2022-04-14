@@ -1,7 +1,11 @@
 <div class="card">
     <h2>
         <i class="fab fa-leanpub"></i>
-        {{question.label}}
+      {{question.label}}
+        <ng-container *ngIf="question.image === 'true'">
+          <br><img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
+        </ng-container>
+
     </h2>
     <div class="answer" *ngFor="let answer of question.answers; let i=index">
         {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"><i class="far fa-check-square"></i></ng-container> <br>
