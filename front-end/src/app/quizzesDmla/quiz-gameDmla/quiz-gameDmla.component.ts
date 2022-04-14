@@ -7,7 +7,6 @@ import {QuizGameDmla} from '../../../models/quizgameDmla.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AnswerDmla, QuestionDmla} from '../../../models/questionDmla.model';
 
-
 @Component({
   selector: 'app-edit-quizdmla',
   templateUrl: './quiz-gameDmla.component.html',
@@ -19,16 +18,16 @@ export class QuizGameDmlaComponent implements OnInit {
 
   public currentQuestion: number;
   public answerSelected: number;
-  public index;
-  public correctAnswers;
-  public incorrectAnswers;
+  // public correctAnswers;
+  // public incorrectAnswers;
   public quizGameToCreate: QuizGameDmla;
   public result = false;
-  public readQuestion = true;
   public quiz: QuizDmla;
   public game: QuizGameDmla;
   public quizGameForm: FormGroup;
-
+  public listAnswer = ['A', 'B', 'C', 'D'];
+  public index;
+  public showQuestion: boolean;
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizServiceDmla) {
     this.quizService.quizSelected$.subscribe((quiz) => {
@@ -45,20 +44,142 @@ export class QuizGameDmlaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
     this.answerSelected = 0;
+    const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
     this.quizGameForm.controls.quiz.setValue(String(this.quiz.id));
     this.currentQuestion = 0;
     this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
     console.log(this.quizGameToCreate);
     this.quizService.addQuizGame(this.quizGameToCreate);
-    console.log('test3', this.quiz.questions[this.currentQuestion].answers[0].index);
+    this.showQuestion = true;
     this.navigate();
   }
 
-  showResult = (): void => {
+  showResult(): void {
     this.result = true;
+  }
+
+  answerSelectedForClass(i, nb: number, option: AnswerDmla): void {
+    const linkbuttons = document.getElementsByTagName('button');
+    console.log('List: ', this.quiz.questions[0].answers.length);
+    console.log('TEST', this.currentQuestion);
+    console.log(nb);
+    if (this.answerSelected !== nb) {
+      const bouttonBefort = linkbuttons[this.answerSelected].classList;
+      const bouttonAfter = linkbuttons[nb].classList;
+      bouttonBefort.remove('boutonselected');
+      bouttonBefort.add('bouton');
+      bouttonAfter.remove('bouton');
+      bouttonAfter.add('boutonselected');
+      this.answerSelected = nb;
+      this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+      // this.readAnswer(option);
+    } else {
+      setTimeout(() => {
+        this.currentQuestion++;
+        this.answerSelected = 0;
+        this.showQuestion = true;
+      }, 2000);
+
+      if (option.isCorrect) {
+        const classList = linkbuttons[this.answerSelected].classList;
+        classList.remove('boutonselected');
+        classList.add('boutonselectedTrue');
+        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
+      } else {
+        const classList = linkbuttons[this.answerSelected].classList;
+        classList.remove('boutonselected');
+        classList.add('boutonselectedFalse');
+        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
+      }
+    }
+  }
+
+  navigate(): void {
+    console.log('ici', 1);
+    document.addEventListener('keydown', (event) => {
+      const nomTouche = event.key;
+      // console.log('touche', nomTouche);
+      // // Les lignes test pour bug pas encore trouve ...
+      // console.log('this.answerSelected', this.answerSelected);
+      // console.log('this.currentQuestion', this.currentQuestion);
+      // console.log('this.quiz', this.quiz);
+      // console.log('this.quiz.questions[this.currentQuestion]', this.quiz.questions[this.currentQuestion]);
+      // console.log('this.quiz.questions[this.currentQuestion].answers', this.quiz.questions[this.currentQuestion].answers);
+      // if (nomTouche === ' ' && nb === this.answerSelected) {
+      //   console.log('key1', nomTouche);
+      //   this.readAnswer(option);
+      // }
+      if (nomTouche === 'ArrowRight' &&
+        (this.answerSelected === 0 || (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 2))) {
+        if (!this.showQuestion) {
+          console.log('this.answerSelected', this.answerSelected);
+          this.answerSelectedForClass(this.answerSelected, this.answerSelected + 1,
+            this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('this.answerSelected', this.answerSelected);
+          // this.answerSelected = this.answerSelected + 1;
+          console.log('READ: ', this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('test4', this.answerSelected);
+          // this.navigate(option, nb);
+        }
+      }
+      if (nomTouche === 'ArrowLeft' &&
+        (this.answerSelected === 1 || (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 3))) {
+        if (!this.showQuestion) {
+          this.answerSelectedForClass(this.answerSelected, this.answerSelected - 1,
+            this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          // this.answerSelected = this.answerSelected - 1;
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('test4', this.answerSelected);
+          // this.navigate(option, nb);
+        }
+      }
+      if (nomTouche === 'ArrowUp' &&
+        (this.answerSelected === 2 || this.answerSelected === 3)) {
+        if (!this.showQuestion) {
+          this.answerSelectedForClass(this.answerSelected, this.answerSelected - 2,
+            this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          // this.answerSelected = this.answerSelected - 2;
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('touche', nomTouche);
+        }
+      }
+      if (nomTouche === 'ArrowDown' &&
+        ((this.quiz.questions[this.currentQuestion].answers.length > 2 && this.answerSelected === 0) ||
+          (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 1))) {// fleche du bas
+        if (!this.showQuestion) {
+          this.answerSelectedForClass(this.answerSelected, this.answerSelected + 2,
+            this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          // this.answerSelected = this.answerSelected + 2;
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('touche', nomTouche);
+        }
+      }
+      if (nomTouche === 'Enter') {
+        if (this.showQuestion) {
+          this.passQuestion();
+        } else {
+          console.log('VALIDER');
+          this.answerSelectedForClass(this.answerSelected, this.answerSelected,
+            this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('touche', nomTouche);
+        }
+      }
+      if (nomTouche === ' ') {
+        if (this.showQuestion) {
+          console.log('JE SUIS Space');
+          this.readAnswerQuestion(this.quiz.questions[this.currentQuestion]);
+          console.log('touche', nomTouche);
+        } else {
+          console.log('JE SUIS Space');
+          this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
+          console.log('touche', nomTouche);
+        }
+
+      }
+    }, true);
   }
 
   readAnswer(option: AnswerDmla): void {
@@ -68,127 +189,14 @@ export class QuizGameDmlaComponent implements OnInit {
     synth.speak(utterThis);
   }
 
-  answerSelectedForClass(nb: number, option: AnswerDmla): void {
-    this.answerSelected = nb;
-    this.readAnswer(option);
-    // console.log('test4', nb);
-    // this.navigate(option, nb);
-  }
-
-  navigate(): void {
-    console.log('ici', 1);
-    document.addEventListener('keydown', (event) => {
-      const nomTouche = event.key;
-      console.log('touche', nomTouche);
-      // Les lignes test pour bug pas encore trouve ...
-      console.log('this.answerSelected', this.answerSelected);
-      console.log('this.currentQuestion', this.currentQuestion);
-      console.log('this.quiz', this.quiz);
-      console.log('this.quiz.questions[this.currentQuestion]', this.quiz.questions[this.currentQuestion]);
-      console.log('this.quiz.questions[this.currentQuestion].answers', this.quiz.questions[this.currentQuestion].answers);
-      // if (nomTouche === ' ' && nb === this.answerSelected) {
-      //   console.log('key1', nomTouche);
-      //   this.readAnswer(option);
-      // }
-      if (nomTouche === 'ArrowRight' &&
-        (this.answerSelected === 0 || (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 2))) {
-        this.answerSelected = this.answerSelected + 1;
-        this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('test4', this.answerSelected);
-        // this.navigate(option, nb);
-      }
-      if (nomTouche === 'ArrowLeft' &&
-        (this.answerSelected === 1 || (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 3))) {
-        this.answerSelected = this.answerSelected - 1;
-        this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('test4', this.answerSelected);
-        // this.navigate(option, nb);
-      }
-      if (nomTouche === 'ArrowUp' &&
-        (this.answerSelected === 2 || this.answerSelected === 3)) {
-        this.answerSelected = this.answerSelected - 2;
-        this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('touche', nomTouche);
-      }
-      if (nomTouche === 'ArrowDown' &&
-        ((this.quiz.questions[this.currentQuestion].answers.length > 2 && this.answerSelected === 0) ||
-          (this.quiz.questions[this.currentQuestion].answers.length > 3 && this.answerSelected === 1))) { // fleche du bas
-        this.answerSelected = this.answerSelected + 2;
-        this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('touche', nomTouche);
-      }
-      if (nomTouche === 'Enter') {
-        this.answerConfirmedForClass(this.answerSelected, this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('touche', nomTouche);
-      }
-      if (nomTouche === ' ') {
-        console.log('JE SUIS Space');
-        this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
-        console.log('touche', nomTouche);
-      }
-    }, true);
-  }
-
-
-  answerConfirmedForClass(nb: number, option: AnswerDmla): void {
-    if (this.answerSelected === nb) {
-      setTimeout(() => {
-        this.currentQuestion++;
-        this.answerSelected = 0;
-        this.readQuestion = true;
-      }, 2000);
-
-
-      if (option.isCorrect) {
-        if (nb === 0) {
-          const classList = document.getElementById('selected1').classList;
-          classList.remove('bouton1selected');
-          classList.add('bouton1correct');
-        }
-        if (nb === 1) {
-          const classList = document.getElementById('selected2').classList;
-          classList.remove('bouton2selected');
-          classList.add('bouton2correct');
-        }
-        if (nb === 2) {
-          const classList = document.getElementById('selected3').classList;
-          classList.remove('bouton3selected');
-          classList.add('bouton3correct');
-        }
-        if (nb === 3) {
-          const classList = document.getElementById('selected4').classList;
-          classList.remove('bouton4selected');
-          classList.add('bouton4correct');
-        }
-        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
-      } else {
-        if (nb === 0) {
-          const classList = document.getElementById('selected1').classList;
-          classList.remove('bouton1selected');
-          classList.add('bouton1false');
-        }
-        if (nb === 1) {
-          const classList = document.getElementById('selected2').classList;
-          classList.remove('bouton2selected');
-          classList.add('bouton2false');
-        }
-        if (nb === 2) {
-          const classList = document.getElementById('selected3').classList;
-          classList.remove('bouton3selected');
-          classList.add('bouton3false');
-        }
-        if (nb === 3) {
-          const classList = document.getElementById('selected4').classList;
-          classList.remove('bouton4selected');
-          classList.add('bouton4false');
-        }
-        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
-      }
-    }
+  readAnswerQuestion(option: QuestionDmla): void {
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(option.label);
+    utterThis.lang = 'fr-FR';
+    synth.speak(utterThis);
   }
 
   passQuestion(): void {
-    this.readQuestion = false;
+    this.showQuestion = false;
   }
-
 }
