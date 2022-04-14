@@ -1,1 +1,16 @@
 @import '../../../styles/card.scss';
+.button {
+  background-color: $white;
+  width:45%;
+  height:45%;
+  margin-bottom:3%;
+  margin-left: 3%;
+}
+
+.buttonCorrect {
+  background-color: darkgreen;
+  width:45%;
+  height:45%;
+  margin-top:3%;
+  margin-left:3%;
+}

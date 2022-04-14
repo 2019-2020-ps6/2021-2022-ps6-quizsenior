@@ -87,8 +87,13 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  addQuizGame(quizGame: QuizGame): void{
+  addQuizGame(quizGame: QuizGame): void {
     this.http.post<QuizGame>(this.quizGameUrl, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
+  }
+
+  updateQuizGame(quizGame: QuizGame): void{
+    const urlWithId = this.quizGameUrl + '/';
+    this.http.put<QuizGame>(urlWithId, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
     console.log(this.quizGames);
   }
 

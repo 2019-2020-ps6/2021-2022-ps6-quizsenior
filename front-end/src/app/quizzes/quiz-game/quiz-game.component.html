@@ -1,25 +1,22 @@
 <button class="button-card" routerLink="/quiz-list">Back</button>
 <ng-container *ngIf="quiz">
-  <div class="row">
-    <div class="col-sm-8 offset-2">
-      <div *ngIf="currentQuestion < quiz.questions.length">
-        <p class="text-center">{{currentQuestion +1}} of {{quiz.questions.length}}</p>
-        <h1>{{quiz.questions[currentQuestion].label}}</h1>
-        <ul class="question-list" *ngFor="let answer of quiz.questions[currentQuestion].answers">
-          <label>
-            <li class="list-group-item" appBackground [correctAnswer]="answer.isCorrect">
-              <input type="radio" name="answer" (change)="onAnswer(answer)" [disabled]="answerSelected">
-              {{answer.value}}
-            </li>
-          </label>
-        </ul>
-      </div>
-      <div *ngIf="currentQuestion>= quiz.questions.length">
-        <button class="btn btn-success btn-block" (click)="showResult()">Show Result</button>
-        <div *ngIf="result">
-          Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
-        </div>
-      </div>
+  <div class="fullwidthwithborder">
+    <div *ngIf="!end">
+      <h1>{{questions$.getValue()[0].label}}</h1>
+      <ul class="question-list" *ngFor="let answer of questions$.getValue()[0].answers">
+        <label>
+          <li class="list-group-item" appBackground [correctAnswer]="answer.isCorrect">
+            <input type="radio" name="answer" (change)="onAnswer(answer, questions$.getValue()[0])" [disabled]="answerSelected">
+            {{answer.value}}
+          </li>
+        </label>
+      </ul>
+    </div>
+
+
+    <div *ngIf="end">
+      <h1 class="text-center" >Quiz terminé !</h1>
+        Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect Answers: {{quizGameToCreate.incorrectAnswers}}
     </div>
   </div>
 </ng-container>

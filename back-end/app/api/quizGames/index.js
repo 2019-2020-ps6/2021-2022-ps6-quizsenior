@@ -15,9 +15,17 @@ router.post('/', (req, res) => {
   }
 })
 
+router.put('/:gameId', (req, res) => {
+  try {
+    res.status(200).json(QuizGame.update(req.params.gameId, req.body))
+  } catch (err) {
+    manageAllErrors(res, err)
+  }
+})
+
 router.get('/:gameId', (req, res) => {
   try {
-    const game = QuizGame.getById(req.params.quizId)
+    const game = QuizGame.getById(req.params.gameId)
     res.status(200).json(game)
   } catch (err) {
     manageAllErrors(res, err)
