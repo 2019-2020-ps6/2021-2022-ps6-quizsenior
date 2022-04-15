@@ -1,2 +1,7 @@
-<div>THEME SELECTED: {{themeSelected}}</div>
-<button (click)="theme()"></button>
+<a class="fullwidthwithborder">
+  <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
+    <button class="bouton1" (click)="selectQuestionnaire(questionnaire)"  >
+      <FONT size="20pt" face="Verdana" color="black">{{questionnaire}}</FONT>
+    </button>
+  </a>
+</a>

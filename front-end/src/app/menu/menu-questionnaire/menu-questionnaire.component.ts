@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeService} from '../../../services/theme.service';
+import {QuestionnaireService} from '../../../services/questionnaire.service';
 
 @Component({
   selector: 'app-menu-questionnaire',
@@ -12,11 +13,17 @@ export class MenuQuestionnaireComponent implements OnInit {
 
   public themeSelected: string;
 
-  constructor(public themeService: ThemeService) {
-    this.themeService.listTheme$.subscribe((themeList: string[]) => {
-      this.themeList = themeList;
-    });
+  public questionnaireList: string[] = [];
 
+  public linkToQuiz = '/quiz-gameDmla/';
+
+
+  constructor(public questionnaireService: QuestionnaireService, public themeService: ThemeService) {
+    this.questionnaireService.cleanList();
+    this.questionnaireService.setQuizzesDMLAFromUrlWithTheme(this.themeService.themeSelected);
+    this.questionnaireService.listQuestionnaire$.subscribe((questionnaireList: string[]) => {
+      this.questionnaireList = questionnaireList;
+    });
     this.themeService.themeSelected$.subscribe((themeSelected: string) => {
       this.themeSelected = themeSelected;
     });
@@ -25,7 +32,14 @@ export class MenuQuestionnaireComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  theme(): void{
+  theme(): void {
     console.log('HTML: ', this.themeList);
   }
+
+  selectQuestionnaire(theme: string): void {
+    this.questionnaireService.setQuestionnaire(theme);
+    this.linkToQuiz += this.questionnaireService.getQuestionnaireId(this.questionnaireService.questionnaireSelected$.value).id;
+  }
+
+
 }

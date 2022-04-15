@@ -1,0 +1,19 @@
+@import '../../../styles/card.scss';
+
+.bouton1 {
+  background-color: #3f51b5;
+  width: 30%;
+  height: 30%;
+  margin: 1% 1% 1% 1%;
+}
+
+.fullwidthwithborder {
+  background-color: $grey;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}

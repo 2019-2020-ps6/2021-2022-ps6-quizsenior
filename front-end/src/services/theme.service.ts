@@ -21,7 +21,7 @@ export class ThemeService {
    */
   private listTheme: string[] = [];
 
-  private themeSelected: string = null;
+  public themeSelected: string = null;
 
   /*
    Observable which contains the list of the quizDmla.

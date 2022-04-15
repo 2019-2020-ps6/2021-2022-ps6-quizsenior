@@ -1,3 +1,7 @@
-<a *ngFor="let theme of themeList">
-  <button (click)="selectTheme(theme)" routerLink="menuQuestionnaire">{{theme}}</button>
+
+<a class="fullwidthwithborder" >
+  <a *ngFor="let theme of themeList">
+    <button class="bouton1" (click)="selectTheme(theme)" routerLink="menuQuestionnaire">
+      <FONT size="20pt" face="Verdana" color="black">{{theme}}</FONT></button>
+  </a>
 </a>

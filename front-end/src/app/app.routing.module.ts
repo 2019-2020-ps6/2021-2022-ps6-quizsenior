@@ -8,6 +8,7 @@ import {QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.c
 import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
 import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
+import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'quiz-gameDmla/:id', component: QuizGameDmlaComponent},
   {path: 'menuTheme', component: MenuThemeComponent},
   {path: 'menuTheme/menuQuestionnaire', component: MenuQuestionnaireComponent},
-  {path: '', redirectTo: '/quiz-listDmla', pathMatch: 'full'},
+  {path: 'select-desease', component: SelectDeseaseComponent},
+  {path: '', redirectTo: '/select-desease', pathMatch: 'full'},
 ];
 
 @NgModule({
