@@ -1,7 +1,16 @@
 <a class="fullwidthwithborder">
+  <div class="header">
+    <button class="boutonReturn" routerLink="/menuTheme" >Retour</button><button class="boutonAcceuil" routerLink="/select-desease">Accueil</button>
+    <FONT size="5pt" face="Verdana" color="black">Theme: {{themeService.themeSelected}}</FONT>
+    <br>
+    <FONT size="5pt" face="Verdana" color="black">Choisissez votre Questionnaire</FONT>
+
+  </div>
   <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
     <button class="bouton1" (click)="selectQuestionnaire(questionnaire)"  >
       <FONT size="20pt" face="Verdana" color="black">{{questionnaire}}</FONT>
     </button>
   </a>
 </a>
+
+

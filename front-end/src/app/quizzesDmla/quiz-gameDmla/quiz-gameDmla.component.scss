@@ -8,6 +8,15 @@
   height: 100%;
   width: 100%;
 }
+.fullwidthwithborder2 {
+  background-color: $grey;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
 
 .bouton {
   background-color: $blueAnswers;
@@ -44,3 +53,11 @@
   margin-top: 13%;
   margin-left: 25%;
 }
+
+.boutonChangerQuiz {
+  background-color: $blueAnswers;
+  width: 48%;
+  height: 46%;
+  margin-top:3%;
+}
+

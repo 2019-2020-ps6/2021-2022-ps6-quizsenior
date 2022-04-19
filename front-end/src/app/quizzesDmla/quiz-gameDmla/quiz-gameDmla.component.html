@@ -14,11 +14,25 @@
       </button>
     </a>
   </div>
-  <div *ngIf="currentQuestion>= quiz.questions.length">
-    <button class="btn btn-success btn-block" (click)="showResult()">Show Result</button>
-    <div *ngIf="result">
-      Correct Answers: {{quizGameToCreate.correctAnswers}} | Incorrect
-      Answers: {{quizGameToCreate.incorrectAnswers}}
+  <div class="fullwidthwithborder2" *ngIf="currentQuestion>= quiz.questions.length">
+    Bonne réponse: {{quizGameToCreate.correctAnswers}}
+    <br>
+    Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
+    <br>
+    <button class="bouton" routerLink="/select-desease" >
+      <FONT size="20pt" face="Verdana" color="black">Accueil</FONT>
+    </button>
+    <button class="bouton" routerLink="/menuTheme" >
+      <FONT size="20pt" face="Verdana" color="black">Changer de quiz</FONT>
+    </button>
+
+    <div *ngIf="currentQuestion>= quiz.questions.length">
+      Bonne réponse: {{quizGameToCreate.correctAnswers}}
+      <br>
+      Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
+      <br>
     </div>
+
   </div>
 </div>
+
