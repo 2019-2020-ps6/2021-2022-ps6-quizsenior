@@ -39,17 +39,33 @@
 }
 
 .boutonselectedTrue {
-  background-color: darkgreen;
   width: 48%;
   height: 46%;
   margin: 1% 1% 1% 1%;
+  padding: 3.2rem;
+  background: darkgreen;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform;
 }
 
 .boutonselectedFalse {
-  background-color: darkred;
   width: 48%;
   height: 46%;
   margin: 1% 1% 1% 1%;
+  padding: 3.2rem;
+  background: darkred;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform;
 }
 
 .question {
@@ -123,12 +139,26 @@ button {
 }
 
 .button {
-  width: 50%;
-  height: 50%;
-  margin-top: 13%;
-  margin-left: 25%;
+  width: 48%;
+  height: 46%;
+  margin: 1% 1% 1% 1%;
   padding: 3.2rem;
-  background: #4B4453;
+  background: $blueAnswers;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
+
+
+.buttonS {
+  width: 48%;
+  height: 46%;
+  margin: 1% 1% 1% 1%;
+  padding: 3.2rem;
+  background: $purpleAnswers;
   text-align: center;
   display: inline-block;
   font-size: 1.7rem;
@@ -153,7 +183,7 @@ button {
   will-change: transform; }
 
 .button-mat {
-  color: #B93DAF;
+  color: transparent;
   border: 0px transparent;
   border-radius: .3rem;
   transition: .3s ease-in-out;
@@ -162,18 +192,27 @@ button {
 .button-mat:before {
   content: '';
   display: block;
-  background: white;
+  //background: $blueAnswers;
   position: absolute;
   width: 200%;
   height: 500%;
   border-radius: 100%;
   transition: 0.16s cubic-bezier(0.4, 0, 1, 1); }
-.button-mat:hover .psuedo-text {
-  color: white; }
+.button-mat:hover .psuedo-text2 {
+  color: $blueAnswers; }
 .button-mat:hover {
-  color: transparent; }
+  color: transparent;
+}
 
 .button-matQ {
+  color: #B93DAF;
+  border: 0px transparent;
+  border-radius: .3rem;
+  transition: .3s ease-in-out;
+  transition-delay: .15s;
+  overflow: hidden; }
+
+.button-matS {
   color: #B93DAF;
   border: 0px transparent;
   border-radius: .3rem;
@@ -225,5 +264,70 @@ button {
   transform: translate(30%, 10%) translateZ(0); }
 .btn--8:hover:before {
   transform: translate(-45%, -34%) translateZ(0); }
+
+.psuedo-text2 {
+  color: $blueAnswers;
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: inline;
+  height: auto;
+  font-size: 1.7rem;
+  font-size: 700;
+  transition: .25s ease-in;
+  transition-delay: .05s; }
+
+/////////////////////////////////
+
+.psuedo-text3 {
+  color: white;
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: inline;
+  height: auto;
+  font-size: 1.7rem;
+  font-size: 700;
+  transition: .25s ease-in;
+  transition-delay: .05s; }
+
+
+
+
+.buttonC {
+  width: 48%;
+  margin: 1% 1% 1% 1%;
+  padding: 6.5rem;
+  background: $blueAnswers;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
+
+.button-matC {
+  color: #009EFA;
+  border: 0px transparent;
+  border-radius: .3rem;
+  transition: .3s ease-in-out;
+  transition-delay: .15s;
+  overflow: hidden; }
+.button-matC:before {
+  content: '';
+  display: block;
+  background: #009EFA;
+  position: absolute;
+  width: 200%;
+  height: 500%;
+  border-radius: 100%;
+  transition: 0.16s cubic-bezier(0.4, 0, 1, 1); }
+.button-matC:hover .psuedo-text3 {
+  color: white; }
+.button-matC:hover {
+  color: transparent; }
 
 

@@ -1,37 +1,40 @@
 <div *ngIf="quiz">
   <div class="fullwidthwithborder" *ngIf="currentQuestion < quiz.questions.length">
     <a *ngIf="currentQuestion < quiz.questions.length && showQuestion" class="fullwidthwithborder">
-      <button class="buttonQ button-matQ " (click)="passQuestion()">
+      <button class="buttonQ button-matQ" (click)="passQuestion()">
         <div class="psuedo-text">QUESTION</div>
       </button>
     </a>
-    <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
-      <button class="boutonselected" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
-        <FONT size="20pt" face="Verdana" color="black">{{listAnswer[i]}}</FONT>
-      </button>
-      <button class="bouton" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
-        <FONT size="20pt" face="Verdana" color="black">{{listAnswer[i]}}</FONT>
-      </button>
-    </a>
+    <div class="fullwidthwithborder" *ngIf="!showQuestion">
+      <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
+        <button class="buttonS button-matS btn--7" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
+          <div class="psuedo-text">{{listAnswer[i]}}</div>
+        </button>
+        <button class="button button-mat btn--7" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
+          <div class="psuedo-text">{{listAnswer[i]}}</div>
+        </button>
+      </a>
+    </div>
   </div>
-  <div class="fullwidthwithborder2" *ngIf="currentQuestion>= quiz.questions.length">
-    Bonne réponse: {{quizGameToCreate.correctAnswers}}
-    <br>
-    Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
-    <br>
-    <button class="bouton" routerLink="/select-desease" >
-      <FONT size="20pt" face="Verdana" color="black">Accueil</FONT>
-    </button>
-    <button class="bouton" routerLink="/menuTheme" >
-      <FONT size="20pt" face="Verdana" color="black">Changer de quiz</FONT>
-    </button>
-
-    <div *ngIf="currentQuestion>= quiz.questions.length">
-      Bonne réponse: {{quizGameToCreate.correctAnswers}}
+  <div class="fullwidthwithborder2"  *ngIf="currentQuestion>= quiz.questions.length">
+    <div class="psuedo-text3" >
       <br>
-      Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
+    Bonne réponse: {{quizGameToCreate.correctAnswers}}
+      <br>
+      <br>
+    Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
+      <br>
+      <br>
       <br>
     </div>
+    <button class="buttonC button-matC btn--7" routerLink="/select-desease" >
+      <div class="psuedo-text3">Accueil</div>
+    </button>
+    <button class="buttonC button-matC btn--7" routerLink="/menuTheme" >
+      <div class="psuedo-text3">Changer de quiz</div>
+    </button>
+
+
 
   </div>
 </div>

@@ -83,10 +83,10 @@ export class QuizGameDmlaComponent implements OnInit {
     if (this.answerSelected !== nb) {
       const bouttonBefort = linkbuttons[this.answerSelected].classList;
       const bouttonAfter = linkbuttons[nb].classList;
-      bouttonBefort.remove('boutonselected');
-      bouttonBefort.add('bouton');
-      bouttonAfter.remove('bouton');
-      bouttonAfter.add('boutonselected');
+      bouttonBefort.remove('buttonS');
+      bouttonBefort.add('button');
+      bouttonAfter.remove('button');
+      bouttonAfter.add('buttonS');
       this.answerSelected = nb;
       // this.readAnswer(this.quiz.questions[this.currentQuestion].answers[this.answerSelected]);
       // this.readAnswer(option);
@@ -102,7 +102,7 @@ export class QuizGameDmlaComponent implements OnInit {
 
       if (option.isCorrect) {
         const classList = linkbuttons[this.answerSelected].classList;
-        classList.remove('boutonselected');
+        classList.remove('buttonS');
         classList.add('boutonselectedTrue');
         const synth = window.speechSynthesis;
         const utterThis = new SpeechSynthesisUtterance('Bonne réponse');
@@ -112,7 +112,7 @@ export class QuizGameDmlaComponent implements OnInit {
 
       } else {
         const classList = linkbuttons[this.answerSelected].classList;
-        classList.remove('boutonselected');
+        classList.remove('buttonS');
         classList.add('boutonselectedFalse');
         const synth = window.speechSynthesis;
         const utterThis = new SpeechSynthesisUtterance('Mauvaise réponse');
