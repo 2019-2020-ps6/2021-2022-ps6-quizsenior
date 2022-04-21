@@ -6,11 +6,11 @@
     <FONT size="5pt" face="Verdana" color="black">Choisissez votre Questionnaire</FONT>
 
   </div>
-  <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
-    <button class="bouton1" (click)="selectQuestionnaire(questionnaire)"  >
-      <FONT size="20pt" face="Verdana" color="black">{{questionnaire}}</FONT>
-    </button>
-  </a>
+  <div>
+    <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
+      <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)" routerLink="menuQuestionnaire"><div class="psuedo-text">{{questionnaire}}</div></button>
+    </a>
+  </div>
 </a>
 
 

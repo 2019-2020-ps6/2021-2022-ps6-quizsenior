@@ -1,11 +1,12 @@
 
-<a class="fullwidthwithborder" >
+<div class="fullwidthwithborder">
   <div class="header">
     <button class="boutonReturn" routerLink="/select-desease" >Retour</button><button class="boutonAcceuil" routerLink="/select-desease">Accueil</button>
     <FONT size="5pt" face="Verdana" color="black">Choisissez votre theme</FONT>
   </div>
-  <a *ngFor="let theme of themeList">
-    <button class="bouton1" (click)="selectTheme(theme)" routerLink="menuQuestionnaire">
-      <FONT size="20pt" face="Verdana" color="black">{{theme}}</FONT></button>
-  </a>
-</a>
+  <div>
+    <a *ngFor="let theme of themeList">
+      <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="menuQuestionnaire"><div class="psuedo-text">{{theme}}</div></button>
+    </a>
+  </div>
+</div>
