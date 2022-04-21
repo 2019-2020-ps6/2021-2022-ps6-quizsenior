@@ -62,7 +62,7 @@ h1 {
   font-size: 6rem;
   padding: 1rem;
   text-align: center;
-  color: white;
+  color: #F5F5F5;
   font-weight: 500;
   margin: 5rem 0 0 0; }
 
@@ -110,7 +110,7 @@ button {
   width: 48%;
   margin: 1% 1% 1% 1%;
   padding: 5rem;
-  background: white;
+  background: #F5F5F5;
   text-align: center;
   display: inline-block;
   font-size: 1.7rem;
@@ -136,7 +136,7 @@ button {
   border-radius: 100%;
   transition: 0.16s cubic-bezier(0.4, 0, 1, 1); }
 .button-mat:hover .psuedo-text {
-  color: white; }
+  color: #F5F5F5; }
 .button-mat:hover {
   color: transparent; }
 
@@ -144,7 +144,7 @@ button {
 .btn-3 {
   letter-spacing: .05rem;
   position: relative;
-  background: white;
+  background: #F5F5F5;
   color: #401aff;
   overflow: hidden;
   transition: .3s ease-in-out;
@@ -197,7 +197,7 @@ button {
   position: fixed;
   margin: 1% 1% 1% 1%;
   padding: 1.1rem;
-  background: white;
+  background: #F5F5F5;
   text-align: center;
   display: inline-block;
   font-size: 1.7rem;
@@ -210,7 +210,7 @@ button {
   position: fixed;
   margin: 1% 1% 1% 1%;
   padding: 1.1rem;
-  background: white;
+  background: #F5F5F5;
   text-align: center;
   display: inline-block;
   font-size: 1.7rem;
@@ -220,7 +220,7 @@ button {
   will-change: transform; }
 
 .psuedo-text3 {
-  color: honeydew;
+  color: #F5F5F5;
   position: relative;
   top: 0;
   height: 100%;
