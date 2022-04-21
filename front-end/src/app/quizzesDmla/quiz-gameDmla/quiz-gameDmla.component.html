@@ -1,8 +1,8 @@
 <div *ngIf="quiz">
   <div class="fullwidthwithborder" *ngIf="currentQuestion < quiz.questions.length">
     <a *ngIf="currentQuestion < quiz.questions.length && showQuestion" class="fullwidthwithborder">
-      <button class="question" (click)="passQuestion()">
-        <FONT size="20pt" face="Verdana" color="black">QUESTION</FONT>
+      <button class="buttonQ button-matQ " (click)="passQuestion()">
+        <div class="psuedo-text">QUESTION</div>
       </button>
     </a>
     <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
