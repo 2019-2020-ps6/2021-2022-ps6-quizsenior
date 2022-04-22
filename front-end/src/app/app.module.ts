@@ -23,7 +23,8 @@ import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.c
 import {QuestionListDmlaComponent} from './questionsDmla/question-listDmla/question-listDmla.component';
 import {QuestionFormDmlaComponent} from './questionsDmla/question-formDmla/question-formDmla.component';
 import {QuestionDmlaComponent} from './questionsDmla/questionDmla/questionDmla.component';
-import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
+import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-theme-dmla.component';
+import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 
@@ -49,7 +50,8 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
     QuizFormDmlaComponent,
     EditQuizDmlaComponent,
     QuizGameDmlaComponent,
-    MenuThemeComponent,
+    MenuThemeDmlaComponent,
+    MenuThemeAlzComponent,
     MenuQuestionnaireComponent,
     SelectDeseaseComponent,
   ],

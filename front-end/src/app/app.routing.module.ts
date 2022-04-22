@@ -6,7 +6,7 @@ import {QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import {EditQuizDmlaComponent} from './quizzesDmla/edit-quizDmla/edit-quizDmla.component';
 import {QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.component';
 import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
-import {MenuThemeComponent} from './menu/menu-theme/menu-theme.component';
+import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-theme-dmla.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 
@@ -17,8 +17,9 @@ const routes: Routes = [
   {path: 'quiz-listDmla', component: QuizListDmlaComponent},
   {path: 'edit-quizDmla/:id', component: EditQuizDmlaComponent},
   {path: 'quiz-gameDmla/:id', component: QuizGameDmlaComponent},
-  {path: 'menuTheme', component: MenuThemeComponent},
-  {path: 'menuTheme/menuQuestionnaire', component: MenuQuestionnaireComponent},
+  {path: 'menuTheme/menuThemeDmla', component: MenuThemeDmlaComponent},
+  {path: 'menuTheme/menuThemeAlz', component: MenuThemeDmlaComponent},
+  {path: 'menu/menuQuestionnaire', component: MenuQuestionnaireComponent},
   {path: 'select-desease', component: SelectDeseaseComponent},
   {path: '', redirectTo: '/select-desease', pathMatch: 'full'},
 ];

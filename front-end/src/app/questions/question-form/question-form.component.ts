@@ -18,7 +18,6 @@ export class QuestionFormComponent implements OnInit {
   public imageBool = false;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
-    // Form creation
     this.initializeQuestionForm();
   }
 
