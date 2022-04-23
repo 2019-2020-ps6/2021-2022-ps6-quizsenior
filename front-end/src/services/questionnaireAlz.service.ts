@@ -1,33 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {QuizDmla} from '../models/quizDmla.model';
-import {QuestionDmla} from '../models/questionDmla.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
-import {QuizGameDmla} from '../models/quizgameDmla.model';
 import {ThemeService} from './theme.service';
+import {Quiz} from '../models/quiz.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionnaireService {
-  /*
-   Services Documentation:
-   https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
-   */
+export class QuestionnaireAlzService {
 
-  /*
-   The list of quizDmla.
-   The list is retrieved from the mock.
-   */
   public listQuestionnaire: string[] = [];
 
-  public allquiz: QuizDmla[] = [];
+  public allquiz: Quiz[] = [];
 
   private questionnaireSelected: string = null;
 
   /*
-   Observable which contains the list of the quizDmla.
+   Observable which contains the list of the quizAlz.
    Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public listQuestionnaire$: BehaviorSubject<string[]> = new BehaviorSubject(this.listQuestionnaire);
@@ -35,7 +25,7 @@ export class QuestionnaireService {
   public questionnaireSelected$: BehaviorSubject<string> = new BehaviorSubject<string>(this.questionnaireSelected);
 
 
-  private quizUrl = serverUrl + '/quizzesDmla';
+  private quizUrl = serverUrl + '/quizzes';
 
   constructor(private http: HttpClient) {
   }
@@ -45,8 +35,8 @@ export class QuestionnaireService {
     this.questionnaireSelected$.next(this.questionnaireSelected);
   }
 
-  setQuizzesDMLAFromUrlWithTheme(theme: string): void {
-    this.http.get<QuizDmla[]>(this.quizUrl).subscribe((quizList: QuizDmla[]) => {
+  setQuizzesFromUrlWithTheme(theme: string): void {
+    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList: Quiz[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
         if (quizList[i].theme === theme) {
@@ -64,7 +54,7 @@ export class QuestionnaireService {
     this.listQuestionnaire = [];
   }
 
-  getQuestionnaireId(questionnaire: string): QuizDmla {
+  getQuestionnaireId(questionnaire: string): Quiz {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.allquiz.length; i++) {
       if (this.allquiz[i].name === questionnaire) {

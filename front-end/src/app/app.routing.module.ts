@@ -9,6 +9,7 @@ import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.c
 import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-theme-dmla.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
+import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'menuTheme/menuThemeDmla', component: MenuThemeDmlaComponent},
   {path: 'menuTheme/menuThemeAlz', component: MenuThemeDmlaComponent},
   {path: 'menu/menuQuestionnaire', component: MenuQuestionnaireComponent},
+  {path: 'menu/menuQuestionnaireAlz', component: MenuQuestionnaireAlzComponent},
   {path: 'select-desease', component: SelectDeseaseComponent},
   {path: '', redirectTo: '/select-desease', pathMatch: 'full'},
 ];

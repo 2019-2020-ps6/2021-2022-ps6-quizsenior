@@ -26,6 +26,7 @@ import {QuestionDmlaComponent} from './questionsDmla/questionDmla/questionDmla.c
 import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-theme-dmla.component';
 import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
+import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 
 
@@ -53,6 +54,7 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
     MenuThemeDmlaComponent,
     MenuThemeAlzComponent,
     MenuQuestionnaireComponent,
+    MenuQuestionnaireAlzComponent,
     SelectDeseaseComponent,
   ],
   imports: [
