@@ -1,28 +1,34 @@
-<div class="card">
-  <h2>Créer un nouveau Quiz</h2>
-  <form class="quiz-form" [formGroup]="quizForm">
-    <label for="name">
-      Titre <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-    </label>
-    <br>
-    <label for="theme">
-      Thème <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
-    </label>
-    <br>
-    <label for="repetition">
-      Répétition(s) <br>
-      <input class="input-custom" type="checkbox" id="repetition" (change)="changeRepetition()">
-    </label>
-    <br>
-    <ng-container *ngIf="repetition">
-      <label for="nbRepetition">
-        Nombre de répétition(s) <br>
-        <input class="input-custom" type="text" id="nbRepetition" [formControlName]="'nbRepetition'">
-      </label>
-    </ng-container>
-    <br>
-    <button type="submit" class="button-card" (click)="addQuiz()">Créer le Quiz</button>
-  </form>
+<div class="container">
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+        Créez un quiz
+      </h2>
+    </div>
+    <form class="card-form" [formGroup]="quizForm">
+      <div class="input">
+        <input type="text" class="input-field"  type="text" id="name" [formControlName]="'name'" value="" required/>
+        <label class="input-label">Nom du quiz</label>
+      </div>
+      <div class="input">
+        <input type="text" class="input-field" type="text" id="theme" [formControlName]="'theme'" value="" required/>
+        <label class="input-label">Thème</label>
+      </div>
+      <div class="input">
+        <label for="repetition">Répétition(s)
+          <input class="input-custom" type="checkbox" id="repetition" (change)="changeRepetition()">
+        </label>
+      </div>
+
+      <ng-container *ngIf="repetition">
+        <div class="input">
+          <input type="text" class="input-field" value="" required/>
+          <label class="input-label" id="nbRepetition" [formControlName]="'nbRepetition'">Nombre de répétitions</label>
+        </div>
+      </ng-container>
+      <br>
+      <button class="action-button" type="submit" (click)="addQuiz()">Créer</button>
+    </form>
+  </div>
 </div>
+

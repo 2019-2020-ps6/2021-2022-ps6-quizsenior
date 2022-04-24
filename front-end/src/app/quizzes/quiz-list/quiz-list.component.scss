@@ -1,5 +1,7 @@
+
 .quiz-list {
   display: flex;
+  margin-top: 1em;
 }
 
 .header {
@@ -40,20 +42,20 @@
 
 div.containercenter {
   height: 10em;
-  position: relative }
+  position: fixed }
+
 div.containercenter {
   margin: 0;
   position: absolute;
   top: 35%;
   left: 50%;
-  margin-right: -50%;
   transform: translate(-50%, -50%) }
 
 
 div.containerlist {
   margin: 0;
-  position: absolute;
-  top: 110%;
+  position: relative; //a changer pour modifier la taille des carrés noirs
+  top: 300%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%) }
