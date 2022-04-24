@@ -21,8 +21,8 @@
 
     <div *ngIf="end">
       <h1 class="center" >Vous avez terminé le quiz !</h1>
-        <h2 class="center: whiteBox">Votre score est de {{quizGameToCreate.correctAnswers}}/{{quiz.questions.length}}
-          <br>{{quizGameToCreate.correctAnswers> (quiz.questions.length/2) ? "Bien joué !!" : ""}}
+        <h2 class="center: whiteBox">Votre score est de {{game.correctAnswers}}/{{quiz.questions.length}}
+          <br>{{game.correctAnswers> (quiz.questions.length/2) ? "Bien joué !!" : ""}}
         </h2>
       <button class="buttonGreen" style="float: left" routerLink="/quiz-list">Changer de quiz</button>
       <button class="buttonGreen" style="float: right" routerLink="/quiz-list">Retour à l'accueil</button>

@@ -45,15 +45,16 @@ export class QuizGameComponent implements OnInit {
     this.quizGameForm = this.formBuilder.group({
       correctAnswers: ['0'],
       incorrectAnswers: ['0'],
-      quiz: [''],
-      nbRepetition: [''],
+      quiz: ['1'],
+      nbRepetition: ['1'],
+      answers: ['{ ']
     });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-    this.quizGameForm.controls.nbRepetition.setValue(this.quizService.quizSelected$.getValue().repetition); // this.quiz.nbRepetition);
+    this.quizGameForm.controls.nbRepetition.setValue(this.quizService.quizSelected$.getValue().nbRepetition); // this.score.nbRepetition);
     this.quizGameForm.controls.quiz.setValue( String(this.quizService.quizSelected$.getValue().id));
     this.currentQuestion = 0;
     this.questions$.next(this.createQuestions(this.quizService.quizSelected$.getValue().questions));
@@ -63,8 +64,8 @@ export class QuizGameComponent implements OnInit {
   }
 
   saveInstance(): void {
-    console.log(this.quizGameToCreate);
-    this.quizService.updateQuizGame(this.quizGameToCreate);
+    console.log(this.game);
+    this.quizService.updateQuizGame(this.game);
   }
 
   createQuestions(questions: Array<Question>): Array<Question>{
@@ -125,9 +126,14 @@ export class QuizGameComponent implements OnInit {
 
   checkEnd(): void{
     this.end = this.questions$.getValue().length <= 0;
+    if (this.end){
+      this.game.answers += ' }';
+    }
   }
 
   onAnswer(option: Answer, question: Question): void {
+    const answer = '[' + question.label + ',' + option.value + ']' ;
+    this.game.answers += answer;
     this.answerSelected = true;
     setTimeout(() => {
       this.answerSelected = false;
@@ -135,17 +141,15 @@ export class QuizGameComponent implements OnInit {
         this.currentQuestion++;
         this.deleteCorrectQuestion(question);
         this.shuffle();
-        this.quizGameToCreate.correctAnswers = String(Number(this.quizGameToCreate.correctAnswers) + 1);
+        this.game.correctAnswers = String(Number(this.game.correctAnswers) + 1);
       }else{
         this.deleteIncorrectQuestion(question, option);
         this.shuffle();
-        this.quizGameToCreate.incorrectAnswers = String(Number(this.quizGameToCreate.incorrectAnswers) + 1);
+        this.game.incorrectAnswers = String(Number(this.game.incorrectAnswers) + 1);
       }
-      console.log(this.questions);
-      // TODO -> this.saveInstance() voir pour avoir un id;
+      this.saveInstance();
       this.checkEnd();
       }, 3000);
-    console.log(this.questions$.getValue());
   }
 
 }

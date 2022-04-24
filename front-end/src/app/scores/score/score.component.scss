@@ -1,0 +1,22 @@
+@import '../../../styles/card.scss';
+
+.edit {
+    margin-left: 0.3em;
+}
+
+button{
+  width: 75px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background: #00820b;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 40px;
+  text-align: match-parent;
+  box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: auto;
+}

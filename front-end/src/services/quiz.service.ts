@@ -89,13 +89,15 @@ export class QuizService {
   }
 
   addQuizGame(quizGame: QuizGame): void {
-    this.http.post<QuizGame>(this.quizGameUrl, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
+    const request = this.http.post<QuizGame>(this.quizGameUrl, quizGame, this.httpOptions);
+    request.subscribe(() => this.setQuizGamesFromUrl());
+    // tslint:disable-next-line:no-shadowed-variable
+    request.subscribe((quizGame) => this.game$.next(quizGame));
   }
 
   updateQuizGame(quizGame: QuizGame): void{
-    const urlWithId = this.quizGameUrl + '/';
+    const urlWithId = this.quizGameUrl + '/' + quizGame.id + '/';
     this.http.put<QuizGame>(urlWithId, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
-    console.log(this.quizGames);
   }
 
   /*

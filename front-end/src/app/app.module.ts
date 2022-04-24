@@ -28,6 +28,9 @@ import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
+import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
+import {ScoreComponent} from './scores/score/score.component';
+import {ScoreListComponent} from './scores/score-list/score-list.component';
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
     MenuQuestionnaireComponent,
     MenuQuestionnaireAlzComponent,
     SelectDeseaseComponent,
+    MenuScoreComponent,
+    ScoreComponent,
+    ScoreListComponent
   ],
   imports: [
     BrowserModule,
