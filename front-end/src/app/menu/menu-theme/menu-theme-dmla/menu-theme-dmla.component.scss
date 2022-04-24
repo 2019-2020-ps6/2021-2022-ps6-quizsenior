@@ -141,6 +141,20 @@ button {
   position: relative;
   will-change: transform; }
 
+.buttonT {
+  position: fixed;
+  margin: 1% 1% 1% 1%;
+  left: 44vw;
+  padding: 0.4rem;
+  background: #F5F5F5;
+  text-align: center;
+  //display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
+
 
 .button-mat {
   color: #5533ff;
@@ -206,6 +220,7 @@ button {
   transform: translate(30%, 10%) translateZ(0); }
 .btn--8:hover:before {
   transform: translate(-45%, -34%) translateZ(0); }
+
 
 
 

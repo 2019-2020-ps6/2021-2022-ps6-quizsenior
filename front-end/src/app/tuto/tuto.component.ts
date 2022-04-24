@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutoComponent implements OnInit {
 
-  constructor() { }
+  public count: number ;
+
+  constructor() {
+    this.count = 0;
+  }
 
   ngOnInit(): void {
+  }
+
+  upCount(): void {
+    this.count++;
   }
 
 }
