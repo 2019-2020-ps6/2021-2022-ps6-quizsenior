@@ -19,7 +19,7 @@
 <div class="containerlist">
   <div class="quiz-list">
     <div class="quiz" *ngFor="let game of quizGameList">
-      <app-quiz [quiz]="game" (gameSelected)="scoreSelected($event)"></app-quiz>
+      <app-g [quiz]="game" (gameSelected)="scoreSelected($event)"></app-g>
     </div>
   </div>
 </div>
