@@ -15,7 +15,7 @@ export class MenuScoreComponent implements OnInit {
 
   public linkToQuiz = '/score-game/';
 
-  constructor(public quizService: QuizService) {
+  constructor(public quizService: QuizService,public themeService: ThemeService) {
     this.quizService.quizGames$.subscribe((games: QuizGame[]) =>
       this.quizGames = games);
   }

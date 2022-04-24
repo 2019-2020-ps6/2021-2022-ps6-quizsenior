@@ -31,6 +31,7 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
 import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
 import {ScoreComponent} from './scores/score/score.component';
 import {ScoreListComponent} from './scores/score-list/score-list.component';
+import {TutoComponent} from './tuto/tuto.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {ScoreListComponent} from './scores/score-list/score-list.component';
     SelectDeseaseComponent,
     MenuScoreComponent,
     ScoreComponent,
-    ScoreListComponent
+    ScoreListComponent,
+    TutoComponent
   ],
   imports: [
     BrowserModule,
