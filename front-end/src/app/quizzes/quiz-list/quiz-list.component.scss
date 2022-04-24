@@ -132,3 +132,15 @@ div.containerlist {
 
 .btn--7 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.fullwidthwithborder {
+  background: linear-gradient(to bottom right, #5533ff, #38e2ee);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 17%;
+  height: 83%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
