@@ -1,41 +1,45 @@
-<div class="card">
-  <h2>Créer une nouvelle question</h2>
-  <form class="quiz-form" [formGroup]="questionForm">
-    <label for="label">
-      Intitulé de la question <br>
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'"><br>
-      <label for="image">
-      Image
+<form class="form" [formGroup]="questionForm">
+  <h1>
+    <p style="color:rgba(255,74,86,1)">Créez votre question</p>
+    </h1>
+  <div class="question">
+    <input class="input" type="text" id="label" [formControlName]="'label'" required/>
+    <label class="label">Intitulé de la question</label>
+  </div>
+  <div class="question">
+    <label for="image">
+      <p style="color:rgba(255,74,86,1)">Image
       <input type="checkbox" id="image" (change)="changeImage()">
-      </label>
+      </p>
       <ng-container *ngIf="imageBool">
-        <br>
-        <label for="url">
-          Url <br>
-          <input class="input-custom" type="text" id="url" [formControlName]="'imageUrl'">
-        </label>
+        <div class="question">
+          <input class="input" type="text" id="url" [formControlName]="'imageUrl'">
+          <label class="label" for="url">Url</label>
+        </div>
       </ng-container>
     </label>
-    <br>
-    <button class="button-card"
-            (click)="addAnswer()"
-            [disabled]="answers.length==4">
-            Ajouter une réponse
-    </button>
-
-    <div class="answer" formArrayName="answers">
-      <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
-        <div class="answer-form" [formGroupName]="i">
-          <label>
-            Réponse
-            <input type="text" [formControlName]="'value'">
-            <br>
-            Bonne réponse
+  </div>
+  <button class="button"
+          (click)="addAnswer()"
+          [disabled]="answers.length==4">
+    Ajouter une réponse
+  </button>
+  <br>
+  <div class="answer" formArrayName="answers">
+    <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
+      <br>
+      <div class="answer-form" [formGroupName]="i">
+        <label>
+          <div class="question">
+            <input class="input" type="text" [formControlName]="'value'" required>
+            <label class="label">Réponse</label>
+          </div>
+          <p style="color:rgba(255,74,86,1)">Bonne réponse
             <input type="checkbox" [formControlName]="'isCorrect'">
-          </label>
-        </div>
+          </p>
+        </label>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Ajouter la question au Quiz </button>
-  </form>
-</div>
+  </div>
+  <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
+</form>
