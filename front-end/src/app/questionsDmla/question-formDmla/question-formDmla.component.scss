@@ -1,6 +1,126 @@
-@import '../../../styles/card.scss';
-
 .answer-form {
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+
+$red: rgba(255,74,86,1);
+
+.html {
+  background: $red; //rgba(245,248,252,1)
+}
+
+.form {
+  position: relative;
+  display: inline-block;
+  max-width: 700px;
+  min-width: 500px;
+  box-sizing: border-box;
+  padding: 30px 25px;
+  background-color: white;
+  border-radius: 40px;
+  margin: 40px 0;
+  left: 50%;
+  transform: translate( -50% , 0 )
+}
+
+
+.h1 {
+  color: $red;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  margin-left: 15px;
+  margin-bottom: 35px;
+  text-transform: uppercase
+}
+
+
+.button {
+  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
+  margin-top: 35px;
+  background-color: white;
+  border: 1px solid $red;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  border-radius: 60px;
+  color: $red;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+
+  &:hover,&:focus {
+    color: white;
+    background-color: $red
+  }
+}
+
+.question {
+  position: relative;
+  padding: 10px 0;
+  &:first-of-type {
+    padding-top: 0
+  }
+  &:last-of-type {
+    padding-bottom: 0
+  }
+}
+
+.label {
+  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
+  transform-origin: left center;
+  color: $red;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  font-size: 17px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  display: inline-flex;
+  position: absolute;
+  margin-top: -45px;
+  z-index: 2;
+  pointer-events: none;
+  line-height: -5px;
+  letter-spacing: 0.01em;
+}
+
+
+
+.input[type="text"] {
+  transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid $red;
+  line-height: 0;
+  font-size: 17px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: $red;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+  &:focus {
+    outline: none;
+    background: $red;
+    color: white;
+    margin-top: 30px
+  }
+  &:valid {
+    margin-top: 30px;
+
+  }
+  &:focus ~ label {
+    transform: translate( 0 , -35px )
+  }
+  &:valid ~ label {
+    transform: translate(0 , -35px);
+  }
+
 }

@@ -1,8 +1,34 @@
-<app-quiz-formdmla></app-quiz-formdmla>
-<div class="quiz-listdmla">
+<ng-container class="flex-1">
+  <div class="header">
+    <button class="buttonReturn button-mat btn--7" routerLink="/select-desease" >
+      <div class="psuedo-text">retour</div>
+    </button>
+    <button class="buttonAccueil button-mat btn--7" routerLink="/select-desease">
+      <div class="psuedo-text">Accueil</div>
+    </button>
+    <div class="psuedo-text2"><a class="psuedo-text3">Menu de création de Quiz</a></div>
+  </div>
+
+
+  <div class="fullwidthwithborder">
+    <div class="containercenter">
+      <div class="containerlist">
+        <app-quiz-formdmla>
+          margin-left: auto;
+          margin-right: auto;
+        </app-quiz-formdmla>
+  <div class="quiz-listdmla">
+    <br>
     <div class="quiz" *ngFor="let quiz of quizList">
-        <!--Inputs & Output allow communication between parent & child components.-->
-        <!--More information: https://angular.io/guide/component-interaction-->
-        <app-quizdmla [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quizdmla>
+      <app-quizdmla [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quizdmla>
     </div>
   </div>
+      </div>
+    </div>
+  </div>
+
+
+</ng-container>
+
+
+

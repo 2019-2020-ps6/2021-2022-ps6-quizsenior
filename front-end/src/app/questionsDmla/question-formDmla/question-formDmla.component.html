@@ -1,28 +1,33 @@
-<div class="card">
-  <h2>Create a new question</h2>
-  <form class="quiz-formdmla" [formGroup]="questionForm">
-    <label for="label">
-      Title <br>
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
-    </label>
-    <br>
-    <button class="button-card" (click)="addAnswer(answers.length)">Add Answer</button>
-    <div class="answer" formArrayName="answers">
-      <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form" [formGroupName]="i">
-          <label>
-            Answer
-            <input type="text" [formControlName]="'value'">
-            <br>
-            Correct
+<form class="form" [formGroup]="questionForm">
+  <h1>
+    <p style="color:rgba(255,74,86,1)">Créez votre question</p>
+  </h1>
+  <div class="question">
+    <input class="input" type="text" id="label" [formControlName]="'label'" required/>
+    <label class="label">Intitulé de la question</label>
+  </div>
+  <button class="button"
+          (click)="addAnswer(answers.length)"
+          [disabled]="answers.length==4">
+    Ajouter une réponse
+  </button>
+  <br>
+  <div class="answer" formArrayName="answers">
+    <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
+      <br>
+      <div class="answer-form" [formGroupName]="i">
+        <label>
+          <div class="question">
+            <input class="input" type="text" [formControlName]="'value'" required>
+            <label class="label">Réponse</label>
+          </div>
+          <p style="color:rgba(255,74,86,1)">Bonne réponse
             <input type="checkbox" [formControlName]="'isCorrect'">
-          </label>
-        </div>
+          </p>
+        </label>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
-  </form>
-</div>
+  </div>
+  <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
+</form>
 
-<!-- Uncomment below to see your form structure and how it changes-->
-<!-- <br><br>{{quizForm.getRawValue() | json}} -->
