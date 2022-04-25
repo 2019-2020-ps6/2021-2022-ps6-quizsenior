@@ -12,6 +12,8 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
 import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
 import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {TutoComponent} from './tuto/tuto.component';
+import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
+import {ScoreComponent} from './scores/score/score.component';
 
 const routes: Routes = [
   {path: 'quiz-list', component: QuizListComponent},
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'menuTheme/menuThemeAlz', component: MenuThemeAlzComponent},
   {path: 'menu/menuQuestionnaire', component: MenuQuestionnaireComponent},
   {path: 'menu/menuQuestionnaireAlz', component: MenuQuestionnaireAlzComponent},
+  {path: 'menu-score', component: MenuScoreComponent},
+  {path: 'menu-score/:id', component: ScoreComponent },
   {path: 'select-desease', component: SelectDeseaseComponent},
   {path: 'tutoriel', component: TutoComponent},
   {path: '', redirectTo: '/select-desease', pathMatch: 'full'},

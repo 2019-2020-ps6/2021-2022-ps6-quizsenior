@@ -47,7 +47,7 @@ export class QuizGameComponent implements OnInit {
       incorrectAnswers: ['0'],
       quiz: ['1'],
       nbRepetition: ['1'],
-      answers: ['{ ']
+      answers: [':']
     });
   }
 
@@ -126,13 +126,10 @@ export class QuizGameComponent implements OnInit {
 
   checkEnd(): void{
     this.end = this.questions$.getValue().length <= 0;
-    if (this.end){
-      this.game.answers += ' }';
-    }
   }
 
   onAnswer(option: Answer, question: Question): void {
-    const answer = '[' + question.label + ',' + option.value + ']' ;
+    const answer = question.label + ',' + option.value + ':' ;
     this.game.answers += answer;
     this.answerSelected = true;
     setTimeout(() => {

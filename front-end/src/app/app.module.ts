@@ -30,7 +30,6 @@ import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-
 import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
 import {ScoreComponent} from './scores/score/score.component';
-import {ScoreListComponent} from './scores/score-list/score-list.component';
 import {TutoComponent} from './tuto/tuto.component';
 
 
@@ -62,7 +61,6 @@ import {TutoComponent} from './tuto/tuto.component';
     SelectDeseaseComponent,
     MenuScoreComponent,
     ScoreComponent,
-    ScoreListComponent,
     TutoComponent
   ],
   imports: [

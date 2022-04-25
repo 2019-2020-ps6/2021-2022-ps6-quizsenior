@@ -1,7 +1,31 @@
-<div class="card">
+<ng *ngIf="game">
     <h2>
-        <i class="fab fa-leanpub"></i>
-        {{quizGame.id}}
+        {{quiz.name}}
     </h2>
-    <button class="button-card edit" routerLink="/quiz-game/{{quizGame.id}}">Select</button>
-</div>
+  Nombre de répétition des questions : {{game.nbRepetition}}
+  <br>
+  Nombre de questions du quiz : {{quiz.questions.length}}
+  <br>
+  Nombre de questions répondues correctement : {{game.correctAnswers}}
+  <br>
+  Nombre de questions répondues incorrectement : {{game.incorrectAnswers}}
+  <br>
+  Nombre total de questions répondues : {{game.correctAnswers + game.incorrectAnswers}}
+  <br>
+  Date : {{buildDate()}}
+  <br>
+  Heure : {{buildTime()}}
+  <br>
+  <label for="detail">Afficher le détail</label>
+  <br>
+  <input class="input-custom" type="checkbox" id="detail" (change)="displayAnswers()">
+  <ng *ngIf="display">
+    <br>
+    <ng *ngFor="let answer of answers" >
+      Question : {{buildQuestion(answer)[0]}}
+      <br>
+      Réponse : {{buildQuestion(answer)[1]}}
+      <br>
+    </ng>
+  </ng>
+</ng>

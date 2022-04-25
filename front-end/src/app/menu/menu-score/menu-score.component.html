@@ -3,14 +3,14 @@
     <button class="buttonR button-mat btn--7" routerLink="/select-desease" >
       <div class="psuedo-text">retour</div>
     </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Theme: {{themeService.themeSelectedAlz}}
-      <br>Choisissez votre Questionnaire
+    <div class="psuedo-text2"><a class="psuedo-text3">Scores
+      <br>Choisissez un score
     </a></div>
   </div>
   <div class="fullwidthwithborder">
     <div>
-      <a *ngFor="let game of quizGames" [routerLink]="linkToQuiz">
-        <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)" routerLink="menuQuestionnaireAlz"><div class="psuedo-text">{{questionnaire}}</div></button>
+      <a *ngFor="let game of quizGames" >
+        <button class="button button-mat btn--7" (click)="selectGame(game)" routerLink="{{game.id}}"><div class="psuedo-text">{{buildDate(game.id)}}</div></button>
       </a>
     </div>
   </div>

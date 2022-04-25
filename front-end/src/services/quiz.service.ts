@@ -72,6 +72,13 @@ export class QuizService {
     });
   }
 
+  setSelectedGame(gameId: string): void {
+    const urlWithId = this.quizGameUrl + '/' + gameId;
+    this.http.get<QuizGame>(urlWithId).subscribe((game) => {
+      this.game$.next(game);
+    });
+  }
+
   deleteQuiz(quiz: Quiz): void {
     const urlWithId = this.quizUrl + '/' + quiz.id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
