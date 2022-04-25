@@ -45,12 +45,14 @@
         </li>
       </a>
     </ul>
-    <div class="flex-1" *ngIf="count===0 || count===1 || count===2 || count===3">
-      <button class="buttonT button-mat btn--7" (click)="upCount()">
-      <div class="psuedo-text">J'ai compris</div>
-    </button>
+    <div class="flex-1" >
+      <button class="buttonT button-mat btn--7" *ngIf="count===3 || count===1 || count===2 || count===4" (click)="downCount()">
+        <div class="psuedo-text">étape précédente</div>
+      </button>
+      <button *ngIf="count===0 || count===1 || count===2 || count===3" class="buttonT button-mat btn--7" (click)="upCount()">
+        <div class="psuedo-text">J'ai compris</div>
+      </button>
     </div>
-
   </a>
 </div>
 </ng-container>

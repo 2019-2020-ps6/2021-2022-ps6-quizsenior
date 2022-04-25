@@ -20,4 +20,8 @@ export class TutoComponent implements OnInit {
     this.count++;
   }
 
+  downCount(): void {
+    this.count--;
+  }
+
 }
