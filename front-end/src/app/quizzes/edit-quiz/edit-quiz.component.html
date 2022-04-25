@@ -8,11 +8,14 @@
     </button>
     <div class="psuedo-text2"><a class="psuedo-text3">Menu de création de questions</a></div>
   </div>
+
+</ng-container>
 <ng-container *ngIf="quiz">
   <div class="containercenter">
     <h2> Quiz : {{quiz.name}}</h2>
     <app-question-form [quiz]="quiz"></app-question-form>
     <app-question-list [quiz]="quiz"></app-question-list>
   </div>
-
 </ng-container>
+
+
