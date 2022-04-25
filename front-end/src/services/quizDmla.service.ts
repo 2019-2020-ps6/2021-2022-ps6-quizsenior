@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { QuizDmla } from '../models/quizDmla.model';
-import { QuestionDmla } from '../models/questionDmla.model';
-import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {QuizDmla} from '../models/quizDmla.model';
+import {QuestionDmla} from '../models/questionDmla.model';
+import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {QuizGameDmla} from '../models/quizgameDmla.model';
 
 @Injectable({
@@ -45,6 +45,7 @@ export class QuizServiceDmla {
 
   constructor(private http: HttpClient) {
     this.setQuizzesFromUrl();
+    console.log('Je get les quiz !', this.quizzes);
   }
 
   setQuizzesFromUrl(): void {
@@ -89,7 +90,7 @@ export class QuizServiceDmla {
     this.http.delete<QuestionDmla>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  addQuizGame(quizGame: QuizGameDmla): void{
+  addQuizGame(quizGame: QuizGameDmla): void {
     this.http.post<QuizGameDmla>(this.quizGameUrl, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
     console.log(this.quizGames);
   }

@@ -28,11 +28,13 @@ export class QuizGameDmlaComponent implements OnInit {
   public index;
   public showQuestion: boolean;
   public showAnswer: boolean;
+  public synth;
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizServiceDmla) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
     });
+    console.log('JE SUIS ICI', this.quiz);
     this.quizService.game$.subscribe((quizGame) => {
       this.game = quizGame;
     });
@@ -56,6 +58,7 @@ export class QuizGameDmlaComponent implements OnInit {
     this.navigate();
     this.correctAnswer(this.quiz.questions[this.currentQuestion]);
     this.showAnswer = false;
+    this.synth = window.speechSynthesis;
   }
 
 
@@ -95,7 +98,7 @@ export class QuizGameDmlaComponent implements OnInit {
         this.currentQuestion++;
         this.answerSelected = 0;
         this.showQuestion = true;
-        if (this.currentQuestion >= this.quiz.questions.length){
+        if (this.currentQuestion >= this.quiz.questions.length) {
           this.showAnswer = true;
         }
       }, 2000);
@@ -127,8 +130,9 @@ export class QuizGameDmlaComponent implements OnInit {
   }
 
   navigate(): void {
-    console.log('ici', 1);
+    console.log('ici: ', 1);
     document.addEventListener('keydown', (event) => {
+      this.synth.cancel();
       const nomTouche = event.key;
       // console.log('touche', nomTouche);
       // // Les lignes test pour bug pas encore trouve ...
@@ -214,24 +218,23 @@ export class QuizGameDmlaComponent implements OnInit {
   }
 
   readAnswer(option: AnswerDmla): void {
+
     console.log('Read answer', option.value);
-    const synth = window.speechSynthesis;
+
     const utterThis = new SpeechSynthesisUtterance(option.value);
     utterThis.lang = 'fr-FR';
-    synth.speak(utterThis);
+    this.synth.speak(utterThis);
   }
 
   readAnswerQuestion(option: QuestionDmla): void {
     console.log('Read question', option.label);
-    const synth = window.speechSynthesis;
     const utterThis = new SpeechSynthesisUtterance(option.label);
     utterThis.lang = 'fr-FR';
-    synth.speak(utterThis);
+    this.synth.speak(utterThis);
   }
 
   passQuestion(): void {
     this.showQuestion = false;
   }
-
 
 }
