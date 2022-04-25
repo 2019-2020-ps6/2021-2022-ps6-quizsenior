@@ -3,6 +3,7 @@ import {QuizGame} from '../../../models/quizgame.model';
 import {QuizService} from '../../../services/quiz.service';
 import {ActivatedRoute} from '@angular/router';
 import {Quiz} from '../../../models/quiz.model';
+import {retry} from "rxjs/operators";
 
 @Component({
   selector: 'app-score',
@@ -15,6 +16,7 @@ export class ScoreComponent implements OnInit {
   public answers: string[];
   public display = false;
 
+
   constructor(public quizService: QuizService, public route: ActivatedRoute) {
     this.quizService.game$.subscribe((game: QuizGame) => this.game = game);
     this.quizService.quizSelected$.subscribe((quiz: Quiz) => this.quiz = quiz);
@@ -25,6 +27,10 @@ export class ScoreComponent implements OnInit {
     this.quizService.setSelectedGame(id);
     this.quizService.setSelectedQuiz(this.game.quiz);
     this.buildQuestions();
+  }
+
+  totalNumberOfQuestions(): number{
+    return parseInt(this.game.incorrectAnswers, 10) + parseInt(this.game.correctAnswers, 10);
   }
 
   buildQuestions(): void{
