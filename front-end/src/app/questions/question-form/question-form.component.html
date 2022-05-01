@@ -13,7 +13,7 @@
       </p>
       <ng-container *ngIf="imageBool">
         <div class="question">
-          <input class="input" type="text" id="url" [formControlName]="'imageUrl'">
+          <input class="input" type="text" id="url" [formControlName]="'imageUrl'" required>
           <label class="label" for="url">Url</label>
         </div>
       </ng-container>

@@ -1,10 +1,12 @@
+@import '../../../styles';
+
+
 .answer-form {
     margin-top: 0.3em;
     margin-bottom: 0.3em;
 }
 
 
-$red: rgba(255,74,86,1);
 
 .html {
   background: $red; //rgba(245,248,252,1)
@@ -13,6 +15,7 @@ $red: rgba(255,74,86,1);
 .form {
   position: relative;
   display: inline-block;
+  font-size: 200px;
   max-width: 700px;
   min-width: 500px;
   box-sizing: border-box;
