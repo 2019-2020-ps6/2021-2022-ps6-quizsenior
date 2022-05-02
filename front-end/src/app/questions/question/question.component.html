@@ -1,12 +1,12 @@
 <form class="form">
   <div class="card">
-    <h1>
+    <h2>
       <p style="color:rgba(255,74,86,1)">{{question.label}}
         <ng-container *ngIf="question.image === 'true'">
           <br><img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
         </ng-container>
       </p>
-    </h1>
+    </h2>
     <div class="answerdmla" *ngFor="let answer of question.answers; let i=index">
       <p style="color:rgba(255,74,86,1)"> Réponse {{i}} : {{answer.value}}</p>
       <ng-container *ngIf="answer.isCorrect">

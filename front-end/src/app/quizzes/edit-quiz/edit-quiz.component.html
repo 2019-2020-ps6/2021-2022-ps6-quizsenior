@@ -1,20 +1,23 @@
 <ng-container class="flex-1">
   <div class="header">
-    <button class="buttonReturn button-mat btn--7" routerLink="/quiz-list" >
-      <div class="psuedo-text">Retour</div>
+    <button class="buttonR button-mat2 btn--7" routerLink="/quiz-list" >
+      <div class="psuedo-text2">Retour</div>
     </button>
-    <button class="buttonAccueil button-mat btn--7" routerLink="/select-desease">
-      <div class="psuedo-text">Accueil</div>
+    <button class="buttonA button-mat2 btn--7" routerLink="/select-desease">
+      <div class="psuedo-text2">Accueil</div>
     </button>
     <div class="psuedo-text2"><a class="psuedo-text3">Menu de création de questions</a></div>
   </div>
 
-
-<ng-container *ngIf="quiz">
-  <div class="containercenter">
-    <h2> Quiz : {{quiz.name}} </h2>
-    <app-question-form [quiz]="quiz"></app-question-form>
-    <app-question-list [quiz]="quiz"></app-question-list>
+  <div class="fullwidthwithborder">
+  <ng-container *ngIf="quiz">
+    <div class="containercenter">
+    <h2>
+      <p style="color:white">Quiz : {{quiz.name}}</p>
+    </h2>
+      <app-question-form [quiz]="quiz"></app-question-form>
+      <app-question-list [quiz]="quiz"></app-question-list>
   </div>
 </ng-container>
+  </div>
 </ng-container>

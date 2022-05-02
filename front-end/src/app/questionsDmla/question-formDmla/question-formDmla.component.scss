@@ -1,13 +1,10 @@
+@import '../../../styles';
+@import '../../../styles.scss';
+
+
 .answer-form {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
-}
-
-
-$red: rgba(255,74,86,1);
-
-.html {
-  background: $red; //rgba(245,248,252,1)
 }
 
 .form {
@@ -39,14 +36,15 @@ $red: rgba(255,74,86,1);
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   margin-top: 35px;
   background-color: white;
-  border: 1px solid $red;
+  border: 1px solid $blue;
   line-height: 0;
   font-size: 17px;
   display: inline-block;
   box-sizing: border-box;
+  width: fit-content;
   padding: 20px 15px;
   border-radius: 60px;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   position: relative;
@@ -54,7 +52,7 @@ $red: rgba(255,74,86,1);
 
   &:hover,&:focus {
     color: white;
-    background-color: $red
+    background-color: $blue
   }
 }
 
@@ -72,7 +70,7 @@ $red: rgba(255,74,86,1);
 .label {
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   transform-origin: left center;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   font-size: 17px;
@@ -93,7 +91,7 @@ $red: rgba(255,74,86,1);
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   appearance: none;
   background-color: transparent;
-  border: 1px solid $red;
+  border: 1px solid $blue;
   line-height: 0;
   font-size: 17px;
   width: 100%;
@@ -101,14 +99,14 @@ $red: rgba(255,74,86,1);
   box-sizing: border-box;
   padding: 10px 15px;
   border-radius: 60px;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   position: relative;
   z-index: 1;
   &:focus {
     outline: none;
-    background: $red;
+    background: $blue;
     color: white;
     margin-top: 30px
   }

@@ -16,18 +16,6 @@
 
 /////////////////////////////////
 
-.psuedo-text3 {
-  color: #F5F5F5;
-  position: relative;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  display: inline;
-  height: auto;
-  font-size: 1.8rem;
-  transition: .25s ease-in;
-  transition-delay: .05s; }
-
 
 .button {
   width: 31.28%;
@@ -42,17 +30,4 @@
   position: relative;
   will-change: transform; }
 
-.buttonA {
-  position: fixed;
-  margin: 1% 1% 1% 1%;
-  padding: 1.1rem;
-  background: #F5F5F5;
-  color: rgba(255, 255, 255, 0.95);
-  text-align: center;
-  display: inline-block;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  position: relative;
-  will-change: transform; }
 

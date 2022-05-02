@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="questionForm">
-  <h1>
-    <p style="color:rgba(255,74,86,1)">Créez votre question</p>
-  </h1>
+  <h2>
+    <p style="color:#3f51b5">Créez votre question</p>
+  </h2>
   <div class="question">
     <input class="input" type="text" id="label" [formControlName]="'label'" required/>
     <label class="label">Intitulé de la question</label>
@@ -21,7 +21,7 @@
             <input class="input" type="text" [formControlName]="'value'" required>
             <label class="label">Réponse</label>
           </div>
-          <p style="color:rgba(255,74,86,1)">Bonne réponse
+          <p style="color:#3f51b5">Bonne réponse
             <input type="checkbox" [formControlName]="'isCorrect'">
           </p>
         </label>
