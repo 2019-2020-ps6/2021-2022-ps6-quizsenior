@@ -30,6 +30,7 @@ export class QuizGameComponent implements OnInit {
   public questions$: BehaviorSubject<Question[]>
     = new BehaviorSubject(this.questions);
   public end = false;
+  public answered: Array<Question> = [];
 
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizService) {
@@ -102,6 +103,7 @@ export class QuizGameComponent implements OnInit {
         break;
       }
     }
+    this.answered.push(questionToDelete);
     this.deleteIncorrectAnswer(questionToDelete, answerToDelete);
     this.questions$.next(this.questions);
   }
@@ -147,6 +149,10 @@ export class QuizGameComponent implements OnInit {
       this.saveInstance();
       this.checkEnd();
       }, 3000);
+  }
+
+  alreadyAnswered(question: Question): boolean{
+    return this.answered.includes(question);
   }
 
 }

@@ -6,26 +6,25 @@
         <img class="image" alt="QuestionImage" src="{{questions$.getValue()[0].imageUrl}}">
       </ng-container>
       <ng-container *ngFor="let answer of questions$.getValue()[0].answers">
-        <button [ngClass]="answer.isCorrect && answerSelected ? 'buttonCorrect' : 'button'" (click)="onAnswer(answer, questions$.getValue()[0])">
-          {{answer.value}}
+        <button [ngClass]="answer.isCorrect && answerSelected ? 'button_correct button-mat2_correct btn--7' : 'button button-mat2 btn--7'" (click)="onAnswer(answer, questions$.getValue()[0])">
+          <div class="psuedo-text2">{{answer.value}}</div>
         </button>
       </ng-container>
-
-
     </div>
     <div *ngIf="!end">
-      <button class="buttonNext" style="float: right;" (click)="skip(questions$.getValue()[0])">
-        Question suivante
-      </button>
+      <ng-container *ngIf="alreadyAnswered(questions$.getValue()[0])">
+        <button class="button button-mat2 btn--7" style="float: right;" (click)="skip(questions$.getValue()[0])">
+          <div class="psuedo-text2">Question suivante</div>
+        </button>
+      </ng-container>
     </div>
-
     <div *ngIf="end">
       <h1 class="center" >Vous avez terminé le quiz !</h1>
         <h2 class="center: whiteBox">Votre score est de {{game.correctAnswers}}/{{quiz.questions.length}}
           <br>{{game.correctAnswers> (quiz.questions.length/2) ? "Bien joué !!" : ""}}
         </h2>
-      <button class="buttonGreen" style="float: left" routerLink="/menuTheme/menuThemeAlz">Changer de quiz</button>
-      <button class="buttonGreen" style="float: right" routerLink="/select-desease">Retour à l'accueil</button>
+      <button class="button button-mat2 btn--7" style="float: left" routerLink="/menuTheme/menuThemeAlz"><div class="psuedo-text2">Changer de quiz</div></button>
+      <button class="button button-mat2 btn--7" style="float: right" routerLink="/select-desease"><div class="psuedo-text2">Retour à l'accueil</div></button>
     </div>
   </div>
 </ng-container>

@@ -50,6 +50,10 @@ export class QuestionFormComponent implements OnInit {
 
   addQuestion(): void {
     if (this.questionForm.valid) {
+      this.questionForm.controls.image.setValue(String(this.imageBool));
+      if (!this.imageBool){
+        this.questionForm.controls.imageUrl.setValue('no image');
+      }
       const question = this.questionForm.getRawValue() as Question;
       console.log(question);
       this.quizService.addQuestion(this.quiz, question);
