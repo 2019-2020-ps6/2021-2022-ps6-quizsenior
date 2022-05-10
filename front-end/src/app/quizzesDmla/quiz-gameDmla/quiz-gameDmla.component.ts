@@ -33,8 +33,10 @@ export class QuizGameDmlaComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizServiceDmla) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
+      if (quiz != null) {
+        this.load();
+      }
     });
-    console.log('JE SUIS ICI', this.quiz);
     this.quizService.game$.subscribe((quizGame) => {
       this.game = quizGame;
     });
@@ -49,18 +51,19 @@ export class QuizGameDmlaComponent implements OnInit {
     this.answerSelected = 0;
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-    this.quizGameForm.controls.quiz.setValue(String(this.quiz.id));
     this.currentQuestion = 0;
-    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
-    console.log(this.quizGameToCreate);
-    this.quizService.addQuizGame(this.quizGameToCreate);
     this.showQuestion = true;
     this.navigate();
-    this.correctAnswer(this.quiz.questions[this.currentQuestion]);
     this.showAnswer = false;
     this.synth = window.speechSynthesis;
   }
 
+  load(): void {
+    this.quizGameForm.controls.quiz.setValue(String(this.quiz.id));
+    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
+    this.quizService.addQuizGame(this.quizGameToCreate);
+    this.correctAnswer(this.quiz.questions[this.currentQuestion]);
+  }
 
   correctAnswer(options: QuestionDmla): void {
     if (options.answers.length > 0 && options.answers[0].isCorrect) {

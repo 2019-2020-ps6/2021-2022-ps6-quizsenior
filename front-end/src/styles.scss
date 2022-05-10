@@ -162,6 +162,14 @@ button {
 .button-mat:hover {
   color: transparent; }
 
+.button-matA {
+  color: #5533ff;
+  border: 0px transparent;
+  border-radius: .3rem;
+  transition: .3s ease-in-out;
+  transition-delay: .15s;
+  overflow: hidden; }
+
 
 .button-mat2 {
   color: $red;

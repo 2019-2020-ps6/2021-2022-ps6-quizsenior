@@ -6,6 +6,7 @@ import {ThemeService} from '../../../../services/theme.service';
   templateUrl: './menu-theme-alz.component.html',
   styleUrls: ['./menu-theme-alz.component.scss']
 })
+
 export class MenuThemeAlzComponent implements OnInit {
 
   public themeList: string[] = [];
@@ -19,9 +20,11 @@ export class MenuThemeAlzComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.themeService.setQuizzesALzFromUrl();
   }
 
   selectTheme(theme: string): void {
     this.themeService.setThemeAlz(theme);
   }
+
 }

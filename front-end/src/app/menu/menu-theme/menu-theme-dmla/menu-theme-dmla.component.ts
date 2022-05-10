@@ -19,6 +19,7 @@ export class MenuThemeDmlaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.themeService.setQuizzesDMLAFromUrl();
   }
 
   selectTheme(theme: string): void {

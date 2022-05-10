@@ -7,10 +7,10 @@
     </a>
     <div class="fullwidthwithborder" *ngIf="!showQuestion">
       <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
-        <button class="buttonS button-matS btn--7" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
+        <button class="buttonS button-matS " (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
           <div class="psuedo-text">{{listAnswer[i]}}</div>
         </button>
-        <button class="button button-mat btn--7" (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
+        <button class="button button-matA  " (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
           <div class="psuedo-text">{{listAnswer[i]}}</div>
         </button>
       </a>
