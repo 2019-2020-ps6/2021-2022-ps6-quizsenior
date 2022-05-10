@@ -8,7 +8,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer, Question} from '../../../models/question.model';
 import {BehaviorSubject} from 'rxjs';
 
-
 @Component({
   selector: 'app-edit-quiz',
   templateUrl: './quiz-game.component.html',
@@ -34,15 +33,6 @@ export class QuizGameComponent implements OnInit {
 
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizService) {
-    this.quizService.quizSelected$.subscribe((quiz) => {
-      this.quiz = quiz;
-    });
-    this.quizService.game$.subscribe((quizGame) => {
-      this.game = quizGame;
-    });
-    this.questions$.subscribe((question) => {
-      this.questions = question;
-    });
     this.quizGameForm = this.formBuilder.group({
       correctAnswers: ['0'],
       incorrectAnswers: ['0'],
@@ -50,15 +40,30 @@ export class QuizGameComponent implements OnInit {
       nbRepetition: ['1'],
       answers: [':']
     });
+    this.quizService.quizSelected$.subscribe((quiz) => {
+      this.quiz = quiz;
+      if (quiz != null) {
+        this.load();
+      }
+    });
+    this.quizService.game$.subscribe((quizGame) => {
+      this.game = quizGame;
+    });
+    this.questions$.subscribe((question) => {
+      this.questions = question;
+    });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-    this.quizGameForm.controls.nbRepetition.setValue(this.quizService.quizSelected$.getValue().nbRepetition); // this.score.nbRepetition);
-    this.quizGameForm.controls.quiz.setValue( String(this.quizService.quizSelected$.getValue().id));
+  }
+
+  load(): void{
+    this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition);
+    this.quizGameForm.controls.quiz.setValue( String(this.quiz.id));
     this.currentQuestion = 0;
-    this.questions$.next(this.createQuestions(this.quizService.quizSelected$.getValue().questions));
+    this.questions$.next(this.createQuestions(this.quiz.questions));
     this.shuffle();
     this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
     this.quizService.addQuizGame(this.quizGameToCreate);
