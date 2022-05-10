@@ -1,19 +1,19 @@
 <ng-container *ngIf="quiz && game">
   <div class="fullwidthwithborder">
     <div *ngIf="!end">
-      <h1 class="center">{{questions$.getValue()[0].label}}</h1>
-      <ng-container *ngIf="questions$.getValue()[0].image === 'true'">
-        <img class="image" alt="QuestionImage" src="{{questions$.getValue()[0].imageUrl}}">
+      <h1 class="center">{{questions[0].label}}</h1>
+      <ng-container *ngIf="questions[0].image === 'true'">
+        <img class="image" alt="QuestionImage" src="{{questions[0].imageUrl}}">
       </ng-container>
-      <ng-container *ngFor="let answer of questions$.getValue()[0].answers">
-        <button [ngClass]="answer.isCorrect && answerSelected ? 'button_correct button-mat2_correct btn--7' : 'button button-mat2 btn--7'" (click)="onAnswer(answer, questions$.getValue()[0])">
+      <ng-container *ngFor="let answer of questions[0].answers">
+        <button [ngClass]="answer.isCorrect && answerSelected ? 'button_correct button-mat2_correct btn--7' : 'button button-mat2 btn--7'" (click)="onAnswer(answer, questions[0])">
           <div class="psuedo-text2">{{answer.value}}</div>
         </button>
       </ng-container>
     </div>
     <div *ngIf="!end">
-      <ng-container *ngIf="alreadyAnswered(questions$.getValue()[0])">
-        <button class="button button-mat2 btn--7" style="float: right;" (click)="skip(questions$.getValue()[0])">
+      <ng-container *ngIf="alreadyAnswered(questions[0])">
+        <button class="button button-mat2 btn--7" style="float: right;" (click)="skip(questions[0])">
           <div class="psuedo-text2">Question suivante</div>
         </button>
       </ng-container>
