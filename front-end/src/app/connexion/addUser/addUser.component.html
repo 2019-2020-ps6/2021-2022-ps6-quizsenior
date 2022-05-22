@@ -1,20 +1,43 @@
-<h2>
-  Créez un utilisateur
-</h2>
-<form [formGroup]="userForm">
-  <input type="text" class="input-field" type="text" id="name" [formControlName]="'name'" value="" required/>
-  <label class="input-label">Nom de l'utilisateur</label>
-  <br>
-  <div class="input">
-    <input type="text" class="input-field" type="text" id="theme" [formControlName]="'picture'" value="" required/>
-    <label class="input-label">Url image</label>
+<ng-container>
+
+  <div class="header">
+    <button class="buttonR button-mat btn--7" routerLink="/connexion" >
+      <div class="psuedo-text">retour</div>
+    </button>
+    <button class="buttonA button-mat btn--7" routerLink="/select-desease">
+      <div class="psuedo-text">Accueil</div>
+    </button>
+    <div class="psuedo-text2"><a class="psuedo-text3">Menu de création utilisateurs</a></div>
   </div>
-  <br>
-  <select (change)="onChange($event)">
-    <option *ngFor="let v of values" [value]="v">{{v}}</option>
-  </select>
-</form>
-<br>
-<button class="bonttonAddUser" (click)="addUser()">Créer</button>
+
+  <div class="fullwidthwithborder">
+  <form class="form" [formGroup]="userForm">
+    <h2>
+      <p style="color:#3f51b5">Créez votre utilisateur</p>
+    </h2>
+    <div class="question">
+      <input type="text" class="input" type="text" id="name" [formControlName]="'name'" value="" required/>
+      <label class="label">Nom de l'utilisateur</label>
+    </div>
+    <div class="question">
+      <input type="text" class="input" type="text" id="theme" [formControlName]="'picture'" value="" required/>
+      <label class="label">Url image</label>
+    </div>
+    <br>
+    <select (change)="onChange($event)">
+      <option *ngFor="let v of values" [value]="v">{{v}}</option>
+    </select>
+    <br>
+    <button class="button" (click)="addUser()">Créer</button>
+  </form>
+  </div>
+</ng-container>
+
+
+
+
+
+
+
 
 

@@ -12,7 +12,7 @@
   <div class="fullwidthwithborder">
     <div>
       <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
-        <button class="button button-mat2 btn--7" (click)="selectQuestionnaire(questionnaire)" routerLink="menuQuestionnaireAlz"><div class="psuedo-text2">{{questionnaire}}</div></button>
+        <button class="button button-mat2 btn--7" (click)="selectQuestionnaire(questionnaire)" routerLink="menuQuestionnaire"><div class="psuedo-text2">{{questionnaire}}</div></button>
       </a>
     </div>
   </div>

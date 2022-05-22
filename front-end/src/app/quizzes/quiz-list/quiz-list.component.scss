@@ -1,6 +1,12 @@
 @import '../../../styles/card.scss';
 @import '../../../styles.scss';
 
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 .quiz-list {
   display: flex;
@@ -15,8 +21,6 @@
   top: 17%;
   height: 83%;
   width: 100%;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 div.containercenter {
@@ -36,7 +40,6 @@ div.containerlist {
   position: relative; //a changer pour modifier la taille des carrés noirs
   top: 300%;
   left: 50%;
-  margin-right: -50%;
   transform: translate(-50%, -50%) }
 
 
