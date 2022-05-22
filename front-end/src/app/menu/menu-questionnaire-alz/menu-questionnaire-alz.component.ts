@@ -79,7 +79,7 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
     this.quizSelec = this.QuestionnairealzService.getQuestionnaireId(this.QuestionnairealzService.questionnaireSelected$.value);
 
     this.quizGameForm.controls.nbRepetition.setValue(String(this.quizSelec.nbRepetition));
-    
+
     this.quizGameForm.controls.quizId.setValue(String(this.quizSelec._id));
     this.quizGameForm.controls.type.setValue(String(this.user.type));
     this.quizGameForm.controls.userId.setValue(String(this.user._id));
