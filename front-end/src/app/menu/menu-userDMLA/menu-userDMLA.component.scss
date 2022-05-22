@@ -1,20 +1,21 @@
 @import '../../../styles.scss';
 @import '../../../styles/modelTypeMoche.scss';
+@import '../../../styles/card.scss';
 
 body {
-  background: linear-gradient(to bottom right, $red, #5533ff);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: $degradé1;
+  //background-size: cover;
+  //background-repeat: no-repeat;
   position: fixed;
-  left: 0;
-  top: 0;
+  //left: 0;
+  //top: 0;
   height: 100%;
   width: 100%;
-  //overflow-y: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   display: flex;
   //border: dashed black;
-
+  flex-direction: column;
 }
 
 
