@@ -1,11 +1,11 @@
 
 export interface QuizGame {
-  id: string;
+  _id: string;
   correctAnswers: string;
   incorrectAnswers: string;
-  quiz: string;
-  nbRepetition: string;
-  answers: string;
-  // userModel?: string;
-  // answersDmla: Map<string, string>;
+  quizId: string;
+  userId: string;
+  type: string;
+
+  nbRepetition?: string;
 }

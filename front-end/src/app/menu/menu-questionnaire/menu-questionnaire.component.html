@@ -1,6 +1,6 @@
 <ng-container>
   <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/menuTheme/menuThemeDmla" >
+    <button class="buttonR button-mat btn--7" routerLink="/menuTheme/menuThemeDmla">
       <div class="psuedo-text">retour</div>
     </button>
     <button class="buttonA button-mat btn--7" routerLink="/select-desease">
@@ -10,10 +10,12 @@
   </div>
   <div class="fullwidthwithborder">
     <div>
-    <a *ngFor="let questionnaire of questionnaireList">
-      <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)"><div class="psuedo-text">{{questionnaire}}</div></button>
-    </a>
-  </div>
+      <a *ngFor="let questionnaire of questionnaireList">
+        <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)">
+          <div class="psuedo-text">{{questionnaire}}</div>
+        </button>
+      </a>
+    </div>
   </div>
 </ng-container>
 

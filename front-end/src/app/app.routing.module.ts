@@ -20,18 +20,27 @@ import {MenuUserALZComponent} from './menu/menu-userALZ/menu-userALZ.component';
 import {AddUserComponent} from './connexion/addUser/addUser.component';
 import {MenuSuperUserComponent} from './menu/menu-superUser/menu-superUser.component';
 import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
-import {QuizListDmla2Component} from "./quizzesDmla/quiz-listDmla2/quiz-listDmla2.component";
+import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
 
 const routes: Routes = [
   {path: 'connexion', component: UserListComponent},
 
+  // DMLA
   {path: ':idUser/menuDMLA', component: MenuUserDMLAComponent},
   {path: ':idUser/menuDMLA/Theme', component: MenuThemeDmlaComponent},
   {path: ':idUser/menuDMLA/:theme/choixQuiz', component: MenuQuestionnaireComponent},
 
+  // ALZ
+  {path: ':idUser/menuALZ', component: MenuUserALZComponent},
+  {path: ':idUser/menuALZ/Theme', component: MenuThemeAlzComponent},
+  {path: ':idUser/menuALZ/:theme/choixQuiz', component: MenuQuestionnaireComponent},
+
+
   {path: 'quiz-gameDmla/:idGame', component: QuizGameDmlaComponent},
 
-  {path: ':idUser/menuUserALZ', component: MenuUserALZComponent},
+
+
+
   // {path: ':idUser/menuDMLA/Theme', component: MenuThemeDmlaComponent},  A FAIRE !!
   // {path: ':idUser/menuDMLA/:theme/choixQuiz', component: MenuQuestionnaireComponent},  A FAIRE !!
 
@@ -42,9 +51,6 @@ const routes: Routes = [
   {path: 'quiz-game/:id', component: QuizGameComponent},
   {path: 'quiz-listDmla', component: QuizListDmlaComponent},
   {path: 'edit-quizDmla/:id', component: EditQuizDmlaComponent},
-
-
-  {path: 'menuTheme/menuThemeAlz', component: MenuThemeAlzComponent},
 
   {path: 'menu/menuQuestionnaireAlz', component: MenuQuestionnaireAlzComponent},
   {path: 'menu-score', component: MenuScoreComponent},

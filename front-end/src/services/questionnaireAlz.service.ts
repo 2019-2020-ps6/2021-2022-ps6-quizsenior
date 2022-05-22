@@ -36,14 +36,13 @@ export class QuestionnaireAlzService {
   }
 
   setQuizzesFromUrlWithTheme(theme: string): void {
-    this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList: Quiz[]) => {
+    const questionUrl = 'http://localhost:3001/api/quizzesALZ/theme/' + theme;
+    this.http.get<Quiz[]>(questionUrl).subscribe((quizList: Quiz[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
-        if (quizList[i].theme === theme) {
-          this.allquiz.push(quizList[i]);
-          this.listQuestionnaire.push(quizList[i].name);
-          this.listQuestionnaire$.next(this.listQuestionnaire);
-        }
+        this.allquiz.push(quizList[i]);
+        this.listQuestionnaire.push(quizList[i].name);
+        this.listQuestionnaire$.next(this.listQuestionnaire);
       }
     })
 

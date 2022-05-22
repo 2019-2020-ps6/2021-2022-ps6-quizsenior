@@ -60,7 +60,7 @@ export class ThemeService {
   }
 
   setQuizzesALzFromUrl(): void {
-    this.http.get<Quiz[]>(this.quizUrlAlz).subscribe((quizList: Quiz[]) => {
+    this.http.get<Quiz[]>('http://localhost:3001/api/quizzesALZ').subscribe((quizList: Quiz[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
         if (this.isThemeInListThemeAlz(quizList[i].theme)) {

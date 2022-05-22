@@ -51,10 +51,7 @@ export class QuizServiceDmla {
   }
 
   setQuizzesFromUrl(): void {
-    console.log('JE SUIS LA');
     this.http.get<QuizDmla[]>('http://localhost:3001/api/quizzesDmla').subscribe((quizList) => {
-      console.log('quizList: ', quizList);
-
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
     });
@@ -100,6 +97,7 @@ export class QuizServiceDmla {
   }
 
 
+
   setQuizGamesFromUrl(): void {
     this.http.get<QuizGameDmla[]>('http://localhost:3001/api/quizGames/').subscribe((quizGameList) => {
       this.quizGames = quizGameList;
@@ -123,7 +121,6 @@ export class QuizServiceDmla {
 
   updateQuizGame(quizGame: QuizGameDmla): void {
     const urlWithId = 'http://localhost:3001/api/quizGames/' + quizGame._id;
-    console.log('urlWithId: ', urlWithId);
     this.http.put<QuizGameDmla>(urlWithId, quizGame, this.httpOptions).subscribe(() => null);
   }
 

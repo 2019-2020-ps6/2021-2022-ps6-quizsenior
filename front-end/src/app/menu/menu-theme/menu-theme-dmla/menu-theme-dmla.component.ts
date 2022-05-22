@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ThemeService} from '../../../../services/theme.service';
 import {UserService} from '../../../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {QuestionnaireService} from "../../../../services/questionnaire.service";
-import {QuizServiceDmla} from "../../../../services/quizDmla.service";
+import {QuestionnaireService} from '../../../../services/questionnaire.service';
+import {QuizServiceDmla} from '../../../../services/quizDmla.service';
 
 @Component({
   selector: 'app-menu-theme-menu-theme-dmla',

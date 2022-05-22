@@ -21,7 +21,6 @@ export class MenuQuestionnaireComponent implements OnInit {
   public questionnaireList: string[] = [];
 
   public quizGameForm: FormGroup;
-  public linkToQuiz = '/quiz-gameDmla/';
 
   public quizSelec: QuizDmla;
   public user: User;

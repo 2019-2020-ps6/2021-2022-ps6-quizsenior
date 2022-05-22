@@ -59,8 +59,6 @@ export class QuestionnaireService {
 
   cleanList(): void {
     this.listQuestionnaire = [];
-    this.allquiz = [];
-    this.listQuestionnaire$.next(null);
   }
 
   getQuestionnaireId(questionnaire: string): QuizDmla {
