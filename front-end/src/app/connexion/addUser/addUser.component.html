@@ -28,7 +28,7 @@
       <option *ngFor="let v of values" [value]="v">{{v}}</option>
     </select>
     <br>
-    <button class="button" (click)="addUser()">Créer</button>
+    <button class="button" (click)="addUser()" [disabled]="userForm.invalid">Créer</button>
   </form>
   </div>
 </ng-container>
