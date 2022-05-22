@@ -61,7 +61,7 @@ export class QuizGameComponent implements OnInit {
 
   load(): void{
     this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition);
-    this.quizGameForm.controls.quiz.setValue( String(this.quiz.id));
+    this.quizGameForm.controls.quiz.setValue( String(this.quiz._id));
     this.currentQuestion = 0;
     this.questions$.next(this.createQuestions(this.quiz.questions));
     this.shuffle();
@@ -137,7 +137,7 @@ export class QuizGameComponent implements OnInit {
 
   onAnswer(option: Answer, question: Question): void {
     const answer = question.label + ',' + option.value + ':' ;
-    this.game.answers += answer;
+    // this.game.answers += answer;
     this.answerSelected = true;
     setTimeout(() => {
       this.answerSelected = false;

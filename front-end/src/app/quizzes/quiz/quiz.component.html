@@ -1,17 +1,15 @@
-<div class="container">
-  <div class="card__container">
+<body>
     <div class="card">
       <div class="card__content">
-        <h3 class="card__header">{{quiz.name}}</h3>
-        <p class="card__info">
+        <div>
+          <h3>{{quiz.name}}</h3>
            {{quiz.theme}}
           <br>
           Nb de questions : {{quiz.questions.length}}
-        </p>
-        <button class="card__button" routerLink="/quiz-game/{{quiz.id}}">Select</button>
+        </div>
+        <button class="card__button" routerLink="/quiz-game/{{quiz._id}}">Select</button>
         <button class="card__button" (click)="delete()">Delete</button>
-        <button class="card__button" routerLink="../edit-quiz/{{quiz.id}}">Edit</button>
+        <button class="card__button" routerLink="../edit-quiz/{{quiz._id}}">Edit</button>
       </div>
     </div>
-  </div>
-</div>
+</body>
