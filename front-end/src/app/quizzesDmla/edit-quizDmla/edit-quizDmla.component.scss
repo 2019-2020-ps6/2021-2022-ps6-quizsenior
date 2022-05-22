@@ -1,5 +1,6 @@
 @import '../../../styles/card.scss';
 @import '../../../styles.scss';
+@import "../../../styles/modelTypeMoche";
 
 
 div.containercenter {
@@ -24,6 +25,90 @@ div.containercenter {
   width: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
+}
+
+body {
+  background: $degradé1;
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: fixed;
+  //left: 0;
+  //top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  display: flex;
+  //border: dashed black;
+
+  flex-direction: column;
+}
+
+.quiz-list {
+  display: flex;
+  margin-top: 1em;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  //border: solid pink;
+}
+
+.card {
+  width: 70%;
+  height: 95%;
+  max-height: 300px;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(#999, .25);
+
+  &__container {
+    display: grid;
+    width: 300%; //largeur cases grises
+    height: 310%;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    color: white;
+    font-size: 14px;
+
+  }
+
+  &__content {
+    width: 90%;
+    height: 95%;
+    background: #191a19;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 8px 8px 22px #0a0a0a,
+    -8px -8px 22px #282a28;
+    transition: 0.3s all ease-in-out;
+
+    &:hover {
+      margin-top: -10px;
+    }
+  }
+
+  &__header {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 15px auto;
+  }
+
+  &__button {
+    padding: 10px;
+    border-radius: 50px;
+    background: #6658d3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+
+  }
 }
 
 ///

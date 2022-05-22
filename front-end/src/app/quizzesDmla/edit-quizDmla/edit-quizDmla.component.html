@@ -1,23 +1,25 @@
-<ng-container class="flex-1">
-  <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/quiz-listDmla" >
-      <div class="psuedo-text">Retour</div>
-    </button>
-    <button class="buttonA button-mat btn--7" routerLink="/select-desease">
-      <div class="psuedo-text">Accueil</div>
-    </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Menu de création de questions</a></div>
+<body>
+<div class="barre1">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="/menu/menuSuperUser">
+    <div class="psuedo-text">retour</div>
+  </button>
+  <div class="barre2">
+    <a class="titlePsuedo-text">Création de quiz pour la DMLA</a>
   </div>
+</div>
 
-  <div class="fullwidthwithborder">
-  <ng-container *ngIf="quiz">
-    <div class="containercenter">
+<div class="creationQuiz">
+  <div class="creationQuizCompo">
     <h2>
       <p style="color:white">Quiz : {{quiz.name}}</p>
     </h2>
-  <app-question-formdmla [quiz]="quiz"></app-question-formdmla>
-  <app-question-listdmla [quiz]="quiz"></app-question-listdmla>
-    </div>
-</ng-container>
+
+    <app-question-formdmla [quiz]="quiz"></app-question-formdmla>
+    <app-question-listdmla class="button-matA" [quiz]="quiz"></app-question-listdmla>
   </div>
-</ng-container>
+</div>
+
+</body>
+
+
+
