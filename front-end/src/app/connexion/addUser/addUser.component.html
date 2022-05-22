@@ -1,16 +1,14 @@
-<ng-container>
+<body>
 
-  <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/connexion" >
+  <div class="barre1">
+    <button class="buttonSmall button-mat btn--7" routerLink="/connexion">
       <div class="psuedo-text">retour</div>
     </button>
-    <button class="buttonA button-mat btn--7" routerLink="/select-desease">
-      <div class="psuedo-text">Accueil</div>
-    </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Menu de création utilisateurs</a></div>
+    <div class="barre2">
+      <a class="titlePsuedo-text">Menu de création utilisateurs</a>
+    </div>
   </div>
 
-  <div class="fullwidthwithborder">
   <form class="form" [formGroup]="userForm">
     <h2>
       <p style="color:#3f51b5">Créez votre utilisateur</p>
@@ -24,14 +22,14 @@
       <label class="label">Url image</label>
     </div>
     <br>
-    <select (change)="onChange($event)">
-      <option *ngFor="let v of values" [value]="v">{{v}}</option>
+    <select class="select" style="color:#3f51b5" (change)="onChange($event)">
+      <option *ngFor="let v of values" style="color:#3f51b5" [value]="v">{{v}}</option>
     </select>
     <br>
     <button class="button" (click)="addUser()" [disabled]="userForm.invalid">Créer</button>
   </form>
-  </div>
-</ng-container>
+
+</body>
 
 
 
