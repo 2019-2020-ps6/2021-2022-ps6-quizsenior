@@ -1,5 +1,6 @@
 @import '../../../styles/card.scss';
 @import '../../../styles.scss';
+@import '../../../styles/modelTypeMoche.scss';
 
 
 .fullwidthwithborder {
@@ -16,6 +17,22 @@
 
 /////////////////////////////////
 
+body {
+  background: $degradé1;
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: fixed;
+  //left: 0;
+  //top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  display: flex;
+  //border: dashed black;
+
+  flex-direction: column;
+}
 
 
 

@@ -1,22 +1,20 @@
-<ng-container>
-  <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/menuTheme/menuThemeDmla">
-      <div class="psuedo-text">retour</div>
-    </button>
-    <button class="buttonA button-mat btn--7" routerLink="/select-desease">
-      <div class="psuedo-text">Accueil</div>
-    </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Choisissez votre Questionnaire</a></div>
+<body>
+<div class="barre1">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="/menuTheme/menuThemeDmla">
+    <div class="psuedo-text">retour</div>
+  </button>
+  <div class="barre2">
+    <a class="titlePsuedo-text">Choisissez votre Questionnaire</a>
   </div>
-  <div class="fullwidthwithborder">
-    <div>
-      <a *ngFor="let questionnaire of questionnaireList">
-        <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)">
-          <div class="psuedo-text">{{questionnaire}}</div>
-        </button>
-      </a>
-    </div>
-  </div>
-</ng-container>
+</div>
+
+<div>
+  <a *ngFor="let questionnaire of questionnaireList">
+    <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)"><div class="psuedo-text">{{questionnaire}}</div></button>
+  </a>
+</div>
+
+</body>
+
 
 
