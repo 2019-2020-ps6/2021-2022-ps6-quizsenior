@@ -90,8 +90,7 @@ button {
   width: 100%;
   display: inline;
   height: auto;
-  font-size: 1.7rem;
-  font-size: 700;
+  font-size: 80%;
   transition: .25s ease-in;
   transition-delay: .05s; }
 
@@ -104,7 +103,6 @@ button {
   display: inline;
   height: auto;
   font-size: 1.7rem;
-  font-size: 700;
   transition: .25s ease-in;
   transition-delay: .05s; }
 
@@ -119,6 +117,14 @@ button {
   font-size: 1.8rem;
   transition: .25s ease-in;
   transition-delay: .05s; }
+
+.titlePsuedo-text {
+  color: #F5F5F5;
+  //border: dashed blue;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
 
 .flex-1 {
   //flex: 0px;
@@ -139,6 +145,28 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
+  will-change: transform; }
+
+.buttonSmall {
+  margin: 1%;
+  height: 48%;
+  width: 20%;
+  display: inline-block;
+  background: #F5F5F5;
+
+  border-radius: 10px;
+  color: black;
+  text-transform: uppercase;
+
+  letter-spacing: .1rem;
+  transition: all .15s;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: $police;
   will-change: transform; }
 
 .button-mat {
@@ -273,6 +301,23 @@ button {
   position: fixed;
   left: 12%;
   top: 5%;
+}
+
+.main-contain{
+    background: linear-gradient(to top right,#5E428C, #845EC2, #00C9B7,#26C28B);
+    //background-size: cover;
+    //background-repeat: no-repeat;
+    position: fixed;
+    //left: 0;
+    //top: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    //border: dashed black;
+
+    flex-direction: column;
 }
 
 

@@ -1,17 +1,18 @@
-<img class='image' alt="QuestionImage" src="{{user.picture}}">
+<img class="image button-matA" *ngIf="user.picture.includes('http')" src="{{user.picture}}">
+<img class="image button-matA" *ngIf="!user.picture.includes('http')" src="https://fnege-medias.fr/wp-content/uploads/2021/07/user.jpg">
 <div>{{user.name}}</div>
 <ng-container *ngIf="user.type === 'DMLA'">
   <div class="bonttons">
-    <button class="bouttonConnextionUser" (click)="userSelected()" routerLink="/{{user._id}}/menuDMLA">Connexion
+    <button class="bouttonConnextionUser btn-3" (click)="userSelected()" routerLink="/{{user._id}}/menuDMLA">Connexion
     </button>
-    <button class="bouttonSupprimerUser" (click)="deleteUser()">Supprimer</button>
+    <button class="bouttonSupprimerUser btn-3" (click)="deleteUser()">Supprimer</button>
   </div>
 </ng-container>
 <ng-container *ngIf="user.type === 'Alzheimer'">
   <div class="bonttons">
-    <button class="bouttonConnextionUser" (click)="userSelected()" routerLink="/{{user._id}}/menuUserALZ">Connexion
+    <button class="bouttonConnextionUser btn-3" (click)="userSelected()" routerLink="/{{user._id}}/menuUserALZ">Connexion
     </button>
-    <button class="bouttonSupprimerUser" (click)="deleteUser()">Supprimer</button>
+    <button class="bouttonSupprimerUser btn-3" (click)="deleteUser()">Supprimer</button>
   </div>
 </ng-container>
 

@@ -1,11 +1,13 @@
 @import '../../../styles/card.scss';
 @import '../../../styles.scss';
+
 .center {
   text-align: center;
   margin: 5%;
   overflow-inline: scroll;
   line-height: 6rem;
 }
+
 .button_correct {
   color: white;
   width: 48%;
@@ -18,7 +20,8 @@
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  will-change: transform; }
+  will-change: transform;
+}
 
 .button-mat2_correct {
   color: #008BC6;
@@ -26,38 +29,42 @@
   border-radius: .3rem;
   transition: .3s ease-in-out;
   transition-delay: .15s;
-  overflow: hidden; }
+  overflow: hidden;
+}
+
 .button-mat2_correct:before {
   content: '';
   display: block;
-  background:  #32CD32;
+  background: #32CD32;
   position: absolute;
   width: 200%;
   height: 500%;
   border-radius: 100%;
-  transition: 0.16s cubic-bezier(0.4, 0, 1, 1); }
+  transition: 0.16s cubic-bezier(0.4, 0, 1, 1);
+}
+
 .button-mat2_correct:hover {
-  color: transparent; }
-.button_correct>.psuedo-text2{
+  color: transparent;
+}
+
+.button_correct > .psuedo-text2 {
   color: white;
 }
 
-.whiteBox{
+.whiteBox {
   background-color: $white;
-  font-family: Verdana, sans-serif ;
+  font-family: Verdana, sans-serif;
   text-align: center;
-  width:45%;
-  height:45%;
+  width: 45%;
+  height: 45%;
   padding: 5%;
   margin-top: 10%;
-  margin-bottom:3%;
+  margin-bottom: 3%;
   margin-left: 22.5%;
 }
 
 
-
-
-.fullwidthwithborder{
+.fullwidthwithborder {
   background-color: $grey;
   position: fixed;
   left: 0;
@@ -67,7 +74,7 @@
   z-index: 1000000;
 }
 
-.fullwidth{
+.fullwidth {
   position: fixed;
   left: 0;
   margin-top: 30%;
@@ -77,9 +84,20 @@
   z-index: 1000000;
 }
 
-.image{
+.image {
   display: block;
   margin: 3% auto 5%;
   width: 30%;
+  border-radius: .3rem;
 }
+
+.image-mat {
+  border: 0px transparent;
+  border-radius: .3rem;
+  transition: .3s ease-in-out;
+  transition-delay: .15s;
+  overflow: hidden;
+}
+
+
 

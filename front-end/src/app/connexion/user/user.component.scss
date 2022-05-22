@@ -17,7 +17,8 @@ img {
   font-weight: 100;
   font-family: $police;
 
-  border: solid black;
+  //border: solid black;
+  will-change: transform;
 }
 
 .bouttonSupprimerUser {
@@ -29,11 +30,12 @@ img {
   color: red;
   border-radius: 10px;
 
-  border: solid black;
+  //border: solid black;
 
   font-size: 90%;
   font-weight: 100;
   font-family: $police;
+  will-change: transform;
 }
 
 

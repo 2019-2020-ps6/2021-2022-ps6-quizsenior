@@ -3,7 +3,7 @@
 .barre1 {
   top: 0;
   position: static;
-  background: linear-gradient(to bottom right, #32CD32, #008BC6);
+  background: $degradé2;
   width: 100%;
   height: 12%;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0, 0, 0, 0.12);
@@ -25,11 +25,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  border: dashed red;
+  //border: dashed red;
 }
 
 .newTitle {
-  border: dashed blue;
+  //border: dashed blue;
   text-transform: uppercase;
   font-size: 150%;
   font-weight: 600;

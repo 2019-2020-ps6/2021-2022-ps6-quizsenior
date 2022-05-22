@@ -2,10 +2,10 @@
 
 <div class="barre1">
   <div class="barre2">
-    <a class="newTitle">Utilisateur</a>
+    <a class="titlePsuedo-text">Utilisateur</a>
   </div>
-  <button class="boutonMenu20Rouge" routerLink="/menu/menuSuperUser">
-    <div>Administration</div>
+  <button class="buttonSmall button-mat btn--7" routerLink="/menu/menuSuperUser">
+    <div class="psuedo-text">Administration</div>
   </button>
 </div>
 
@@ -16,7 +16,11 @@
     <!--                    (editQuiz)="editQuiz($event)"></app-user>-->
     <app-user [user]="user"></app-user>
   </div>
-  <button class="bouttonAddUser" routerLink="/ajoutUser">Ajouter un utilisateur</button>
+
+  <button class="bouttonAddUser btn-3" routerLink="/ajoutUser">Ajouter un utilisateur
+    <img class="icone" src="Abstract_Add_1%20copy%203.png">
+  </button>
+
 </div>
 
 </body>
