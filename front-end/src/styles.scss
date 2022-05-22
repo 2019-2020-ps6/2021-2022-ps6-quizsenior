@@ -124,6 +124,7 @@ button {
   text-transform: uppercase;
   font-size: 1.8rem;
   font-weight: 600;
+  -webkit-text-stroke: 0.75px purple;
 }
 
 .flex-1 {
@@ -230,10 +231,10 @@ button {
   transition: .3s ease-in-out;
   border-radius: .3rem;
   z-index: 1;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.23); }
 .btn-3:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  transform: scale(0.95); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: scale(0.975); }
 
 
 .btn--5 {
@@ -319,6 +320,19 @@ button {
 
     flex-direction: column;
 }
+
+.namePsuedo-text{
+  color: #F5F5F5;
+  //border: dashed blue;
+  //text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+
+  font-family: "Fira Sans", Verdana, sans-serif;
+}
+
+
+
 
 
 

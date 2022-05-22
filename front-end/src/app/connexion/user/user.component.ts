@@ -12,15 +12,25 @@ export class UserComponent implements OnInit {
 
   @Input()
   user: User;
+  supprimer: boolean;
 
   constructor(public userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.supprimer = false;
   }
 
   deleteUser(): void {
     this.userService.deleteUser(this.user);
+  }
+
+  verification(): void {
+    this.supprimer = true;
+  }
+
+  Cancel(): void {
+    this.supprimer = false;
   }
 
   userSelected(): void {
