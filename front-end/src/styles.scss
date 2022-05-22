@@ -1,4 +1,4 @@
-@import './styles/variables.scss';
+@import 'variables';
 
 
 /* You can add global styles to this file, and also import other style files */
@@ -237,19 +237,7 @@ button {
   transform: scale(0.975); }
 
 
-.btn--5 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-.btn--5:before {
-  transform: translate(-120%, -50%) translateZ(0); }
-.btn--5:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
 
-.btn--6 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-.btn--6:before {
-  transform: translate(40%, -50%) translateZ(0); }
-.btn--6:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
 
 .btn--7 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
@@ -258,12 +246,6 @@ button {
 .btn--7:hover:before {
   transform: translate(-45%, -34%) translateZ(0); }
 
-.btn--8 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-.btn--8:before {
-  transform: translate(30%, 10%) translateZ(0); }
-.btn--8:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
 
 //
 
@@ -330,6 +312,7 @@ button {
 
   font-family: "Fira Sans", Verdana, sans-serif;
 }
+
 
 
 
