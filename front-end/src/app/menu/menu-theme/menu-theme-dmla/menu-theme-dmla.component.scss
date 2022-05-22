@@ -54,19 +54,29 @@ button {
 
 
 
+
+
 .buttonT {
-  position: fixed;
-  margin: 1% 1% 1% 1%;
-  left: 44vw;
-  padding: 0.4rem;
+  margin: 1%;
+  height: 48%;
+  width: 12%;
+  display: inline-block;
   background: #F5F5F5;
-  text-align: center;
-  //display: inline-block;
-  font-size: 1.7rem;
+
+  border-radius: 10px;
+  color: black;
   text-transform: uppercase;
-  font-weight: 600;
+
+  letter-spacing: .1rem;
+  transition: all .15s;
   position: relative;
-  will-change: transform; }
+  overflow: visible;
+  z-index: 1;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: $police;
+  will-change: transform;  }
 
 
 
