@@ -3,7 +3,8 @@
 
 
 .user{
-  width: 10.975em;
+  width: 16.7%;
+  min-width: 10.975em;
   height: 95%;
   max-height: 300px;
   text-align: center;
@@ -13,7 +14,8 @@
   border-width : 1px;
 
   margin: 1em;
-  padding: 0.2em;
+  padding: 0.2rem;
+  padding-top: 1em;
   will-change: transform;
 }
 

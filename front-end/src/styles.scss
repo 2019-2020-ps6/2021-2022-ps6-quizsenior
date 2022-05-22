@@ -170,6 +170,30 @@ button {
   font-family: $police;
   will-change: transform; }
 
+
+.buttonSmall10 {
+  margin: 1%;
+  height: 48%;
+  width: 10%;
+  display: inline-block;
+  background: #F5F5F5;
+
+  border-radius: 10px;
+  color: black;
+  text-transform: uppercase;
+
+  letter-spacing: .1rem;
+  transition: all .15s;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: $police;
+  will-change: transform; }
+
+
 .button-mat {
   color: #5533ff;
   border: 0px transparent;
