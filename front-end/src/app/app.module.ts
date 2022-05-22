@@ -31,10 +31,32 @@ import {SelectDeseaseComponent} from './menu/select-desease/select-desease.compo
 import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
 import {ScoreComponent} from './scores/score/score.component';
 import {TutoComponent} from './tuto/tuto.component';
+import {UserComponent} from './connexion/user/user.component';
+import {UserListComponent} from './connexion/user-list/user-list.component';
+import {MenuUserDMLAComponent} from './menu/menu-userDMLA/menu-userDMLA.component';
+import {MenuUserALZComponent} from './menu/menu-userALZ/menu-userALZ.component';
+import {AddUserComponent} from './connexion/addUser/addUser.component';
+import {SuperUserComponent} from './connexion/superUser/superUser.component';
+import {MenuSuperUserComponent} from './menu/menu-superUser/menu-superUser.component';
+import {UserMenuScoreComponent} from './menu/userMenuScore/userMenuScore.component';
+import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
+import {DetailScoreDMLAComponent} from './scores/detailScoreDMLA/detailScoreDMLA.component';
+import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
 
 
 @NgModule({
   declarations: [
+    QuizListDmla2Component,
+    DetailScoreDMLAComponent,
+    ScoreDMLAListComponent,
+    UserMenuScoreComponent,
+    MenuSuperUserComponent,
+    SuperUserComponent,
+    AddUserComponent,
+    MenuUserALZComponent,
+    MenuUserDMLAComponent,
+    UserComponent,
+    UserListComponent,
     QuestionListDmlaComponent,
     QuestionFormDmlaComponent,
     QuestionDmlaComponent,

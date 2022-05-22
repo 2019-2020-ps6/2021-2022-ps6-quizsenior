@@ -1,0 +1,18 @@
+<body>
+<div class="barre1">
+  <button class="boutonMenu11Rouge" routerLink="/menu/menuSuperUser">
+    <div>retour</div>
+  </button>
+  <div class="barre2">
+    <a *ngIf="user" class="newTitle">{{user.name}}</a>
+  </div>
+</div>
+
+<div class="bodyScore">
+  <a *ngFor="let g of listScoreDMLA">
+    <div>
+      <app-detailscoredmla [setGameDMLA]="g"></app-detailscoredmla>
+    </div>
+  </a>
+</div>
+</body>

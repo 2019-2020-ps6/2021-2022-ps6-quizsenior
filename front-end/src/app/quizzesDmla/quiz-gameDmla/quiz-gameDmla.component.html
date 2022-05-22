@@ -19,18 +19,18 @@
   <div class="fullwidthwithborder2"  *ngIf="currentQuestion>= quiz.questions.length">
     <div class="psuedo-text3" >
       <br>
-    Bonne réponse: {{quizGameToCreate.correctAnswers}}
+    Bonne réponse: {{gameDMLA.correctAnswers}}
       <br>
       <br>
-    Mauvaise réponse: {{quizGameToCreate.incorrectAnswers}}
+    Mauvaise réponse: {{gameDMLA.incorrectAnswers}}
       <br>
       <br>
       <br>
     </div>
-    <button class="buttonC button-matC btn--7" routerLink="/select-desease" >
+    <button class="buttonC button-matC btn--7" routerLink="/{{user._id}}/menuDMLA" >
       <div class="psuedo-text3">Accueil</div>
     </button>
-    <button class="buttonC button-matC btn--7" routerLink="/menuTheme/menuThemeDmla" >
+    <button class="buttonC button-matC btn--7" routerLink="/{{user._id}}/menuDMLA/Theme" >
       <div class="psuedo-text3">Changer de quiz</div>
     </button>
 

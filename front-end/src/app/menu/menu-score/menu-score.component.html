@@ -1,19 +1,53 @@
-<ng-container>
-  <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/select-desease" >
-      <div class="psuedo-text">retour</div>
-    </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Scores
-      <br>Choisissez un score
-    </a></div>
+<body>
+<div class="barre1">
+  <button class="boutonMenu11Rouge" routerLink="/menu/menuSuperUser">
+    <div>retour</div>
+  </button>
+  <div class="barre2">
+    <a class="newTitle">Historique</a>
   </div>
-  <div class="fullwidthwithborder">
-    <div>
-      <a *ngFor="let game of quizGames" >
-        <button class="button button-mat btn--7" (click)="selectGame(game)" routerLink="{{game.id}}"><div class="psuedo-text">{{buildDate(game.id)}}</div></button>
-      </a>
-    </div>
-  </div>
-</ng-container>
+</div>
 
+
+<div class="newHeaderRecherche">
+  <form action="" class="listUserRecherche">
+    Recherche utilisateur :
+    <input type="text" list="personne" id="recherche" value="" (change)="loadScore($event)">
+    <datalist id="personne">
+      <option *ngFor="let u of user">{{u.name}}</option>
+    </datalist>
+  </form>
+</div>
+
+<!--<div class="listUser">-->
+<!--  <div class="user" *ngFor="let user of user">-->
+<!--    <app-usermenuscore [user]="user"></app-usermenuscore>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--  <div>-->
+<!--    <div>-->
+<!--      <a *ngFor="let game of quizGames">-->
+<!--        <button>-->
+<!--          <div>type: {{game.type}}  incorrectAnswers: {{game.incorrectAnswers}}-->
+<!--            correctAnswers: {{game.correctAnswers}}  userId: {{game.userId}} quizId: {{game.quizId}}</div>-->
+<!--        </button>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+</body>
+
+
+<!--<body>-->
+<!--<header class="main-head">-->
+
+<!--  <button routerLink="/select-desease">-->
+<!--    <div class="NewButtonRetour">retour</div>-->
+<!--  </button>-->
+
+<!--  <h1 class="titre">-->
+<!--    <a class="newTitle"> Scores </a>-->
+<!--  </h1>-->
+<!--</header>-->
+<!--</body>-->
 

@@ -1,0 +1,20 @@
+<h2>
+  Créez un utilisateur
+</h2>
+<form [formGroup]="userForm">
+  <input type="text" class="input-field" type="text" id="name" [formControlName]="'name'" value="" required/>
+  <label class="input-label">Nom de l'utilisateur</label>
+  <br>
+  <div class="input">
+    <input type="text" class="input-field" type="text" id="theme" [formControlName]="'picture'" value="" required/>
+    <label class="input-label">Url image</label>
+  </div>
+  <br>
+  <select (change)="onChange($event)">
+    <option *ngFor="let v of values" [value]="v">{{v}}</option>
+  </select>
+</form>
+<br>
+<button class="bonttonAddUser" (click)="addUser()">Créer</button>
+
+

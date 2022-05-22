@@ -18,7 +18,7 @@
   <div class="fullwidthwithborder">
    <div>
       <a *ngFor="let theme of themeList">
-        <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="/menu/menuQuestionnaire"><div class="psuedo-text">{{theme}}</div></button>
+        <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="../{{theme}}/choixQuiz"><div class="psuedo-text">{{theme}}</div></button>
       </a>
     </div>
   </div>

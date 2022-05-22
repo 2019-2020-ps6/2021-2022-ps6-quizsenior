@@ -1,0 +1,95 @@
+@import "./variables";
+
+////Boutton bleu
+
+body {
+  background: linear-gradient(to bottom right, rgba(255, 74, 86, 1), #5533ff);
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: fixed;
+  //left: 0;
+  //top: 0;
+  height: 100%;
+  width: 100%;
+  //overflow-y: scroll;
+  //scroll-behavior: smooth;
+  display: flex;
+  //border: dashed black;
+}
+
+.flex-1-bleu {
+  flex: 1;
+  min-width: 250px;
+  margin: 0 auto 50px;
+}
+
+button {
+  border: none;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+}
+
+.button-bleu {
+  margin: 1%;
+  width: 48%;
+  height: 48%;
+  background: white;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  will-change: transform;
+}
+
+.button-mat-bleu {
+  color: #5533ff;
+
+  border-radius: 10px;
+  transition: .3s ease-in-out;
+  transition-delay: .35s;
+  overflow: hidden;   //Tres drole "overflow: visible;"
+}
+
+.button-mat-bleu:before {
+  content: '';
+  display: block;
+  background: #401aff;
+  position: absolute;
+  width: 250%;
+  height: 500%;
+  border-radius: 100%;
+  transition: 0.36s cubic-bezier(0.4, 0, 1, 1);
+}
+.button-mat-bleu:hover .psuedo-text-bleu   {
+  color: white;
+}
+.button-mat-bleu:hover {
+  color: transparent;
+}
+
+.btn--7-bleu {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.btn--7-bleu:before {
+  transform: translate(-110%, -110%) translateZ(0);
+}
+.btn--7-bleu:hover:before {
+  transform: translate(-45%, -34%) translateZ(0);
+}
+
+.psuedo-text-bleu {
+  color: #5533ff;
+  position: relative;
+
+  display: inline;
+
+  font-size: 1.7rem;
+  transition: .25s ease-in;
+  transition-delay: .1s;
+  font-family: $police;
+}
+
+
+////Boutton rouge

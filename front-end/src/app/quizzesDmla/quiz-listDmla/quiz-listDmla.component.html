@@ -1,6 +1,6 @@
 <ng-container class="flex-1">
   <div class="header">
-    <button class="buttonR button-mat btn--7" routerLink="/select-desease" >
+    <button class="buttonR button-mat btn--7" routerLink="/select-desease">
       <div class="psuedo-text">retour</div>
     </button>
     <button class="buttonA button-mat btn--7" routerLink="/select-desease">
@@ -10,6 +10,8 @@
   </div>
 
 
+
+
   <div class="fullwidthwithborder">
     <div class="containercenter">
       <div class="containerlist">
@@ -17,12 +19,13 @@
           margin-left: auto;
           margin-right: auto;
         </app-quiz-formdmla>
-  <div class="quiz-list">
-    <br>
-    <div class="quiz" *ngFor="let quiz of quizList">
-      <app-quizdmla [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quizdmla>
-    </div>
-  </div>
+        <div class="quiz-list">
+          <br>
+          <div class="quiz" *ngFor="let quiz of quizList">
+            <app-quizdmla [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)"
+                          (editQuiz)="editQuiz($event)"></app-quizdmla>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { QuizServiceDmla } from '../../../services/quizDmla.service';
-import { QuizDmla } from '../../../models/quizDmla.model';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {QuizServiceDmla} from '../../../services/quizDmla.service';
+import {QuizDmla} from '../../../models/quizDmla.model';
 
 @Component({
   selector: 'app-quiz-listdmla',
@@ -19,11 +19,11 @@ export class QuizListDmlaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.quizService.setQuizzesFromUrl();
   }
 
   quizSelected(selected: QuizDmla): void {
-    console.log('fwergwregweg');
-    this.router.navigate(['/quiz-gameDmla/' + selected.id]);
+    this.router.navigate(['/quiz-gameDmla/' + selected._id]);
   }
 
   editQuiz(quiz: QuizDmla): void {

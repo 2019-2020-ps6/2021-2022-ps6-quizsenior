@@ -1,12 +1,10 @@
 export interface AnswerDmla {
-  type?: string;
   value: string;
   isCorrect: boolean;
-  index: number;
 }
 
 export interface QuestionDmla {
-  id: string;
+  _id: string;
   label: string;
   answers: AnswerDmla[];
 }

@@ -1,0 +1,33 @@
+<body>
+<div class="barre1">
+  <button class="boutonMenu11Rouge" routerLink="/menu/menuSuperUser">
+    <div>retour</div>
+  </button>
+  <div class="barre2">
+    <a class="newTitle">CRéation quiz DMLA</a>
+  </div>
+</div>
+
+  <div class="creationQuiz">
+    <div class="creationQuizCompo">
+      <app-quiz-formdmla>
+        margin-left: auto;
+        margin-right: auto;
+      </app-quiz-formdmla>
+    </div>
+
+    <div class="quiz-list">
+      <br>
+      <div class="quiz" *ngFor="let quiz of quizList">
+        <app-quizdmla [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)"
+                      (editQuiz)="editQuiz($event)"></app-quizdmla>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+
+

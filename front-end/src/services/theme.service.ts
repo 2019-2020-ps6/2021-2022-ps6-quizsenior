@@ -14,36 +14,17 @@ import {QuizGameDmla} from '../models/quizgameDmla.model';
   providedIn: 'root'
 })
 export class ThemeService {
-  /*
-   Services Documentation:
-   https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
-   */
 
-  /*
-   The list of quizDmla.
-   The list is retrieved from the mock.
-   */
   private listTheme: string[] = [];
   public themeSelected: string = null;
-  /*
-   The list of quizAlz.
-   The list is retrieved from the mock.
-   */
+
   private listThemeAlz: string[] = [];
   public themeSelectedAlz: string = null;
 
-  /*
-   Observable which contains the list of the quizDmla.
-   Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
-   */
   public listTheme$: BehaviorSubject<string[]> = new BehaviorSubject(this.listTheme);
 
   public themeSelected$: BehaviorSubject<string> = new BehaviorSubject<string>(this.themeSelected);
 
-  /*
- Observable which contains the list of the quizAlz.
- Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
- */
   public listThemeAlz$: BehaviorSubject<string[]> = new BehaviorSubject(this.listThemeAlz);
 
   public themeSelectedAlz$: BehaviorSubject<string> = new BehaviorSubject<string>(this.themeSelectedAlz);
@@ -52,7 +33,7 @@ export class ThemeService {
   private quizUrlAlz = serverUrl + '/quizzes';
 
   constructor(private http: HttpClient) {
-    this.setQuizzesDMLAFromUrl();
+    this.setThemeDMLAFromUrl();
     this.setQuizzesALzFromUrl();
   }
 
@@ -66,8 +47,8 @@ export class ThemeService {
     this.themeSelectedAlz$.next(this.themeSelectedAlz);
   }
 
-  setQuizzesDMLAFromUrl(): void {
-    this.http.get<QuizDmla[]>(this.quizUrl).subscribe((quizList: QuizDmla[]) => {
+  setThemeDMLAFromUrl(): void {
+    this.http.get<QuizDmla[]>('http://localhost:3001/api/quizzesDmla').subscribe((quizList: QuizDmla[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
         if (this.isThemeInListTheme(quizList[i].theme)) {

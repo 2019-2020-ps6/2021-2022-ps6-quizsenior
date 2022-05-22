@@ -6,6 +6,6 @@ export interface QuizGame {
   quiz: string;
   nbRepetition: string;
   answers: string;
-  // user?: string;
+  // userModel?: string;
   // answersDmla: Map<string, string>;
 }

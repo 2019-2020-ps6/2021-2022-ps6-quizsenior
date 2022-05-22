@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.bouttonConnextionUser {
+  width: 50%;
+
+  text-align: center;
+  margin-right: 0.1em;
+  font-size: 90%;
+  color: black;
+  border-radius: 10px;
+  font-weight: 100;
+  font-family: $police;
+
+  border: solid black;
+}
+
+.bouttonSupprimerUser {
+
+  width: 50%;
+  text-align: center;
+  margin-left: 0.1em;
+
+  color: red;
+  border-radius: 10px;
+
+  border: solid black;
+
+  font-size: 90%;
+  font-weight: 100;
+  font-family: $police;
+}
+
+
+.bonttons {
+  //border: solid forestgreen;
+  display: flex;
+  flex-direction: row;
+}

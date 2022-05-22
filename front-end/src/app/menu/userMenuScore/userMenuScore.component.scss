@@ -1,0 +1,17 @@
+img {
+  width : 150px;
+  height : 150px;
+}
+
+.bouttonConnextionUser{
+  background-color: #282a28;
+}
+
+.module{
+  display: flex;
+  flex-direction: column;
+  border: solid #0a0a0a;
+  margin: 1em;
+  min-width: 15em;
+  justify-content: center;
+}

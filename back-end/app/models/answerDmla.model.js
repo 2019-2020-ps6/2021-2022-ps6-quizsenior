@@ -6,5 +6,5 @@ module.exports = new BaseModel('AnswerDmla', {
   value: Joi.string().required(),
   isCorrect: Joi.boolean().required(),
   questionId: Joi.number(),
-  index: Joi.number().required(),
+  // index: Joi.number().required(),
 })

@@ -1,7 +1,9 @@
 
 export interface QuizGameDmla {
-  id: string;
+  _id: string;
   correctAnswers: string;
   incorrectAnswers: string;
-  quiz: string;
+  quizId: string;
+  userId: string;
+  type: string;
 }

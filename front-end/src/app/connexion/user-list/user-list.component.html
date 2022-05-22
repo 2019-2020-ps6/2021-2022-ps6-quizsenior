@@ -1,0 +1,25 @@
+<body>
+
+<div class="barre1">
+  <div class="barre2">
+    <a class="newTitle">Utilisateur</a>
+  </div>
+  <button class="boutonMenu20Rouge" routerLink="/menu/menuSuperUser">
+    <div>Administration</div>
+  </button>
+</div>
+
+
+<div class="globallistUser">
+  <div class="user" *ngFor="let user of userList">
+    <!--      <app-user [user]="user" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)"-->
+    <!--                    (editQuiz)="editQuiz($event)"></app-user>-->
+    <app-user [user]="user"></app-user>
+  </div>
+  <button class="bouttonAddUser" routerLink="/ajoutUser">Ajouter un utilisateur</button>
+</div>
+
+</body>
+
+
+

@@ -1,5 +1,6 @@
 const { Router } = require('express')
 
+const { stdout } = require('nodemon/lib/config/defaults')
 const { QuizDmla, QuestionDmla, AnswerDmla } = require('../../../models')
 const manageAllErrors = require('../../../utils/routes/error-management')
 const AnswersRouter = require('./answersDmla')
@@ -27,6 +28,7 @@ router.get('/:questionId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  console.log('YAHOO: ', req.body)
   try {
     // Check if quizId exists, if not it will throw a NotFoundError
     QuizDmla.getById(req.params.quizId)

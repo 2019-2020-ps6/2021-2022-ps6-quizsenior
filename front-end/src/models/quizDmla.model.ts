@@ -1,10 +1,8 @@
 import { QuestionDmla } from './questionDmla.model';
 
 export interface QuizDmla {
-  id: string;
+  _id: string;
   name: string;
-  theme?: string;
+  theme: string;
   questions: QuestionDmla[];
-  repetition: string;
-  nbRepetition: string;
 }

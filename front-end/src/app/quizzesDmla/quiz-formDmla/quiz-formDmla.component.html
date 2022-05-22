@@ -1,23 +1,22 @@
-<div class="container">
-  <div class="card">
-    <div class="card-image">
-      <h2 class="card-heading">
-        Créez un quiz
-      </h2>
-    </div>
-    <form class="card-form" [formGroup]="quizForm">
-      <div class="input">
-        <input type="text" class="input-field"  type="text" id="name" [formControlName]="'name'" value="" required/>
-        <label class="input-label">Nom du quiz</label>
-      </div>
-      <div class="input">
-        <input type="text" class="input-field" type="text" id="theme" [formControlName]="'theme'" value="" required/>
-        <label class="input-label">Thème</label>
-      </div>
-      <br>
-      <button class="action-button" type="submit" (click)="addQuiz()">Créer</button>
-    </form>
+<body>
+<div class="card">
+
+  <div class="card-image">
+    <h2 class="card-heading">Créez un quiz</h2>
   </div>
+
+  <form class="card-form" [formGroup]="quizForm">
+    <div class="input">
+      <input type="text" class="input-field" type="text" id="name" [formControlName]="'name'" value="" required/>
+      <label class="input-label">Nom du quiz</label>
+    </div>
+    <div class="input">
+      <input type="text" class="input-field" type="text" id="theme" [formControlName]="'theme'" value="" required/>
+      <label class="input-label">Thème</label>
+    </div>
+    <br>
+    <button class="action-button" type="submit" (click)="addQuiz()">Créer</button>
+  </form>
+
 </div>
-
-
+</body>

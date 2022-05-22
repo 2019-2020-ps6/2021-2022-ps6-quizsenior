@@ -28,6 +28,7 @@ router.get('/:quizId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  console.log(req.body)
   try {
     const quiz = QuizDmla.create({ ...req.body })
     res.status(201).json(quiz)

@@ -46,22 +46,21 @@ export class QuestionnaireService {
   }
 
   setQuizzesDMLAFromUrlWithTheme(theme: string): void {
-    this.http.get<QuizDmla[]>(this.quizUrl).subscribe((quizList: QuizDmla[]) => {
+    const questionUrl = 'http://localhost:3001/api/quizzesDmla/theme/' + theme;
+    this.http.get<QuizDmla[]>(questionUrl).subscribe((quizList: QuizDmla[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
-        if (quizList[i].theme === theme) {
-          this.allquiz.push(quizList[i]);
-          this.listQuestionnaire.push(quizList[i].name);
-          this.listQuestionnaire$.next(this.listQuestionnaire);
-        }
+        this.allquiz.push(quizList[i]);
+        this.listQuestionnaire.push(quizList[i].name);
+        this.listQuestionnaire$.next(this.listQuestionnaire);
       }
-    })
-
-    ;
+    });
   }
 
   cleanList(): void {
     this.listQuestionnaire = [];
+    this.allquiz = [];
+    this.listQuestionnaire$.next(null);
   }
 
   getQuestionnaireId(questionnaire: string): QuizDmla {
@@ -73,6 +72,4 @@ export class QuestionnaireService {
     }
     return null;
   }
-
-
 }

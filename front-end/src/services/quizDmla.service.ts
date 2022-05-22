@@ -6,6 +6,8 @@ import {QuestionDmla} from '../models/questionDmla.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {QuizGameDmla} from '../models/quizgameDmla.model';
 
+// import {applySourceSpanToExpressionIfNeeded} from "@angular/compiler/src/output/output_ast";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +37,7 @@ export class QuizServiceDmla {
 
   public quizSelected$: BehaviorSubject<QuizDmla> = new BehaviorSubject<QuizDmla>(null);
 
-  public game$: BehaviorSubject<QuizGameDmla> = new BehaviorSubject<QuizGameDmla>(null);
+  public gameSelected$: BehaviorSubject<QuizGameDmla> = new BehaviorSubject<QuizGameDmla>(null);
 
   private quizUrl = serverUrl + '/quizzesDmla';
   private quizGameUrl = serverUrl + '/quizGamesDmla';
@@ -44,78 +46,88 @@ export class QuizServiceDmla {
   private httpOptions = httpOptionsBase;
 
   constructor(private http: HttpClient) {
+    console.log('this.setQuizzesFromUrl() !!');
     this.setQuizzesFromUrl();
-    console.log('Je get les quiz !', this.quizzes);
   }
 
   setQuizzesFromUrl(): void {
-    this.http.get<QuizDmla[]>(this.quizUrl).subscribe((quizList) => {
+    console.log('JE SUIS LA');
+    this.http.get<QuizDmla[]>('http://localhost:3001/api/quizzesDmla').subscribe((quizList) => {
+      console.log('quizList: ', quizList);
+
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
     });
   }
 
-  setQuizGamesFromUrl(): void {
-    this.http.get<QuizGameDmla[]>(this.quizGameUrl).subscribe((quizGameList) => {
-      this.quizGames = quizGameList;
-      this.quizGames$.next(this.quizGames);
-    });
-  }
-
   addQuiz(quiz: QuizDmla): void {
-    this.http.post<QuizDmla>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
+    console.log('quiz: ', quiz);
+    this.http.post<QuizDmla>('http://localhost:3001/api/quizzesDmla', quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   setSelectedQuiz(quizId: string): void {
-    const urlWithId = this.quizUrl + '/' + quizId;
+    console.log('HERE');
+    const urlWithId = 'http://localhost:3001/api/quizzesDmla/' + quizId;
     this.http.get<QuizDmla>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     });
   }
 
   deleteQuiz(quiz: QuizDmla): void {
-    const urlWithId = this.quizUrl + '/' + quiz.id;
+    console.log('quiz.id: ', quiz._id);
+    const urlWithId = 'http://localhost:3001/api/quizzesDmla/' + quiz._id;
     this.http.delete<QuizDmla>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   addQuestion(quiz: QuizDmla, question: QuestionDmla): void {
-    console.log('ADDDMLA', this.quizzes);
-    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath;
-    console.log('ADDDMLA2', questionUrl);
-    this.http.post<QuestionDmla>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
+    const questionUrl = 'http://localhost:3001/api/quizzesDmla/' + quiz._id + '/' + this.questionsPath;
+    this.http.post<QuestionDmla>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
   }
 
   deleteQuestion(quiz: QuizDmla, question: QuestionDmla): void {
-    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
-    this.http.delete<QuestionDmla>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
+    const questionUrl = 'http://localhost:3001/api/quizzesDmla/' + quiz._id + '/' + this.questionsPath + '/' + question._id;
+    console.log('questionUrl: ', questionUrl);
+    this.http.delete<QuestionDmla>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
+  }
+
+  getSelectedQuiz(quizId: string): QuizDmla {
+    console.log('HERE 33');
+    const urlWithId = 'http://localhost:3001/api/quizzesDmla/' + quizId;
+    this.http.get<QuizDmla>(urlWithId).subscribe((quiz) => {
+      return quiz;
+    });
+    return null;
+  }
+
+
+  setQuizGamesFromUrl(): void {
+    this.http.get<QuizGameDmla[]>('http://localhost:3001/api/quizGames/').subscribe((quizGameList) => {
+      this.quizGames = quizGameList;
+      this.quizGames$.next(this.quizGames);
+    });
   }
 
   addQuizGame(quizGame: QuizGameDmla): void {
-    this.http.post<QuizGameDmla>(this.quizGameUrl, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
-    console.log(this.quizGames);
+    const questionUrl = 'http://localhost:3001/api/quizGames/' + quizGame.type;
+    this.http.post<QuizGameDmla>(questionUrl, quizGame, this.httpOptions).subscribe((quizgame) => {
+      this.gameSelected$.next(quizgame);
+    });
   }
 
-  /*
-  Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
-  addQuestion(quizDmla: Quiz, question: Question) {
-    quizDmla.questionsDmla.push(question);
-    const index = this.quizzes.findIndex((q: Quiz) => q.id === quizDmla.id);
-    if (index) {
-      this.updateQuizzes(quizDmla, index);
-    }
+  setSelectedGame(gameId: string): void {
+    const urlWithId = 'http://localhost:3001/api/quizGames/' + gameId;
+    this.http.get<QuizGameDmla>(urlWithId).subscribe((quizgame) => {
+      this.gameSelected$.next(quizgame);
+    });
   }
 
-  deleteQuestion(quizDmla: Quiz, question: Question) {
-    const index = quizDmla.questionsDmla.findIndex((q) => q.label === question.label);
-    if (index !== -1) {
-      quizDmla.questionsDmla.splice(index, 1)
-      this.updateQuizzes(quizDmla, index);
-    }
+  updateQuizGame(quizGame: QuizGameDmla): void {
+    const urlWithId = 'http://localhost:3001/api/quizGames/' + quizGame._id;
+    console.log('urlWithId: ', urlWithId);
+    this.http.put<QuizGameDmla>(urlWithId, quizGame, this.httpOptions).subscribe(() => null);
   }
 
-  private updateQuizzes(quizDmla: Quiz, index: number) {
-    this.quizzes[index] = quizDmla;
-    this.quizzes$.next(this.quizzes);
+  resetGame(): void {
+    this.gameSelected$.next(null);
   }
-  */
 }
