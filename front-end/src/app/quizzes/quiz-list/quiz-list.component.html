@@ -1,31 +1,30 @@
-<ng-container class="flex-1">
-  <div class="header">
-    <button class="buttonR button-mat2 btn--7" routerLink="/select-desease" >
-      <div class="psuedo-text2">retour</div>
-    </button>
-    <button class="buttonA button-mat2 btn--7" routerLink="/select-desease">
-      <div class="psuedo-text2">Accueil</div>
-    </button>
-    <div class="psuedo-text2"><a class="psuedo-text3">Menu de création de Quiz</a></div>
+<body>
+<div class="barre1">
+  <button class="boutonMenu11Rouge" routerLink="/menu/menuSuperUser">
+    <div>retour</div>
+  </button>
+  <div class="barre2">
+    <a class="newTitle">Création quiz Alzheimer</a>
   </div>
+</div>
 
-<div class="fullwidthwithborder">
-  <div class="containercenter">
-  <div class="containerlist">
+<div class="creationQuiz">
+  <div class="creationQuizCompo">
     <app-quiz-form>
       margin-left: auto;
       margin-right: auto;
     </app-quiz-form>
-    <div class="quiz-list">
-      <br>
-      <div class="quiz" *ngFor="let quiz of quizList">
-        <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
-      </div>
+  </div>
+
+  <div class="quiz-list">
+    <br>
+    <div class="quiz" *ngFor="let quiz of quizList">
+      <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)"
+                    (editQuiz)="editQuiz($event)"></app-quiz>
     </div>
-</div>
-</div>
+  </div>
 </div>
 
 
 
-</ng-container>
+</body>

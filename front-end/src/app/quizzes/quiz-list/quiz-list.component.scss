@@ -1,50 +1,57 @@
-@import '../../../styles/card.scss';
 @import '../../../styles.scss';
+@import '../../../styles/modelTypeMoche.scss';
 
-* {
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-  box-sizing: border-box;
+body{
+  background: linear-gradient(to bottom right, #5533ff, #38e2ee);
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: fixed;
+  //left: 0;
+  //top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  display: flex;
+  //border: dashed black;
+
+  flex-direction: column;
+}
+
+.creationQuiz{
+  //border: solid red;
+}
+
+.creationQuizCompo{
+  //border: solid black;
 }
 
 .quiz-list {
   display: flex;
   margin-top: 1em;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  //border: solid pink;
 }
 
-.fullwidthwithborder {
-  background: linear-gradient(to bottom right,$red, #FBAA99);
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: fixed;
-  top: 17%;
-  height: 83%;
-  width: 100%;
-}
-
-div.containercenter {
-  height: 10em;
-  position: fixed }
-
-div.containercenter {
-  margin: 0;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%) }
-
-
-div.containerlist {
-  margin: 0;
-  position: relative; //a changer pour modifier la taille des carrés noirs
-  top: 300%;
-  left: 50%;
-  transform: translate(-50%, -50%) }
-
-
-
-
-
-
-
+//div.containercenter {
+//  height: 10em;
+//  position: fixed }
+//
+//div.containercenter {
+//  margin: 0;
+//  position: absolute;
+//  top: 35%;
+//  left: 50%;
+//  transform: translate(-50%, -50%) }
+//
+//
+//div.containerlist {
+//  margin: 0;
+//  position: relative; //a changer pour modifier la taille des carrés noirs
+//  top: 300%;
+//  left: 50%;
+//  margin-right: -50%;
+//  transform: translate(-50%, -50%) }
+//
