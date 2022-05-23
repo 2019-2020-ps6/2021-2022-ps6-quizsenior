@@ -54,6 +54,16 @@ button {
   color: rgba(255, 255, 255, 0.95);
   cursor: pointer; }
 
+.flex-center{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  //border: dashed forestgreen;
+  justify-content: left;
+}
+
 
 
 .psuedo-text3 {
@@ -125,7 +135,6 @@ button {
   will-change: transform; }
 
 .buttonT {
-  position: fixed;
   margin: 1% 1% 1% 1%;
   padding: 0.4rem;
   background: #F5F5F5;
@@ -187,6 +196,50 @@ body {
   //border: dashed black;
 
   flex-direction: column;
+}
+
+.enonce{
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  //border: dashed forestgreen;
+  justify-content: left;
+  align-items: center;
+}
+
+.etape{
+  width: 100%;
+  min-width: 10.975em;
+  height: 100%;
+
+  max-height: 400px;
+
+  text-align: center;
+
+  background: transparent;
+  border-width : 1px;
+
+  margin: 1em;
+  padding: 0.2rem;
+  padding-top: 1em;
+
+}
+
+.boutonEtape{
+  width: 90%;
+  min-width: 10.975em;
+
+  text-align: center;
+
+  background: transparent;
+  border-width : 1px;
+
+  margin: 1em;
+  padding: 0.2rem;
+  padding-top: 1em;
+  will-change: transform;
 }
 
 
