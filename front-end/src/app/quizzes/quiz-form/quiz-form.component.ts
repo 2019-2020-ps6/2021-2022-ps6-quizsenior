@@ -26,7 +26,6 @@ export class QuizFormComponent implements OnInit {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: [''],
-      repetition: ['false'],
       nbRepetition: ['0'],
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
@@ -36,7 +35,6 @@ export class QuizFormComponent implements OnInit {
 
   changeRepetition(): void{
     this.repetition = !this.repetition;
-    this.quizForm.controls.repetition.setValue(String(this.repetition));
   }
 
   ngOnInit(): void {
@@ -45,6 +43,7 @@ export class QuizFormComponent implements OnInit {
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
+    console.log(quizToCreate);
     this.quizService.addQuiz(quizToCreate);
   }
 

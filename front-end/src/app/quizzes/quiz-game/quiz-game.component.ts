@@ -73,15 +73,11 @@ export class QuizGameComponent implements OnInit {
   }
 
   load(): void {
-    // this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition;
-    // this.quizGameForm.controls.quiz.setValue(String(this.quiz._id));
     this.currentQuestion = 0;
     this.questions$.next(this.createQuestions(this.quiz.questions));
     console.log('this.quiz.questions: ', this.quiz.questions);
     this.shuffle();
     this.startTime = new Date().getTime();
-    // this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
-    // this.quizService.addQuizGame(this.game);
   }
 
   saveInstance(): void {
@@ -154,38 +150,40 @@ export class QuizGameComponent implements OnInit {
   }
 
   onAnswer(option: Answer, question: Question): void {
-    const endTime = new Date().getTime();
-    this.answerForm = this.formBuilder.group({
-      quizGameId: [''],
-      questionRep: [''],
-      answerRep: [''],
-      time: ['']
-    });
+    if (!this.answerSelected) {
+      const endTime = new Date().getTime();
+      this.answerForm = this.formBuilder.group({
+        quizGameId: [''],
+        questionRep: [''],
+        answerRep: [''],
+        time: ['']
+      });
 
-    this.answerForm.controls.quizGameId.setValue(this.game._id);
-    this.answerForm.controls.questionRep.setValue(question);
-    this.answerForm.controls.answerRep.setValue(option);
-    this.answerForm.controls.time.setValue(String(endTime - this.startTime));
-    const answer = this.answerForm.getRawValue() as QuizGameAnswers;
-    this.game.answers.push(answer);
-    console.log('this.game.answers: ', this.game.answers);
-    this.answerSelected = true;
-    setTimeout(() => {
-      this.answerSelected = false;
-      if (option.isCorrect) {
-        this.currentQuestion++;
-        this.deleteCorrectQuestion(question);
-        this.shuffle();
-        this.game.correctAnswers = String(Number(this.game.correctAnswers) + 1);
-      } else {
-        this.deleteIncorrectQuestion(question, option);
-        this.shuffle();
-        this.game.incorrectAnswers = String(Number(this.game.incorrectAnswers) + 1);
-      }
-      this.saveInstance();
-      this.checkEnd();
-    }, 3000);
-    this.startTime = new Date().getTime();
+      this.answerForm.controls.quizGameId.setValue(this.game._id);
+      this.answerForm.controls.questionRep.setValue(question);
+      this.answerForm.controls.answerRep.setValue(option);
+      this.answerForm.controls.time.setValue(String(endTime - this.startTime));
+      const answer = this.answerForm.getRawValue() as QuizGameAnswers;
+      this.game.answers.push(answer);
+      console.log('this.game.answers: ', this.game.answers);
+      this.answerSelected = true;
+      setTimeout(() => {
+        this.answerSelected = false;
+        if (option.isCorrect) {
+          this.currentQuestion++;
+          this.deleteCorrectQuestion(question);
+          this.shuffle();
+          this.game.correctAnswers = String(Number(this.game.correctAnswers) + 1);
+        } else {
+          this.deleteIncorrectQuestion(question, option);
+          this.shuffle();
+          this.game.incorrectAnswers = String(Number(this.game.incorrectAnswers) + 1);
+        }
+        this.saveInstance();
+        this.checkEnd();
+      }, 3000);
+      this.startTime = new Date().getTime();
+    }
   }
 
   alreadyAnswered(question: Question): boolean {
