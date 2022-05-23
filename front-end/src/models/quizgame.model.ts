@@ -10,7 +10,7 @@ export interface QuizGame {
   creationDate: string;
   nbRepetition?: string;
 }
- export interface QuizGameAnswers{
+export interface QuizGameAnswers{
   _id: string;
   quizGameId: string;
   questionId: string;

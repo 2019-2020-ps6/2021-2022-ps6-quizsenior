@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Quiz} from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
 
-import {QuizGame} from '../../../models/quizgame.model';
+import {QuizGame, QuizGameAnswers} from '../../../models/quizgame.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer, Question} from '../../../models/question.model';
 import {BehaviorSubject} from 'rxjs';
@@ -20,18 +20,18 @@ import {User} from '../../../models/user.model';
 export class QuizGameComponent implements OnInit {
 
   public currentQuestion;
+  public startTime;
   public answerSelected = false;
-  public quizGameToCreate: QuizGame;
   public result = false;
   public quiz: Quiz;
   public game: QuizGame;
-  public quizGameForm: FormGroup;
   public questions: Array<Question> = [];
   public questions$: BehaviorSubject<Question[]>
     = new BehaviorSubject(this.questions);
   public end = false;
   public answered: Array<Question> = [];
   public user: User = null;
+  public answerForm: FormGroup;
 
 
   constructor(public formBuilder: FormBuilder, private route: ActivatedRoute,
@@ -73,13 +73,13 @@ export class QuizGameComponent implements OnInit {
   }
 
   load(): void {
-    console.log('HHHHHHHHHHAAAAAAAAAAAAAA');
     // this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition;
     // this.quizGameForm.controls.quiz.setValue(String(this.quiz._id));
     this.currentQuestion = 0;
     this.questions$.next(this.createQuestions(this.quiz.questions));
     console.log('this.quiz.questions: ', this.quiz.questions);
     this.shuffle();
+    this.startTime = new Date().getTime();
     // this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
     // this.quizService.addQuizGame(this.game);
   }
@@ -154,8 +154,20 @@ export class QuizGameComponent implements OnInit {
   }
 
   onAnswer(option: Answer, question: Question): void {
-    const answer = question.label + ',' + option.value + ':';
-    // this.game.answers += answer;
+    const endTime = new Date().getTime();
+    this.answerForm = this.formBuilder.group({
+      quizGameId: [''],
+      questionId: [''],
+      answerId: [''],
+      time: ['']
+    });
+
+    this.answerForm.controls.quizGameId.setValue(this.game._id);
+    this.answerForm.controls.questionId.setValue(question._id);
+    this.answerForm.controls.answerId.setValue(option._id);
+    this.answerForm.controls.time.setValue(String(endTime - this.startTime));
+    const answer = this.answerForm.getRawValue() as QuizGameAnswers;
+    this.game.answers.push(answer);
     this.answerSelected = true;
     setTimeout(() => {
       this.answerSelected = false;
@@ -172,6 +184,7 @@ export class QuizGameComponent implements OnInit {
       this.saveInstance();
       this.checkEnd();
     }, 3000);
+    this.startTime = new Date().getTime();
   }
 
   alreadyAnswered(question: Question): boolean {
