@@ -25,7 +25,7 @@
 
 
 .h1 {
-  color: $red;
+  color: $blue;
   font-weight: 100;
   font-size: 10px;
   letter-spacing: 0.01em;
@@ -39,7 +39,7 @@
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   margin-top: 35px;
   background-color: white;
-  border: 1px solid $red;
+  border: 1px solid $blue;
   line-height: 0;
   font-size: 17px;
   display: inline-block;
@@ -47,7 +47,7 @@
   width: fit-content;
   padding: 20px 15px;
   border-radius: 60px;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   position: relative;
@@ -55,7 +55,7 @@
 
   &:hover,&:focus {
     color: white;
-    background-color: $red
+    background-color: $blue
   }
 }
 
@@ -73,7 +73,7 @@
 .label {
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   transform-origin: left center;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   font-size: 17px;
@@ -94,7 +94,7 @@
   transition: all 0.25s cubic-bezier(.53,.01,.35,1.5);
   appearance: none;
   background-color: transparent;
-  border: 1px solid $red;
+  border: 1px solid $blue;
   line-height: 0;
   font-size: 17px;
   width: 100%;
@@ -102,14 +102,14 @@
   box-sizing: border-box;
   padding: 10px 15px;
   border-radius: 60px;
-  color: $red;
+  color: $blue;
   font-weight: 100;
   letter-spacing: 0.01em;
   position: relative;
   z-index: 1;
   &:focus {
     outline: none;
-    background: $red;
+    background: $blue;
     color: white;
     margin-top: 30px
   }

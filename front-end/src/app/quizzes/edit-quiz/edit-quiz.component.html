@@ -1,24 +1,23 @@
 <body>
 <div class="barre1">
-  <button class="buttonSmall button-mat btn--7" routerLink="/quiz-list">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="/quiz-list">
     <div class="psuedo-text">retour</div>
   </button>
   <div class="barre2">
     <a class="titlePsuedo-text">Menu de création de questions</a>
   </div>
+</div>
 
-
-  <ng-container *ngIf="quiz">
-    <div class="containercenter">
-      <h2>
-        <p style="color:white">Quiz : {{quiz.name}}</p>
-      </h2>
-      <app-question-form [quiz]="quiz"></app-question-form>
+<ng-container *ngIf="quiz">
+  <div class="containercenter">
+    <app-question-form [quiz]="quiz">
+        <p style="color:blue">Quiz : {{quiz.name}}</p>
+    </app-question-form>
+    <div class="quiz-list">
       <app-question-list [quiz]="quiz"></app-question-list>
     </div>
-  </ng-container>
-
-</div>
+  </div>
+</ng-container>
 </body>
 
 
