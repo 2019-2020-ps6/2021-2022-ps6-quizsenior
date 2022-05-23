@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {QuizService} from '../../../services/quiz.service';
 import {Quiz} from '../../../models/quiz.model';
 import {QuizGame} from '../../../models/quizgame.model';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-menu-questionnaire-alz',
@@ -32,7 +33,8 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public QuestionnairealzService: QuestionnaireAlzService,
               public userService: UserService,
               private route: ActivatedRoute, private quizService: QuizService,
-              private router: Router, public themeService: ThemeService) {
+              private router: Router, public themeService: ThemeService,
+              public datePipe: DatePipe) {
 
     const id = this.route.snapshot.paramMap.get('idUser');
     this.userService.setSelectedUser(id);
@@ -64,6 +66,8 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
       type: [''],
       nbRepetition: [''],
       userId: [''],
+      creationDate: [this.datePipe.transform(new Date(), 'yyyy-MM-dd')],
+      answers: [],
     });
   }
 
@@ -84,7 +88,7 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
 
     console.log('this.quizGameForm.getRawValue(): ', this.quizGameForm.getRawValue());
 
-    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
+    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
 
     console.log('quizGameToCreate: ', this.quizGameToCreate);
 
