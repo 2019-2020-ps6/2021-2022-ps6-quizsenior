@@ -33,7 +33,7 @@ export class AddUserComponent implements OnInit {
     const val = event.target.value;
     console.log('val: ', val);
     if (val === 'Alzheimer') {
-      this.output = 'Alzheimer';
+      this.output = 'ALZ';
     } else if (val === 'DMLA') {
       this.output = 'DMLA';
     }

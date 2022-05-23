@@ -1,17 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeService} from '../../../services/theme.service';
 import {QuestionnaireAlzService} from '../../../services/questionnaireAlz.service';
-import {QuizDmla} from "../../../models/quizDmla.model";
-import {User} from "../../../models/user.model";
-import {QuizGameDmla} from "../../../models/quizgameDmla.model";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {QuestionnaireService} from "../../../services/questionnaire.service";
-import {UserService} from "../../../services/user.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {QuizServiceDmla} from "../../../services/quizDmla.service";
-import {QuizService} from "../../../services/quiz.service";
-import {Quiz} from "../../../models/quiz.model";
-import {QuizGame} from "../../../models/quizgame.model";
+import {User} from '../../../models/user.model';
+import {QuizGameDmla} from '../../../models/quizgameDmla.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {UserService} from '../../../services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {QuizService} from '../../../services/quiz.service';
+import {Quiz} from '../../../models/quiz.model';
+import {QuizGame} from '../../../models/quizgame.model';
 
 @Component({
   selector: 'app-menu-questionnaire-alz',
@@ -88,10 +85,14 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
     console.log('this.quizGameForm.getRawValue(): ', this.quizGameForm.getRawValue());
 
     this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGameDmla;
+
+    console.log('quizGameToCreate: ', this.quizGameToCreate);
+
     this.quizService.addQuizGame(this.quizGameToCreate);
   }
 
   quizSelected(): void {
-    this.router.navigate(['/quiz-gameDmla/' + this.quizGameCreated._id]);
+    console.log('quizSelected');
+    this.router.navigate(['/quiz-gameAlz/' + this.quizGameCreated._id]);
   }
 }

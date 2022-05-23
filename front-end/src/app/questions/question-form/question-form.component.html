@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="questionForm">
   <h2>
     <p style="color:rgba(255,74,86,1)">Créez votre question</p>
-    </h2>
+  </h2>
   <div class="question">
     <input class="input" type="text" id="label" [formControlName]="'label'" required/>
     <label class="label">Intitulé de la question</label>
@@ -9,7 +9,7 @@
   <div class="question">
     <label for="image">
       <p style="color:rgba(255,74,86,1)">Image
-      <input type="checkbox" id="image" (change)="changeImage()">
+        <input type="checkbox" id="image" (change)="changeImage()">
       </p>
       <ng-container *ngIf="imageBool">
         <div class="question">
@@ -19,11 +19,13 @@
       </ng-container>
     </label>
   </div>
-  <button class="button"
-          (click)="addAnswer()"
-          [disabled]="answers.length==4">
-    Ajouter une réponse
-  </button>
+  <ng-container *ngIf="answers.length !==4 ">
+    <button class="button"
+            (click)="addAnswer()"
+            [disabled]="answers.length == 4">
+      Ajouter une réponse
+    </button>
+  </ng-container>
   <br>
   <div class="answer" formArrayName="answers">
     <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
@@ -41,5 +43,7 @@
       </div>
     </div>
   </div>
-  <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
+  <ng-container *ngIf="answers.length !==0 ">
+    <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
+  </ng-container>
 </form>

@@ -1,19 +1,19 @@
-<form class="form">
-  <div class="card">
+<div class="form">
+  <div class="card123">
     <h2>
       <p style="color:rgba(255,74,86,1)">{{question.label}}
-        <ng-container *ngIf="question.image === 'true'">
+        <ng-container *ngIf="question.imageUrl !== 'no image'">
           <br><img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
         </ng-container>
       </p>
     </h2>
     <div class="answerdmla" *ngFor="let answer of question.answers; let i=index">
-      <p style="color:rgba(255,74,86,1)"> Réponse {{i}} : {{answer.value}}</p>
+      <p style="color:rgba(255,74,86,1)">{{i}} - {{answer.value}}</p>
       <ng-container *ngIf="answer.isCorrect">
         <i class="far fa-check-square"></i>
-      </ng-container> <br>
+      </ng-container>
+      <br>
     </div>
-    <button class="button" (click)="delete()">Delete</button>
+    <button class="button" (click)="delete()">Supprimer</button>
   </div>
-</form>
-
+</div>

@@ -5,6 +5,8 @@ import {Quiz} from '../models/quiz.model';
 import {Question} from '../models/question.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {QuizGame} from '../models/quizgame.model';
+import {QuestionDmla} from '../models/questionDmla.model';
+import {constructorParametersDownlevelTransform} from "@angular/compiler-cli";
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +53,7 @@ export class QuizService {
   }
 
   setSelectedQuiz(quizId: string): void {
+    console.log('SUUUUUUUUUUUUU setSelectedQuiz');
     const urlWithId = 'http://localhost:3001/api/quizzesALZ/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
@@ -59,19 +62,19 @@ export class QuizService {
 
 
   deleteQuiz(quiz: Quiz): void {
-    const urlWithId = 'http://localhost:3001/api/quizzesDmla/' + quiz._id;
+    const urlWithId = 'http://localhost:3001/api/quizzesALZ/' + quiz._id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   addQuestion(quiz: Quiz, question: Question): void {
-    const questionUrl = 'http://localhost:3001/api/quizzesDmla/' + quiz._id + '/questionsALZ';
+    const questionUrl = 'http://localhost:3001/api/quizzesALZ/' + quiz._id + '/questionsALZ';
     console.log(question);
     this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
   }
 
 
   deleteQuestion(quiz: Quiz, question: Question): void {
-    const questionUrl = this.quizUrl + '/' + quiz._id + '/questionsALZ/' + question._id;
+    const questionUrl = 'http://localhost:3001/api/quizzesALZ/' + quiz._id + '/questionsALZ/' + question._id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
   }
 

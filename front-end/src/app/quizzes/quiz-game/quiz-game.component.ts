@@ -1,19 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Quiz } from 'src/models/quiz.model';
+import {ActivatedRoute} from '@angular/router';
+import {Quiz} from 'src/models/quiz.model';
 import {QuizService} from 'src/services/quiz.service';
 
 import {QuizGame} from '../../../models/quizgame.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer, Question} from '../../../models/question.model';
 import {BehaviorSubject} from 'rxjs';
+import {UserService} from '../../../services/user.service';
+import {User} from '../../../models/user.model';
 
 @Component({
   selector: 'app-edit-quiz',
   templateUrl: './quiz-game.component.html',
   styleUrls: ['./quiz-game.component.scss']
 })
-
 
 
 export class QuizGameComponent implements OnInit {
@@ -30,43 +31,57 @@ export class QuizGameComponent implements OnInit {
     = new BehaviorSubject(this.questions);
   public end = false;
   public answered: Array<Question> = [];
+  public user: User = null;
 
 
-  constructor(public formBuilder: FormBuilder, private route: ActivatedRoute, private quizService: QuizService) {
-    this.quizGameForm = this.formBuilder.group({
-      correctAnswers: ['0'],
-      incorrectAnswers: ['0'],
-      quiz: ['1'],
-      nbRepetition: ['1'],
-      answers: [':']
+  constructor(public formBuilder: FormBuilder, private route: ActivatedRoute,
+              private quizService: QuizService, public userService: UserService) {
+
+    const idGame = this.route.snapshot.paramMap.get('idGame');
+    this.quizService.setSelectedGame(idGame);
+
+    this.quizService.game$.subscribe((quiz) => {
+      this.game = quiz;
+      console.log('this.game: ', quiz);
+      if (this.game !== null) {
+        console.log('this.game1: ', quiz);
+        this.quizService.setSelectedQuiz(this.game.quizId);
+        this.userService.setSelectedUser(this.game.userId);
+      }
     });
+
+    this.userService.userSelected$.subscribe((user) => {
+      this.user = user;
+    });
+
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
-      if (quiz != null) {
+      console.log('quiz: ', quiz);
+      if (this.quiz !== null && this.user !== null) {
+        console.log('RIEN NULL !!');
         this.load();
       }
     });
-    this.quizService.game$.subscribe((quizGame) => {
-      this.game = quizGame;
-    });
+
     this.questions$.subscribe((question) => {
       this.questions = question;
+      console.log('question: ', question);
     });
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.quizService.setSelectedQuiz(id);
   }
 
-  load(): void{
-    this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition);
-    this.quizGameForm.controls.quiz.setValue( String(this.quiz._id));
+  load(): void {
+    console.log('HHHHHHHHHHAAAAAAAAAAAAAA');
+    // this.quizGameForm.controls.nbRepetition.setValue(this.quiz.nbRepetition); // this.score.nbRepetition;
+    // this.quizGameForm.controls.quiz.setValue(String(this.quiz._id));
     this.currentQuestion = 0;
     this.questions$.next(this.createQuestions(this.quiz.questions));
+    console.log('this.quiz.questions: ', this.quiz.questions);
     this.shuffle();
-    this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
-    this.quizService.addQuizGame(this.quizGameToCreate);
+    // this.quizGameToCreate = this.quizGameForm.getRawValue() as QuizGame;
+    // this.quizService.addQuizGame(this.game);
   }
 
   saveInstance(): void {
@@ -74,26 +89,29 @@ export class QuizGameComponent implements OnInit {
     this.quizService.updateQuizGame(this.game);
   }
 
-  createQuestions(questions: Array<Question>): Array<Question>{
+  createQuestions(questions: Array<Question>): Array<Question> {
+    console.log('this.quiz.nbRepetition: ', this.quiz.nbRepetition);
+    console.log('questions createQuestions: ', questions);
     const result: Array<Question> = [];
     for (const item of questions) {
-      for (let j = 0; j < Number(String(this.quiz.nbRepetition)); j++){
+      console.log('createQuestions item', item);
+      for (let j = 0; j < Number(String(this.quiz.nbRepetition) + 1); j++) {
         result.push(item);
       }
     }
     console.log(this.quiz.nbRepetition);
-    console.log(result);
+    console.log('result: ', result);
     return result;
   }
 
-  shuffle(): void{
+  shuffle(): void {
     this.questions.sort(() => (Math.random() - 0.5));
     this.questions$.next(this.questions);
   }
 
-  deleteCorrectQuestion(questionToDelete: Question): void{
-    for ( let i = 0; i < this.questions.length; i ++){
-      if ( this.questions[i] === questionToDelete) {
+  deleteCorrectQuestion(questionToDelete: Question): void {
+    for (let i = 0; i < this.questions.length; i++) {
+      if (this.questions[i] === questionToDelete) {
         this.questions.splice(i, 1);
         i--;
       }
@@ -101,9 +119,9 @@ export class QuizGameComponent implements OnInit {
     this.questions$.next(this.questions);
   }
 
-  deleteIncorrectQuestion(questionToDelete: Question, answerToDelete: Answer): void{
-    for ( let i = 0; i < this.questions.length; i ++){
-      if ( this.questions[i] === questionToDelete) {
+  deleteIncorrectQuestion(questionToDelete: Question, answerToDelete: Answer): void {
+    for (let i = 0; i < this.questions.length; i++) {
+      if (this.questions[i] === questionToDelete) {
         this.questions.splice(i, 1);
         break;
       }
@@ -113,11 +131,11 @@ export class QuizGameComponent implements OnInit {
     this.questions$.next(this.questions);
   }
 
-  deleteIncorrectAnswer(question: Question, answerToDelete: Answer): void{
+  deleteIncorrectAnswer(question: Question, answerToDelete: Answer): void {
     for (const item of this.questions) {
-      if ( item === question) {
-        for (let j = 0; j < question.answers.length; j ++){
-          if (item.answers[j] === answerToDelete){
+      if (item === question) {
+        for (let j = 0; j < question.answers.length; j++) {
+          if (item.answers[j] === answerToDelete) {
             item.answers.splice(j, 1);
           }
         }
@@ -126,37 +144,37 @@ export class QuizGameComponent implements OnInit {
     this.questions$.next(this.questions);
   }
 
-  skip(questionToSkip: Question): void{
+  skip(questionToSkip: Question): void {
     this.deleteCorrectQuestion(questionToSkip);
     this.checkEnd();
   }
 
-  checkEnd(): void{
+  checkEnd(): void {
     this.end = this.questions$.getValue().length <= 0;
   }
 
   onAnswer(option: Answer, question: Question): void {
-    const answer = question.label + ',' + option.value + ':' ;
+    const answer = question.label + ',' + option.value + ':';
     // this.game.answers += answer;
     this.answerSelected = true;
     setTimeout(() => {
       this.answerSelected = false;
-      if (option.isCorrect){
+      if (option.isCorrect) {
         this.currentQuestion++;
         this.deleteCorrectQuestion(question);
         this.shuffle();
         this.game.correctAnswers = String(Number(this.game.correctAnswers) + 1);
-      }else{
+      } else {
         this.deleteIncorrectQuestion(question, option);
         this.shuffle();
         this.game.incorrectAnswers = String(Number(this.game.incorrectAnswers) + 1);
       }
       this.saveInstance();
       this.checkEnd();
-      }, 3000);
+    }, 3000);
   }
 
-  alreadyAnswered(question: Question): boolean{
+  alreadyAnswered(question: Question): boolean {
     return this.answered.includes(question);
   }
 

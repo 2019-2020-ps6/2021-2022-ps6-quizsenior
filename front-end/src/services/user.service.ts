@@ -53,6 +53,7 @@ export class UserService {
   }
 
   setSelectedUser(userId: string): void {
+    console.log('SET USER');
     const urlWithId = 'http://localhost:3001/api/user/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);

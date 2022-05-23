@@ -33,32 +33,29 @@ const routes: Routes = [
   // ALZ
   {path: ':idUser/menuALZ', component: MenuUserALZComponent},
   {path: ':idUser/menuALZ/Theme', component: MenuThemeAlzComponent},
-  {path: ':idUser/menuALZ/:theme/choixQuiz', component: MenuQuestionnaireComponent},
+  {path: ':idUser/menuALZ/:theme/choixQuiz', component: MenuQuestionnaireAlzComponent},
 
-
+  // QUIZ GAME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   {path: 'quiz-gameDmla/:idGame', component: QuizGameDmlaComponent},
+  {path: 'quiz-gameAlz/:idGame', component: QuizGameComponent},
 
-
-
-
-  // {path: ':idUser/menuDMLA/Theme', component: MenuThemeDmlaComponent},  A FAIRE !!
-  // {path: ':idUser/menuDMLA/:theme/choixQuiz', component: MenuQuestionnaireComponent},  A FAIRE !!
-
-  {path: 'quiz-listDmla2', component: QuizListDmla2Component},
-
+  // Modif QUIZ ALZ
   {path: 'quiz-list', component: QuizListComponent},
   {path: 'edit-quiz/:id', component: EditQuizComponent},
-  {path: 'quiz-game/:id', component: QuizGameComponent},
-  {path: 'quiz-listDmla', component: QuizListDmlaComponent},
+
+  // Modif QUIZ DMLA
+  {path: 'quiz-listDmla', component: QuizListDmla2Component},
   {path: 'edit-quizDmla/:id', component: EditQuizDmlaComponent},
 
-  {path: 'menu/menuQuestionnaireAlz', component: MenuQuestionnaireAlzComponent},
+  // Menu
   {path: 'menu-score', component: MenuScoreComponent},
   {path: 'menu-score/:id', component: ScoreComponent },
-  {path: 'select-desease', component: SelectDeseaseComponent},
-  {path: 'tutoriel', component: TutoComponent},
 
 
+  // {path: 'select-desease', component: SelectDeseaseComponent},  // A DELETE
+  {path: 'tutoriel', component: TutoComponent},   // BONNE QUESTION
+
+  // User CONNEXION
   {path: 'ajoutUser', component: AddUserComponent},
   {path: 'menu/menuSuperUser', component: MenuSuperUserComponent},
 

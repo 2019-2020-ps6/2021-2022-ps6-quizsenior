@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
-import { QuizService } from '../../../services/quiz.service';
-import { Quiz } from 'src/models/quiz.model';
-import { Question } from 'src/models/question.model';
+import {Component, OnInit, Input} from '@angular/core';
+import {FormGroup, FormBuilder, FormArray, Validators} from '@angular/forms';
+import {QuizService} from '../../../services/quiz.service';
+import {Quiz} from 'src/models/quiz.model';
+import {Question} from 'src/models/question.model';
 
 @Component({
   selector: 'app-question-form',
@@ -25,7 +25,6 @@ export class QuestionFormComponent implements OnInit {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
       answers: this.formBuilder.array([]),
-      image: '',
       imageUrl: '',
     });
   }
@@ -50,8 +49,7 @@ export class QuestionFormComponent implements OnInit {
 
   addQuestion(): void {
     if (this.questionForm.valid) {
-      this.questionForm.controls.image.setValue(String(this.imageBool));
-      if (!this.imageBool){
+      if (!this.imageBool) {
         this.questionForm.controls.imageUrl.setValue('no image');
       }
       const question = this.questionForm.getRawValue() as Question;

@@ -1,6 +1,6 @@
 <body>
 <div class="barre1">
-  <button class="buttonSmall10 button-mat btn--7" routerLink="/menuTheme/menuThemeDmla">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="/{{user._id}}/menuDMLA/Theme">
     <div class="psuedo-text">retour</div>
   </button>
   <div class="barre2">
@@ -10,7 +10,9 @@
 
 <div>
   <a *ngFor="let questionnaire of questionnaireList">
-    <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)"><div class="psuedo-text">{{questionnaire}}</div></button>
+    <button class="button button-mat btn--7" (click)="selectQuestionnaire(questionnaire)">
+      <div class="psuedo-text">{{questionnaire}}</div>
+    </button>
   </a>
 </div>
 

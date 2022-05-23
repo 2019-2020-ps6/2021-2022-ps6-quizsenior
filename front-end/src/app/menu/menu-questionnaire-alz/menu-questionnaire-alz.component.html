@@ -1,18 +1,14 @@
 <ng-container>
   <div class="header">
-    <button class="buttonR button-mat2 btn--7" routerLink="/menuTheme/menuThemeAlz">
+    <button class="buttonR button-mat2 btn--7" routerLink="/{{user._id}}/menuALZ/Theme">
       <div class="psuedo-text2">retour</div>
-    </button>
-    <button class="buttonA button-mat2 btn--7" routerLink="/select-desease">
-      <div class="psuedo-text2">Accueil</div>
     </button>
     <div class="psuedo-text2"><a class="psuedo-text3">Choisissez votre Questionnaire</a></div>
   </div>
   <div class="fullwidthwithborder">
     <div>
-      <a *ngFor="let questionnaire of questionnaireList" [routerLink]="linkToQuiz">
-        <button class="button button-mat2 btn--7" (click)="selectQuestionnaire(questionnaire)"
-                routerLink="menuQuestionnaire">
+      <a *ngFor="let questionnaire of questionnaireList">
+        <button class="button button-mat2 btn--7" (click)="selectQuestionnaire(questionnaire)">
           <div class="psuedo-text2">{{questionnaire}}</div>
         </button>
       </a>

@@ -1,4 +1,3 @@
-
 export interface QuizGameDmla {
   _id: string;
   correctAnswers: string;
@@ -6,4 +5,6 @@ export interface QuizGameDmla {
   quizId: string;
   userId: string;
   type: string;
+
+  answers: string;
 }
