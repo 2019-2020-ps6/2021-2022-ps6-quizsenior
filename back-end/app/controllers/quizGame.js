@@ -71,7 +71,7 @@ exports.putQuizGameById = (req, res) => {
             if (!quizGame) {
                 return res.status(401).json({message: 'QuizGame non trouvé'});
             }
-            
+
             if (req.body.answers === undefined) {
                 quizGame.updateOne({
                     correctAnswers: req.body.correctAnswers, //correctAnswersVar
