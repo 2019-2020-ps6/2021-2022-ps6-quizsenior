@@ -1,4 +1,7 @@
 const QuizGame = require('../models/quizGame')
+const AnswerDMLA = require("../models/DMLA/answerDMLA");
+
+const AnswerQG = require("../models/quizGameAnswers");
 
 exports.createQuizGameDMLA = (req, res) => {
     const quizGame = new QuizGame({
@@ -29,8 +32,9 @@ exports.createQuizGameALZ = (req, res) => {
         quizId: req.body.quizId,
         correctAnswers: 0,
         incorrectAnswers: 0,
-
         userId: req.body.userId,
+
+        creationDate: req.body.creationDate,
         answers: [],
         nbRepetition: req.body.nbRepetition,
     });
@@ -49,11 +53,37 @@ exports.getQuizGameById = (req, res) => {
         .catch(error => res.status(404).json({erreur: "Ces quizGame n'existe pas", error}));
 };
 
+
 exports.getQuizGameByIdUser = (req, res) => {
     QuizGame.find({userId: req.params.idU})
-        .then(thing => res.status(200).json(thing))
+        .then((thing) => res.status(200).json(thing))
         .catch(error => res.status(404).json({erreur: "Ces quizGame n'existe pas", error}));
 };
+
+// exports.getQuizGameByIdUser = (req, res) => {
+//     QuizGame.find({userId: req.params.idU})
+//         .then((quizGame) => {
+//             const nbAnswers = quizGame.length;
+//             var nbAnswersAdd = 0;
+//
+//             quizGame.forEach(QG => {
+//                 AnswerQG.find({quizGameId: QG._id})
+//                     .then(aQG => {
+//
+//                         QG.answers.push(aQG);
+//                         nbAnswersAdd = nbAnswersAdd + 1;
+//
+//                         if (nbAnswersAdd === nbAnswers) {
+//                             res.status(200).json(quiz);
+//                         }
+//                     })
+//             })
+//
+//
+//             res.status(200).json(thing)
+//         })
+//         .catch(error => res.status(404).json({erreur: "Ces quizGame n'existe pas", error}));
+// };
 
 
 exports.getAllQuizGame = (req, res) => {
@@ -72,19 +102,17 @@ exports.putQuizGameById = (req, res) => {
                 return res.status(401).json({message: 'QuizGame non trouvé'});
             }
 
-            if (req.body.answers === undefined) {
-                quizGame.updateOne({
-                    correctAnswers: req.body.correctAnswers, //correctAnswersVar
-                    incorrectAnswers: req.body.incorrectAnswers,  //incorrectAnswersVar
+            quizGame.updateOne({
+                ...req.body
+            })
+                .then(() => {
+                    console.log('quizGame: ', quizGame);
+                    res.status(201).json({message: "QuizGame mise a jour", quizGame});
                 })
-                    .then(() => {
-                        console.log('quizGame: ', quizGame);
-                        res.status(201).json({message: "QuizGame mise a jour", quizGame});
-                    })
-                    .catch(error => {
-                        res.status(400).json({message: "QuizGame pas mise a jour", error});
-                    })
-            };
+                .catch(error => {
+                    res.status(400).json({message: "QuizGame pas mise a jour", error});
+                })
+
         })
         .catch(error => res.status(500).json({message: 'Code erreur QGx1', error}));
 };

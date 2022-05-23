@@ -157,17 +157,18 @@ export class QuizGameComponent implements OnInit {
     const endTime = new Date().getTime();
     this.answerForm = this.formBuilder.group({
       quizGameId: [''],
-      questionId: [''],
-      answerId: [''],
+      questionRep: [''],
+      answerRep: [''],
       time: ['']
     });
 
     this.answerForm.controls.quizGameId.setValue(this.game._id);
-    this.answerForm.controls.questionId.setValue(question._id);
-    this.answerForm.controls.answerId.setValue(option._id);
+    this.answerForm.controls.questionRep.setValue(question);
+    this.answerForm.controls.answerRep.setValue(option);
     this.answerForm.controls.time.setValue(String(endTime - this.startTime));
     const answer = this.answerForm.getRawValue() as QuizGameAnswers;
     this.game.answers.push(answer);
+    console.log('this.game.answers: ', this.game.answers);
     this.answerSelected = true;
     setTimeout(() => {
       this.answerSelected = false;

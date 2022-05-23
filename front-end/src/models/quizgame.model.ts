@@ -1,3 +1,5 @@
+import {Answer, Question} from './question.model';
+
 export interface QuizGame {
   _id: string;
   correctAnswers: string;
@@ -10,11 +12,11 @@ export interface QuizGame {
   creationDate: string;
   nbRepetition?: string;
 }
-  
+
 export interface QuizGameAnswers {
   _id: string;
   quizGameId: string;
-  questionId: string;
-  answerId: string;
+  questionRep: Question;
+  answerRep: Answer;
   time: string;
 }

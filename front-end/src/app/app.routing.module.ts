@@ -21,6 +21,7 @@ import {AddUserComponent} from './connexion/addUser/addUser.component';
 import {MenuSuperUserComponent} from './menu/menu-superUser/menu-superUser.component';
 import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
 import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
+// import {ScoreALZListComponent} from "./scores/scoreALZ-list/scoreALZ-list.component";
 
 const routes: Routes = [
   {path: 'connexion', component: UserListComponent},
@@ -49,7 +50,7 @@ const routes: Routes = [
 
   // Menu
   {path: 'menu-score', component: MenuScoreComponent},
-  {path: 'menu-score/:id', component: ScoreComponent },
+  {path: 'menu-score/:id', component: ScoreComponent},
 
 
   // {path: 'select-desease', component: SelectDeseaseComponent},  // A DELETE
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path: 'menu/menuSuperUser', component: MenuSuperUserComponent},
 
   {path: 'menu-score/DMLA/:idU', component: ScoreDMLAListComponent},
+  // {path: 'menu-score/ALZ/:idU', component: ScoreALZListComponent},
 
   {path: '', redirectTo: '/connexion', pathMatch: 'full'},
 ];

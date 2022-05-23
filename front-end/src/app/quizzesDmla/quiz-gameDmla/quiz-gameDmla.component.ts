@@ -126,9 +126,11 @@ export class QuizGameDmlaComponent implements OnInit {
         utterThis.lang = 'fr-FR';
         synth.speak(utterThis);
 
-        console.log('this.gameDMLA.correctAnswers = (parseInt(this.gameDMLA.correctAnswers, 10) + 1).toString();');
-        this.gameDMLA.correctAnswers = (parseInt(this.gameDMLA.correctAnswers, 10) + 1).toString();
-        this.quizService.updateQuizGame(this.gameDMLA);
+        // console.log('this.gameDMLA.correctAnswers = (parseInt(this.gameDMLA.correctAnswers, 10) + 1).toString();');
+        // this.gameDMLA.correctAnswers = (parseInt(this.gameDMLA.correctAnswers, 10) + 1).toString();
+        // this.quizService.updateQuizGame(this.gameDMLA);
+
+        this.gameDMLA.correctAnswers = String(Number(this.gameDMLA.correctAnswers) + 1);
 
       } else {
         const classList = listLinkButtons[this.answerSelected].classList;
@@ -139,10 +141,15 @@ export class QuizGameDmlaComponent implements OnInit {
         utterThis.lang = 'fr-FR';
         synth.speak(utterThis);
 
-        console.log('this.gameDMLA.incorrectAnswers = (parseInt(this.gameDMLA.incorrectAnswers, 10) + 1).toString()');
-        this.gameDMLA.incorrectAnswers = (parseInt(this.gameDMLA.incorrectAnswers, 10) + 1).toString();
-        this.quizService.updateQuizGame(this.gameDMLA);
+        // console.log('this.gameDMLA.incorrectAnswers = (parseInt(this.gameDMLA.incorrectAnswers, 10) + 1).toString()');
+        // this.gameDMLA.incorrectAnswers = (parseInt(this.gameDMLA.incorrectAnswers, 10) + 1).toString();
+        // this.quizService.updateQuizGame(this.gameDMLA);
+
+        this.gameDMLA.incorrectAnswers = String(Number(this.gameDMLA.incorrectAnswers) + 1);
       }
+    }
+    if (this.currentQuestion >= this.quiz.questions.length) {
+      this.quizService.updateQuizGame(this.gameDMLA);
     }
   }
 
