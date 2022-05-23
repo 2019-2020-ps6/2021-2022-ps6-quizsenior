@@ -46,8 +46,8 @@ export class MenuScoreComponent implements OnInit {
     if (userRecherche.type === 'DMLA') {
       this.router.navigate(['menu-score/DMLA/' + this.getUserWithName(recherche)._id]);
     }
-    if (userRecherche.type === 'DMLA') {
-      this.router.navigate(['menu-score/DMLA/' + this.getUserWithName(recherche)._id]);
+    if (userRecherche.type === 'ALZ') {
+      this.router.navigate(['menu-score/ALZ/' + this.getUserWithName(recherche)._id]);
     }
   }
 

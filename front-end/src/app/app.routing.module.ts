@@ -5,10 +5,8 @@ import {EditQuizComponent} from './quizzes/edit-quiz/edit-quiz.component';
 import {QuizGameComponent} from './quizzes/quiz-game/quiz-game.component';
 import {EditQuizDmlaComponent} from './quizzesDmla/edit-quizDmla/edit-quizDmla.component';
 import {QuizGameDmlaComponent} from './quizzesDmla/quiz-gameDmla/quiz-gameDmla.component';
-import {QuizListDmlaComponent} from './quizzesDmla/quiz-listDmla/quiz-listDmla.component';
 import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-theme-dmla.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
-import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
 import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {TutoComponent} from './tuto/tuto.component';
@@ -21,7 +19,7 @@ import {AddUserComponent} from './connexion/addUser/addUser.component';
 import {MenuSuperUserComponent} from './menu/menu-superUser/menu-superUser.component';
 import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
 import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
-// import {ScoreALZListComponent} from "./scores/scoreALZ-list/scoreALZ-list.component";
+import {ScoreALZListComponent} from './scores/scoreALZ-list/scoreALZ-list.component';
 
 const routes: Routes = [
   {path: 'connexion', component: UserListComponent},
@@ -62,7 +60,7 @@ const routes: Routes = [
   {path: 'menu/menuSuperUser', component: MenuSuperUserComponent},
 
   {path: 'menu-score/DMLA/:idU', component: ScoreDMLAListComponent},
-  // {path: 'menu-score/ALZ/:idU', component: ScoreALZListComponent},
+  {path: 'menu-score/ALZ/:idU', component: ScoreALZListComponent},
 
   {path: '', redirectTo: '/connexion', pathMatch: 'full'},
 ];

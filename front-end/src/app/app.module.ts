@@ -43,14 +43,14 @@ import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.com
 import {DetailScoreDMLAComponent} from './scores/detailScoreDMLA/detailScoreDMLA.component';
 import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
 import {DatePipe} from '@angular/common';
-// import {ScoreALZListComponent} from './scores/scoreALZ-list/scoreALZ-list.component';
-// import {DetailScoreALZComponent} from './scores/detailScoreALZ/detailScoreALZ.component';
+import {ScoreALZListComponent} from './scores/scoreALZ-list/scoreALZ-list.component';
+import {DetailScoreALZComponent} from './scores/detailScoreALZ/detailScoreALZ.component';
 
 
 @NgModule({
   declarations: [
-    // DetailScoreALZComponent,
-    // ScoreALZListComponent,
+    DetailScoreALZComponent,
+    ScoreALZListComponent,
     QuizListDmla2Component,
     DetailScoreDMLAComponent,
     ScoreDMLAListComponent,
