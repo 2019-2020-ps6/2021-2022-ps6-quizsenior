@@ -8,7 +8,8 @@ const quizGameSchema = mongoose.Schema({
     incorrectAnswers: {type: String, required: true},
     userId: {type: String, required: true},
 
-    answers: {type: Array, required: true},
+    answers: {type: Array, required: false},
+    creationDate: {type: String, required: false},
     nbRepetition: {type: String, required: false},
 });
 

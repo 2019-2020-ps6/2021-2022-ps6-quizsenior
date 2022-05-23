@@ -6,5 +6,4 @@ export interface QuizGameDmla {
   userId: string;
   type: string;
 
-  answers: string;
 }

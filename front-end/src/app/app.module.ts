@@ -42,6 +42,7 @@ import {UserMenuScoreComponent} from './menu/userMenuScore/userMenuScore.compone
 import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
 import {DetailScoreDMLAComponent} from './scores/detailScoreDMLA/detailScoreDMLA.component';
 import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -91,7 +92,9 @@ import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

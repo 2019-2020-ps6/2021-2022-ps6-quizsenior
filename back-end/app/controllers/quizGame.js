@@ -71,26 +71,7 @@ exports.putQuizGameById = (req, res) => {
             if (!quizGame) {
                 return res.status(401).json({message: 'QuizGame non trouvé'});
             }
-
-            console.log("TEST1: ", quizGame.answers)
-            var answerVar = quizGame.answers;
-            console.log("TEST2: ", answerVar)
-            if (req.body.answers !== undefined) {
-                answerVar.push(req.body.answers);
-                console.log("TEST3: ", answerVar)
-            }
-
-            // var correctAnswersVar = quizGame.correctAnswers;
-            // if (req.body.correctAnswers !== undefined) {
-            //     correctAnswersVar = correctAnswersVar + req.body.correctAnswers;
-            //     console.log("TEST4: ", correctAnswersVar)
-            // }
-            //
-            // var incorrectAnswersVar = quizGame.incorrectAnswers;
-            // if (req.body.incorrectAnswers !== undefined) {
-            //     incorrectAnswersVar = incorrectAnswersVar + req.body.incorrectAnswers;
-            //     console.log("TEST5: ", incorrectAnswersVar)
-            // }
+            
             if (req.body.answers === undefined) {
                 quizGame.updateOne({
                     correctAnswers: req.body.correctAnswers, //correctAnswersVar
