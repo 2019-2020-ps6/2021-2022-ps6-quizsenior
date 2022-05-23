@@ -1,20 +1,19 @@
-<ng-container class="flex-1">
-  <div class="header">
-    <button class="buttonA button-mat2 btn--7" routerLink="../">
-      <div class="psuedo-text2">retour</div>
+<body>
+<div class="barre1">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="../">
+    <div class="psuedo-text">retour</div>
+  </button>
+  <div class="barre2">
+    <a class="titlePsuedo-text">Choissisez votre thème</a>
+  </div>
+</div>
+
+<div>
+  <a *ngFor="let theme of themeList">
+    <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="../{{theme}}/choixQuiz">
+      <div class="psuedo-text">{{theme}}</div>
     </button>
-<!--    <button class="buttonA button-mat2 btn&#45;&#45;7" routerLink="../../select-desease">-->
-<!--      <div class="psuedo-text2">Accueil</div>-->
-<!--    </button>-->
-    <div class="psuedo-text"><a class="psuedo-text3">Choisissez votre Thème</a></div>
-  </div>
-  <div class="fullwidthwithborder">
-    <div>
-      <a *ngFor="let theme of themeList">
-        <button class="button button-mat2 btn--7" (click)="selectTheme(theme)" routerLink="../{{theme}}/choixQuiz">
-          <div class="psuedo-text2">{{theme}}</div>
-        </button>
-      </a>
-    </div>
-  </div>
-</ng-container>
+  </a>
+</div>
+
+</body>
