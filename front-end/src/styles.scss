@@ -344,6 +344,19 @@ button {
   font-family: "Fira Sans", Verdana, sans-serif;
 }
 
+.buttonLarge {
+  width: 48%;
+  margin: 1% 1% 1% 1%;
+  padding: 11.5rem;
+  background: #F5F5F5;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
+
 
 
 
