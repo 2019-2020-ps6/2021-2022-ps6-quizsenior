@@ -3,7 +3,6 @@ import {QuizGame} from '../../../models/quizgame.model';
 import {QuizService} from '../../../services/quiz.service';
 import {ActivatedRoute} from '@angular/router';
 import {Quiz} from '../../../models/quiz.model';
-import {retry} from "rxjs/operators";
 
 @Component({
   selector: 'app-score',
@@ -25,7 +24,7 @@ export class ScoreComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedGame(id);
-    this.quizService.setSelectedQuiz(this.game.quiz);
+    this.quizService.setSelectedQuiz(this.game.quizId);
     this.buildQuestions();
   }
 
@@ -34,7 +33,7 @@ export class ScoreComponent implements OnInit {
   }
 
   buildQuestions(): void{
-    this.answers = this.game.answers.split(':');
+    // this.answers = this.game.answers.split(':');
     this.answers.shift();
     this.answers.pop();
   }
@@ -48,12 +47,12 @@ export class ScoreComponent implements OnInit {
   }
 
   buildDate(): string{
-    const date = new Date(this.game.id);
+    const date = new Date(this.game._id);
     return date.toLocaleString().split(',')[0];
   }
 
   buildTime(): string{
-    const date = new Date(this.game.id);
+    const date = new Date(this.game._id);
     return date.toLocaleString().split(',')[1];
   }
 }
