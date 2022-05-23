@@ -1,16 +1,17 @@
 <body>
 <div class="barre1">
-  <button class="boutonMenu11Rouge" routerLink="/menu/menuSuperUser">
-    <div>retour</div>
+  <button class="buttonSmall10 button-mat btn--7" routerLink="/menu/menuSuperUser">
+    <div class="psuedo-text">retour</div>
   </button>
   <div class="barre2">
-    <a class="newTitle">Historique</a>
+    <a class="titlePsuedo-text">Historique</a>
   </div>
 </div>
 
 
 <div class="newHeaderRecherche">
   <form action="" class="listUserRecherche">
+
     Recherche utilisateur :
     <input type="text" list="personne" id="recherche" value="" (change)="loadScore($event)">
     <datalist id="personne">

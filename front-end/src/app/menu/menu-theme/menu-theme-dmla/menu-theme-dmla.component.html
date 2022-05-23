@@ -1,18 +1,23 @@
 <body>
-  <div class="barre1">
-    <button class="buttonSmall10 button-mat btn--7" routerLink="../" >
-      <div class="psuedo-text">retour</div>
-    </button>
-    <div class="barre2">
-      <a class="titlePsuedo-text">Choissisez votre thème</a>
-    </div>
+<div class="barre1">
+  <button class="buttonSmall10 button-mat btn--7" routerLink="../">
+    <div class="psuedo-text">retour</div>
+  </button>
+  <div class="barre2">
+    <a class="titlePsuedo-text">Choissisez votre thème</a>
   </div>
+  <button class="buttonSmall button-mat btn--7" routerLink="tutoriel">
+    <div class="psuedo-text">Tutoriel</div>
+  </button>
+</div>
 
-  <div>
-    <a *ngFor="let theme of themeList">
-      <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="../{{theme}}/choixQuiz"><div class="psuedo-text">{{theme}}</div></button>
-    </a>
-  </div>
+<div>
+  <a *ngFor="let theme of themeList">
+    <button class="button button-mat btn--7" (click)="selectTheme(theme)" routerLink="../{{theme}}/choixQuiz">
+      <div class="psuedo-text">{{theme}}</div>
+    </button>
+  </a>
+</div>
 
 </body>
 

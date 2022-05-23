@@ -39,6 +39,7 @@ export class MenuQuestionnaireComponent implements OnInit {
     const theme = this.route.snapshot.paramMap.get('theme');
     this.themeService.setTheme(theme);
 
+    this.questionnaireService.cleanList();
     this.questionnaireService.setQuizzesDMLAFromUrlWithTheme(this.themeService.themeSelected);
 
     this.questionnaireService.listQuestionnaire$.subscribe((questionnaireList: string[]) => {
