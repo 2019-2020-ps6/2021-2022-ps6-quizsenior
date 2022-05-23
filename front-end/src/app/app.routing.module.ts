@@ -25,12 +25,12 @@ import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla
 const routes: Routes = [
   {path: 'connexion', component: UserListComponent},
 
-  // DMLA
+  // DMLA !
   {path: ':idUser/menuDMLA', component: MenuUserDMLAComponent},
   {path: ':idUser/menuDMLA/Theme', component: MenuThemeDmlaComponent},
   {path: ':idUser/menuDMLA/:theme/choixQuiz', component: MenuQuestionnaireComponent},
 
-  // ALZ
+  // ALZ !
   {path: ':idUser/menuALZ', component: MenuUserALZComponent},
   {path: ':idUser/menuALZ/Theme', component: MenuThemeAlzComponent},
   {path: ':idUser/menuALZ/:theme/choixQuiz', component: MenuQuestionnaireAlzComponent},
