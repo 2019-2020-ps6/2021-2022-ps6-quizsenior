@@ -6,6 +6,8 @@
            {{quiz.theme}}
           <br>
           Nb de questions : {{quiz.questions.length}}
+          <br>
+          Nb de répétition : {{quiz.nbRepetition}}
         </div>
         <button class="card__button btn-3 " (click)="delete()">Supprimer</button>
         <button class="card__button btn-3" routerLink="../edit-quiz/{{quiz._id}}">Modifier</button>

@@ -68,6 +68,7 @@ export class ThemeService {
           this.listThemeAlz$.next(this.listThemeAlz);
         }
       }
+      console.log('quizList: ', quizList);
     });
   }
 

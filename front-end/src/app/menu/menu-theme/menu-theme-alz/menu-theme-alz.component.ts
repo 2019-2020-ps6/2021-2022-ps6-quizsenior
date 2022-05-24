@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ThemeService} from '../../../../services/theme.service';
 import {UserService} from '../../../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {QuestionnaireService} from '../../../../services/questionnaire.service';
-import {QuizServiceDmla} from '../../../../services/quizDmla.service';
-import {QuizService} from "../../../../services/quiz.service";
-import {QuestionnaireAlzService} from "../../../../services/questionnaireAlz.service";
+import {QuizService} from '../../../../services/quiz.service';
+import {QuestionnaireAlzService} from '../../../../services/questionnaireAlz.service';
 
 @Component({
   selector: 'app-menu-theme-menu-theme-alz',
@@ -26,10 +24,9 @@ export class MenuThemeAlzComponent implements OnInit {
 
     this.themeService.listThemeAlz$.subscribe((themeList: string[]) => {
       this.themeList = themeList;
+      console.log('themeList: ', themeList);
     });
   }
-
-
 
 
   ngOnInit(): void {

@@ -5,8 +5,7 @@ import {Quiz} from '../models/quiz.model';
 import {Question} from '../models/question.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {QuizGame} from '../models/quizgame.model';
-import {QuestionDmla} from '../models/questionDmla.model';
-import {constructorParametersDownlevelTransform} from "@angular/compiler-cli";
+
 
 @Injectable({
   providedIn: 'root'
