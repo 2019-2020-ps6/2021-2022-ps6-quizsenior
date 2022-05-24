@@ -2,7 +2,7 @@
 @import '../../../styles/modelTypeMoche.scss';
 
 body {
-  background: linear-gradient(to bottom right, rgba(255, 74, 86, 1), #5533ff);
+  background: $degradé1;
   //background-size: cover;
   //background-repeat: no-repeat;
   position: fixed;
@@ -13,14 +13,14 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   display: flex;
-  border: dashed black;
+  //border: dashed black;
 
   flex-direction: column;
 }
 
 .bodyScore{
   display: flex;
-  border: dashed navajowhite;
+  //border: dashed navajowhite;
 
   justify-content: center;
   flex-direction: row;
