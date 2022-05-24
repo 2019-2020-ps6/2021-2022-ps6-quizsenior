@@ -36,7 +36,7 @@ export class QuestionnaireAlzService {
   }
 
   setQuizzesFromUrlWithTheme(theme: string): void {
-    const questionUrl = 'http://localhost:3001/api/quizzesALZ/theme/' + theme;
+    const questionUrl = 'http://localhost:3000/api/quizzesALZ/theme/' + theme;
     this.http.get<Quiz[]>(questionUrl).subscribe((quizList: Quiz[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {

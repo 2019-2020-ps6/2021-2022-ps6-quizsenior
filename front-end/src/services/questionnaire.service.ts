@@ -46,7 +46,7 @@ export class QuestionnaireService {
   }
 
   setQuizzesDMLAFromUrlWithTheme(theme: string): void {
-    const questionUrl = 'http://localhost:3001/api/quizzesDmla/theme/' + theme;
+    const questionUrl = 'http://localhost:3000/api/quizzesDmla/theme/' + theme;
     this.http.get<QuizDmla[]>(questionUrl).subscribe((quizList: QuizDmla[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {

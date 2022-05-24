@@ -41,19 +41,19 @@ export class QuizService {
   }
 
   setQuizzesFromUrl(): void {
-    this.http.get<Quiz[]>('http://localhost:3001/api/quizzesALZ/').subscribe((quizList) => {
+    this.http.get<Quiz[]>('http://localhost:3000/api/quizzesALZ/').subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
     });
   }
 
   addQuiz(quiz: Quiz): void {
-    this.http.post<Quiz>('http://localhost:3001/api/quizzesALZ', quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
+    this.http.post<Quiz>('http://localhost:3000/api/quizzesALZ', quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   setSelectedQuiz(quizId: string): void {
     console.log('SUUUUUUUUUUUUU setSelectedQuiz');
-    const urlWithId = 'http://localhost:3001/api/quizzesALZ/' + quizId;
+    const urlWithId = 'http://localhost:3000/api/quizzesALZ/' + quizId;
     this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
       this.quizSelected$.next(quiz);
     });
@@ -61,32 +61,32 @@ export class QuizService {
 
 
   deleteQuiz(quiz: Quiz): void {
-    const urlWithId = 'http://localhost:3001/api/quizzesALZ/' + quiz._id;
+    const urlWithId = 'http://localhost:3000/api/quizzesALZ/' + quiz._id;
     this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
   }
 
   addQuestion(quiz: Quiz, question: Question): void {
-    const questionUrl = 'http://localhost:3001/api/quizzesALZ/' + quiz._id + '/questionsALZ';
+    const questionUrl = 'http://localhost:3000/api/quizzesALZ/' + quiz._id + '/questionsALZ';
     console.log(question);
     this.http.post<Question>(questionUrl, question, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
   }
 
 
   deleteQuestion(quiz: Quiz, question: Question): void {
-    const questionUrl = 'http://localhost:3001/api/quizzesALZ/' + quiz._id + '/questionsALZ/' + question._id;
+    const questionUrl = 'http://localhost:3000/api/quizzesALZ/' + quiz._id + '/questionsALZ/' + question._id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz._id));
   }
 
 
   setQuizGamesFromUrl(): void {
-    this.http.get<QuizGame[]>('http://localhost:3001/api/quizGames/').subscribe((quizGameList) => {
+    this.http.get<QuizGame[]>('http://localhost:3000/api/quizGames/').subscribe((quizGameList) => {
       this.quizGames = quizGameList;
       this.quizGames$.next(this.quizGames);
     });
   }
 
   addQuizGame(quizGame: QuizGame): void {
-    const questionUrl = 'http://localhost:3001/api/quizGames/' + quizGame.type;
+    const questionUrl = 'http://localhost:3000/api/quizGames/' + quizGame.type;
     this.http.post<QuizGame>(questionUrl, quizGame, this.httpOptions).subscribe((quizgame) => {
       this.game$.next(quizgame);
     });
@@ -94,14 +94,14 @@ export class QuizService {
   }
 
   setSelectedGame(gameId: string): void {
-    const urlWithId = 'http://localhost:3001/api/quizGames/' + gameId;
+    const urlWithId = 'http://localhost:3000/api/quizGames/' + gameId;
     this.http.get<QuizGame>(urlWithId).subscribe((game) => {
       this.game$.next(game);
     });
   }
 
   updateQuizGame(quizGame: QuizGame): void {
-    const urlWithId = 'http://localhost:3001/api/quizGames/' + quizGame._id;
+    const urlWithId = 'http://localhost:3000/api/quizGames/' + quizGame._id;
     this.http.put<QuizGame>(urlWithId, quizGame, this.httpOptions).subscribe(() => this.setQuizGamesFromUrl());
   }
 

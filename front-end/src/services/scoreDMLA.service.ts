@@ -34,7 +34,7 @@ export class ScoreDMLAService {
   }
 
   setQuizGamesFromUrlWithId(userId: string): void {
-    const urlWithId = 'http://localhost:3001/api/quizGames/User/' + userId;
+    const urlWithId = 'http://localhost:3000/api/quizGames/User/' + userId;
     this.http.get<QuizGameDmla[]>(urlWithId).subscribe((quizGameList) => {
       this.quizGamesId = quizGameList;
       this.quizGames$.next(this.quizGamesId);
@@ -42,7 +42,7 @@ export class ScoreDMLAService {
   }
 
   setSelectedUser(userId: string): void {
-    const urlWithId = 'http://localhost:3001/api/user/' + userId;
+    const urlWithId = 'http://localhost:3000/api/user/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
     });

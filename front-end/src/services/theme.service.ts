@@ -48,7 +48,7 @@ export class ThemeService {
   }
 
   setThemeDMLAFromUrl(): void {
-    this.http.get<QuizDmla[]>('http://localhost:3001/api/quizzesDmla').subscribe((quizList: QuizDmla[]) => {
+    this.http.get<QuizDmla[]>('http://localhost:3000/api/quizzesDmla').subscribe((quizList: QuizDmla[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
         if (this.isThemeInListTheme(quizList[i].theme)) {
@@ -60,7 +60,7 @@ export class ThemeService {
   }
 
   setQuizzesALzFromUrl(): void {
-    this.http.get<Quiz[]>('http://localhost:3001/api/quizzesALZ').subscribe((quizList: Quiz[]) => {
+    this.http.get<Quiz[]>('http://localhost:3000/api/quizzesALZ').subscribe((quizList: Quiz[]) => {
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < quizList.length; i++) {
         if (this.isThemeInListThemeAlz(quizList[i].theme)) {

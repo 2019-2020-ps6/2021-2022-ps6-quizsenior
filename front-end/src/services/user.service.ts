@@ -39,7 +39,7 @@ export class UserService {
 
   setUsersFromUrl(): void {
     console.log('JE SUIS LA');
-    this.http.get<User[]>('http://localhost:3001/api/user').subscribe((userList) => {
+    this.http.get<User[]>('http://localhost:3000/api/user').subscribe((userList) => {
       console.log('userList: ', userList);
 
       this.users = userList;
@@ -49,12 +49,12 @@ export class UserService {
 
   addUser(user: User): void {
     console.log('user: ', user);
-    this.http.post<User>('http://localhost:3001/api/user', user, this.httpOptions).subscribe(() => this.setUsersFromUrl());
+    this.http.post<User>('http://localhost:3000/api/user', user, this.httpOptions).subscribe(() => this.setUsersFromUrl());
   }
 
   setSelectedUser(userId: string): void {
     console.log('SET USER');
-    const urlWithId = 'http://localhost:3001/api/user/' + userId;
+    const urlWithId = 'http://localhost:3000/api/user/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
     });
@@ -62,7 +62,7 @@ export class UserService {
 
   deleteUser(user: User): void {
     console.log('user.id: ', user._id);
-    const urlWithId = 'http://localhost:3001/api/user/' + user._id;
+    const urlWithId = 'http://localhost:3000/api/user/' + user._id;
     console.log('urlWithId: ', urlWithId);
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.setUsersFromUrl());
   }

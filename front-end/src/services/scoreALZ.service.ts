@@ -25,7 +25,7 @@ export class ScoreALZService {
   }
 
   setQuizGamesFromUrlWithId(userId: string): void {
-    const urlWithId = 'http://localhost:3001/api/quizGames/User/' + userId;
+    const urlWithId = 'http://localhost:3000/api/quizGames/User/' + userId;
     this.http.get<QuizGame[]>(urlWithId).subscribe((quizGameList) => {
       this.quizGamesId = quizGameList;
       this.quizGames$.next(this.quizGamesId);
@@ -33,14 +33,14 @@ export class ScoreALZService {
   }
 
   setSelectedUser(userId: string): void {
-    const urlWithId = 'http://localhost:3001/api/user/' + userId;
+    const urlWithId = 'http://localhost:3000/api/user/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
       this.userSelected$.next(user);
     });
   }
 
   setSelectedGameForAnswerGame(gameId: string): void {
-    const urlWithId = 'http://localhost:3001/api/quizGames/' + gameId;
+    const urlWithId = 'http://localhost:3000/api/quizGames/' + gameId;
     this.http.get<QuizGame>(urlWithId).subscribe((game) => {
       // console.log('game.answers: ', game.answers);
       this.quizGameAnswerSelected$.next(game.answers);
