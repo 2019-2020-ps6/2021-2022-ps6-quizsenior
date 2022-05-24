@@ -7,7 +7,7 @@
       <a *ngIf="user" class="titlePsuedo-text">{{user.name}}</a>
     </div>
   </div>
-
+<br>
   <div class="bodyScore">
     <t>
       <thead></thead>
@@ -29,7 +29,7 @@
           </ng>
           <th>{{g.answerRep.value}}</th>
           <th>{{buildWriteAnswers(g)}}</th>
-          <th>{{g.time/1000}} s</th>
+          <th>{{parsTime(g.time/1000)}} s</th>
         </tr>
       </ng-container>
     </t>

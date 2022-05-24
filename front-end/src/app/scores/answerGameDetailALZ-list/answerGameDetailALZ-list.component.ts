@@ -23,7 +23,6 @@ export class AnswerGameDetailALZListComponent implements OnInit {
 
     this.scoreALZService.quizGameAnswerSelected$.subscribe( (listScoreALZ) => {
       this.listScoreALZ = listScoreALZ;
-      console.log('games: ', listScoreALZ);
     });
 
     this.scoreALZService.userSelected$.subscribe(user => {
@@ -33,6 +32,7 @@ export class AnswerGameDetailALZListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   buildWriteAnswers(g: QuizGameAnswers): string{
     let answers = '';
     for (const item of g.questionRep.answers) {
@@ -41,6 +41,10 @@ export class AnswerGameDetailALZListComponent implements OnInit {
       }
     }
     return answers;
+  }
+
+  parsTime(time: number): string {
+    return parseFloat(String(time)).toFixed(0);
   }
 }
 
