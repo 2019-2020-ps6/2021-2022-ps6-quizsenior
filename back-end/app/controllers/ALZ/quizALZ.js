@@ -1,7 +1,7 @@
 const QuizALZ = require('../../models/ALZ/quizALZ');
 const QuestionALZ = require('../../models/ALZ/questionALZ');
 const AnswerALZ = require('../../models/ALZ/answerALZ');
-
+const QuizGame = require('../../models/quizGame')
 
 exports.createQuizALZ = (req, res) => {
     console.log("JE CREE UN QUIZALZ")
@@ -150,6 +150,10 @@ exports.deleteQuizALZById = (req, res) => {
     console.log("JE DELETE QuestionDMLA")
     QuestionALZ.deleteMany({quizId: req.params.idQuizALZ})
         .then(q => console.log(q)) //() => res.status(200).json({message: 'Question du quiz supprimé !'})
+        .catch(error => res.status(400).json({error}))
+
+    QuizGame.deleteMany({quizId: req.params.idQuizALZ})
+        .then(qg => console.log(qg))
         .catch(error => res.status(400).json({error}))
 
     console.log("JE DELETE QuizDMLA")

@@ -28,7 +28,7 @@ export class DetailScoreALZComponent implements OnInit {
 
     this.quizALZService.quizzes$.subscribe((quiz) => {
       this.quizALZs = quiz;
-      console.log('quizDmla: ', quiz);
+      console.log('quizAlz: ', quiz);
       if (quiz !== null && this.gameALZ !== undefined) {
         this.load();
       }

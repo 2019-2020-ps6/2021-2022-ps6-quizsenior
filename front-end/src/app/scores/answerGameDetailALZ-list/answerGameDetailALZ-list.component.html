@@ -1,6 +1,6 @@
 <body>
   <div class="barre1">
-    <button class="boutonMenu11Rouge" routerLink="/menu-score">
+    <button class="boutonMenu11Rouge" routerLink="../">
       <div>retour</div>
     </button>
     <div class="barre2">
@@ -11,7 +11,7 @@
   <div class="bodyScore">
     <a *ngFor="let g of listScoreALZ">
       <div>
-      <app-detailscorealz [setGameALZ]="g"></app-detailscorealz>
+      <app-answergamedetailalz [setAnswerGameALZ]="g"></app-answergamedetailalz>
       </div>
     </a>
   </div>

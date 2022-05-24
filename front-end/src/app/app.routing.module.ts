@@ -11,7 +11,6 @@ import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-
 import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {TutoComponent} from './tuto/tuto.component';
 import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
-import {ScoreComponent} from './scores/score/score.component';
 import {UserListComponent} from './connexion/user-list/user-list.component';
 import {MenuUserDMLAComponent} from './menu/menu-userDMLA/menu-userDMLA.component';
 import {MenuUserALZComponent} from './menu/menu-userALZ/menu-userALZ.component';
@@ -20,6 +19,7 @@ import {MenuSuperUserComponent} from './menu/menu-superUser/menu-superUser.compo
 import {ScoreDMLAListComponent} from './scores/scoreDMLA-list/scoreDMLA-list.component';
 import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla2.component';
 import {ScoreALZListComponent} from './scores/scoreALZ-list/scoreALZ-list.component';
+import {AnswerGameDetailALZListComponent} from './scores/answerGameDetailALZ-list/answerGameDetailALZ-list.component';
 
 const routes: Routes = [
   {path: 'connexion', component: UserListComponent},
@@ -48,7 +48,7 @@ const routes: Routes = [
 
   // Menu
   {path: 'menu-score', component: MenuScoreComponent},
-  {path: 'menu-score/:id', component: ScoreComponent},
+  // {path: 'menu-score/:id', component: ScoreComponent},     //A DELETE
 
 
   // {path: 'select-desease', component: SelectDeseaseComponent},  // A DELETE
@@ -61,6 +61,7 @@ const routes: Routes = [
 
   {path: 'menu-score/DMLA/:idU', component: ScoreDMLAListComponent},
   {path: 'menu-score/ALZ/:idU', component: ScoreALZListComponent},
+  {path: 'menu-score/ALZ/:idU/:idQ', component: AnswerGameDetailALZListComponent},
 
   {path: '', redirectTo: '/connexion', pathMatch: 'full'},
 ];

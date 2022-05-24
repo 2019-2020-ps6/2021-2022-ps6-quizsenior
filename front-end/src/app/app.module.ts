@@ -27,7 +27,7 @@ import {MenuThemeDmlaComponent} from './menu/menu-theme/menu-theme-dmla/menu-the
 import {MenuThemeAlzComponent} from './menu/menu-theme/menu-theme-alz/menu-theme-alz.component';
 import {MenuQuestionnaireComponent} from './menu/menu-questionnaire/menu-questionnaire.component';
 import {MenuQuestionnaireAlzComponent} from './menu/menu-questionnaire-alz/menu-questionnaire-alz.component';
-import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
+// import {SelectDeseaseComponent} from './menu/select-desease/select-desease.component';
 import {MenuScoreComponent} from './menu/menu-score/menu-score.component';
 import {ScoreComponent} from './scores/score/score.component';
 import {TutoComponent} from './tuto/tuto.component';
@@ -45,10 +45,14 @@ import {QuizListDmla2Component} from './quizzesDmla/quiz-listDmla2/quiz-listDmla
 import {DatePipe} from '@angular/common';
 import {ScoreALZListComponent} from './scores/scoreALZ-list/scoreALZ-list.component';
 import {DetailScoreALZComponent} from './scores/detailScoreALZ/detailScoreALZ.component';
+import {AnswerGameDetailALZListComponent} from './scores/answerGameDetailALZ-list/answerGameDetailALZ-list.component';
+import {AnswerGameDetailALZComponent} from './scores/answerGameDetailALZ/answerGameDetailALZ.component';
 
 
 @NgModule({
   declarations: [
+    AnswerGameDetailALZComponent,
+    AnswerGameDetailALZListComponent,
     DetailScoreALZComponent,
     ScoreALZListComponent,
     QuizListDmla2Component,
@@ -85,7 +89,7 @@ import {DetailScoreALZComponent} from './scores/detailScoreALZ/detailScoreALZ.co
     MenuThemeAlzComponent,
     MenuQuestionnaireComponent,
     MenuQuestionnaireAlzComponent,
-    SelectDeseaseComponent,
+    // SelectDeseaseComponent,
     MenuScoreComponent,
     ScoreComponent,
     TutoComponent

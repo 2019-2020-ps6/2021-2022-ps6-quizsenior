@@ -1,0 +1,22 @@
+<body>
+<div *ngIf="gameAnswerALZ !== undefined">
+  <ng-container *ngIf="gameAnswerALZ.answerRep.isCorrect">
+    <div disabled="disabled" class="scoreCaseTrue">
+      <div class="titreQuiz"> {{gameAnswerALZ.questionRep.label}}</div>
+      <a>{{gameAnswerALZ.answerRep.value}}</a>
+      <div> {{gameAnswerALZ.time/1000}} s</div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!gameAnswerALZ.answerRep.isCorrect">
+    <div disabled="disabled" class="scoreCaseFalse">
+      <div class="titreQuiz"> {{gameAnswerALZ.questionRep.label}}</div>
+      <a>{{gameAnswerALZ.answerRep.value}}</a>
+      <div> {{gameAnswerALZ.time/1000}} s</div>
+    </div>
+  </ng-container>
+
+</div>
+</body>
+
+

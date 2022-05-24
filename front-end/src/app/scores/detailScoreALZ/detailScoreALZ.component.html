@@ -1,16 +1,15 @@
 <body>
-  <button class="scoreCase" routerLink="">
-    <div *ngIf="quizALZ !== undefined">
-      <div class="titreQuiz"> {{quizALZ.name}}</div>
-      <a>Nombre de questions: {{quizALZ.questions.length}}</a>
-      <div class="info">
-        <div class="bonneReponse"> {{gameALZ.correctAnswers}}</div>
-        <div class="nauvaiseReponse"> {{gameALZ.incorrectAnswers}}</div>
-        <div> {{gameALZ.creationDate}}</div>
-
-      </div>
+<div *ngIf="quizALZ !== undefined">
+  <button class="scoreCase" routerLink="{{gameALZ._id}}">
+    <div class="titreQuiz"> {{quizALZ.name}}</div>
+    <a>Nombre de questions: {{quizALZ.questions.length}}</a>
+    <div class="info">
+      <div class="bonneReponse"> {{gameALZ.correctAnswers}}</div>
+      <div class="nauvaiseReponse"> {{gameALZ.incorrectAnswers}}</div>
     </div>
+    <div> {{gameALZ.creationDate}}</div>
   </button>
+</div>
 </body>
 
 
