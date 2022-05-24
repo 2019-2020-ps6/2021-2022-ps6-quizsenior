@@ -8,6 +8,7 @@ import {QuizGameDmla} from '../../../models/quizgameDmla.model';
 import {QuizDmla} from '../../../models/quizDmla.model';
 import {User} from '../../../models/user.model';
 import {QuizServiceDmla} from '../../../services/quizDmla.service';
+import {ReloadService} from "../../../services/reload.service";
 
 @Component({
   selector: 'app-menu-questionnaire',
@@ -31,8 +32,7 @@ export class MenuQuestionnaireComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public questionnaireService: QuestionnaireService,
               public themeService: ThemeService, public userService: UserService,
               private route: ActivatedRoute, private quizService: QuizServiceDmla,
-              private router: Router) {
-
+              private router: Router, public reloadService: ReloadService) {
     const id = this.route.snapshot.paramMap.get('idUser');
     this.userService.setSelectedUser(id);
 
@@ -64,9 +64,17 @@ export class MenuQuestionnaireComponent implements OnInit {
       type: [''],
       userId: [''],
     });
+
+    this.reloadService.reload$.subscribe((reload) => {
+      console.log('reload', reload);
+      if (reload === true) {
+        location.reload();
+      }
+    });
   }
 
   ngOnInit(): void {
+
   }
 
   selectQuestionnaire(theme: string): void {

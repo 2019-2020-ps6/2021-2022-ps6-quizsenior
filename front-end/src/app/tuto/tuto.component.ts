@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user.model';
 import {QuestionDmla} from '../../models/questionDmla.model';
+import {ReloadService} from '../../services/reload.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class TutoComponent implements OnInit {
   public synth;
   public sound: boolean;
 
-  constructor() {
+
+  constructor(public realoadService: ReloadService) {
     this.synth = window.speechSynthesis;
     this.count = 0;
     this.sound = true;
@@ -28,6 +30,7 @@ export class TutoComponent implements OnInit {
       'Bon tutoriel ! ');
     utterThis.lang = 'fr-FR';
     this.synth.speak(utterThis);
+    this.readJustepourtes();
   }
 
   upCount(): void {
@@ -80,6 +83,7 @@ export class TutoComponent implements OnInit {
         }
       }
     });
+    this.readJustepourtes();
   }
 
   CanTGoAfter(): void {
@@ -145,10 +149,7 @@ export class TutoComponent implements OnInit {
   }
 
   readJustepourtes(): void {
-    console.log('Read question', 'read juste pour test');
-    const utterThis = new SpeechSynthesisUtterance('tu mets ton texte');
-    utterThis.lang = 'fr-FR';
-    this.synth.speak(utterThis);
+    console.log('LE DOC', window.document.getElementsByTagName('keydown'));
   }
 
   soundOff(): void {
@@ -159,6 +160,11 @@ export class TutoComponent implements OnInit {
   soundOn(): void {
     this.sound = true;
     this.readTuto();
+  }
+
+  end(): void {
+    this.canceled();
+    this.realoadService.setReloadTrue();
   }
 
 

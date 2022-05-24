@@ -4,6 +4,7 @@ import {UserService} from '../../../../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 import {QuestionnaireService} from '../../../../services/questionnaire.service';
 import {QuizServiceDmla} from '../../../../services/quizDmla.service';
+import {ReloadService} from "../../../../services/reload.service";
 
 @Component({
   selector: 'app-menu-theme-menu-theme-dmla',
@@ -17,7 +18,7 @@ export class MenuThemeDmlaComponent implements OnInit {
 
   constructor(public themeService: ThemeService, public userService: UserService,
               private route: ActivatedRoute, public questionnaireService: QuestionnaireService,
-              private quizService: QuizServiceDmla) {
+              private quizService: QuizServiceDmla, public reloadService: ReloadService) {
     this.questionnaireService.cleanList();
 
     this.quizService.resetGame();
@@ -25,9 +26,17 @@ export class MenuThemeDmlaComponent implements OnInit {
     this.themeService.listTheme$.subscribe((themeList: string[]) => {
       this.themeList = themeList;
     });
+
+    this.reloadService.reload$.subscribe((reload) => {
+      console.log('reload', reload);
+      if (reload === true) {
+        location.reload();
+      }
+    });
   }
 
   ngOnInit(): void {
+
     this.themeService.setThemeDMLAFromUrl();
 
     const id = this.route.snapshot.paramMap.get('idUser');
@@ -37,4 +46,6 @@ export class MenuThemeDmlaComponent implements OnInit {
   selectTheme(theme: string): void {
     this.themeService.setTheme(theme);
   }
+
+
 }

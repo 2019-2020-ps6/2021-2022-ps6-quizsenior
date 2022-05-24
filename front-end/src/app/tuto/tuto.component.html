@@ -1,6 +1,6 @@
 <body>
 <div class="barre1">
-  <button class="buttonSmall10 button-mat btn--7" (click)="canceled()" routerLink="../">
+  <button class="buttonSmall10 button-mat btn--7" (click)="end()" routerLink="../">
     <div class="psuedo-text">retour</div>
   </button>
   <!--  <button class="buttonSmall10 button-mat btn&#45;&#45;7" (click)="canceled()" routerLink="/connexion">-->
@@ -77,7 +77,7 @@
       <div class="psuedo-text">J'ai compris</div>
     </button>
     <button *ngIf="count===5" class="buttonT button-mat btn--7"
-            (click)="canceled()" routerLink="../">
+            (click)="end()" routerLink="../">
       <div class="psuedo-text">Terminer</div>
     </button>
   </div>

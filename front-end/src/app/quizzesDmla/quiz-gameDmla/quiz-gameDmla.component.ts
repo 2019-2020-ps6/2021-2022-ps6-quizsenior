@@ -55,7 +55,10 @@ export class QuizGameDmlaComponent implements OnInit {
         this.load();
       }
     });
-
+    this.synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance();
+    utterThis.lang = 'fr-FR';
+    this.synth.speak(utterThis);
     this.navigate();
   }
 
@@ -68,7 +71,6 @@ export class QuizGameDmlaComponent implements OnInit {
     this.showAnswer = false;
 
 
-    this.synth = window.speechSynthesis;
   }
 
   load(): void {
