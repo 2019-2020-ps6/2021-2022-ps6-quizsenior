@@ -36,7 +36,6 @@ export class QuizFormComponent implements OnInit {
   changeRepetition(): void{
     this.repetition = !this.repetition;
   }
-
   ngOnInit(): void {
   }
 

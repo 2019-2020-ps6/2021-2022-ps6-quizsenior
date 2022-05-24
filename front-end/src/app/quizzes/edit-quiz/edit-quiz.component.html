@@ -1,16 +1,16 @@
 <body>
 <div class="barre1">
   <button class="buttonSmall10 button-mat btn--7" routerLink="/quiz-list">
-    <div class="psuedo-text">retour</div>
+    <div class="psuedo-text">Terminer</div>
   </button>
   <div class="barre2">
-    <a class="titlePsuedo-text">Menu de création de questions</a>
+    <a class="titlePsuedo-text">Quiz : {{quiz.name}}</a>
   </div>
 </div>
 
 <div class="containercenter" *ngIf="quiz">
   <app-question-form [quiz]="quiz">
-    <p style="color:blue">Quiz : {{quiz.name}}</p>
+
   </app-question-form>
   <div class="quiz-list2">
     <app-question-list [quiz]="quiz"></app-question-list>
