@@ -1,5 +1,6 @@
 <div class="form">
-    <h2>
+  <a *ngIf="supprimer===false">
+  <h2>
       <p style="color:#3f51b5">{{question.label}}
         <ng-container *ngIf="question.imageUrl !== 'no image'">
           <br><img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
@@ -13,5 +14,13 @@
       </ng-container>
       </p>
     </div>
-    <button class="button" (click)="delete()">Supprimer</button>
+    <button class="button" (click)="confirmDeletion()">Supprimer</button>
+  </a>
+  <a *ngIf="supprimer===true">
+    Etes-vous sur de vouloir supprimer le quiz ?
+    <div>
+      <button class="boutonAnnuler" (click)="cancelDeletion()">Annuler</button>
+      <button class="boutonSupprimerQuiz" (click)="delete()">Supprimer</button>
+    </div>
+  </a>
 </div>
