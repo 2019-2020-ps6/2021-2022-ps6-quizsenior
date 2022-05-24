@@ -25,7 +25,7 @@ export class QuestionFormComponent implements OnInit {
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
       answers: this.formBuilder.array([]),
-      imageUrl: '',
+      imageUrl: [''],
     });
   }
 
@@ -56,11 +56,21 @@ export class QuestionFormComponent implements OnInit {
       console.log(question);
       this.quizService.addQuestion(this.quiz, question);
       this.initializeQuestionForm();
+    } else {
+      if (!this.questionForm.controls.imageUrl.valid) {
+        if (this.imageBool) {
+          this.questionForm.controls.imageUrl.setValue('no image');
+        }
+        const question = this.questionForm.getRawValue() as Question;
+        console.log(question);
+        this.quizService.addQuestion(this.quiz, question);
+        this.initializeQuestionForm();
+      }
     }
   }
 
   changeImage(): void {
     this.imageBool = !this.imageBool;
-    this.questionForm.controls.image.setValue(String(this.imageBool));
+    console.log('');
   }
 }

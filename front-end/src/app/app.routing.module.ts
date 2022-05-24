@@ -52,8 +52,10 @@ const routes: Routes = [
 
 
   // {path: 'select-desease', component: SelectDeseaseComponent},  // A DELETE
+  {path: ':idUser/menuDMLA/tutoriel', component: TutoComponent},
   {path: ':idUser/menuDMLA/Theme/tutoriel', component: TutoComponent},
   {path: ':idUser/menuDMLA/:theme/choixQuiz/tutoriel', component: TutoComponent},
+
 
   // User CONNEXION
   {path: 'ajoutUser', component: AddUserComponent},
