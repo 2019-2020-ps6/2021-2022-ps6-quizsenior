@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
@@ -24,8 +24,8 @@ export class QuizFormComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     this.quizForm = this.formBuilder.group({
-      name: [''],
-      theme: [''],
+      name: ['', Validators.maxLength(30)],
+      theme: ['', Validators.maxLength(20)],
       nbRepetition: ['0'],
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
@@ -37,6 +37,20 @@ export class QuizFormComponent implements OnInit {
     this.repetition = !this.repetition;
   }
   ngOnInit(): void {
+  }
+  checkRepetition(): void{
+    if ( this.repetition ) {
+      let nb = Number(this.quizForm.controls.nbRepetition.value);
+      if (isNaN(nb) || nb < 0){
+        nb = 0;
+      }
+      else if (nb > 3){
+        nb = 3;
+      }
+      this.quizForm.controls.nbRepetition.setValue(nb);
+      console.log(nb);
+    }
+    this.addQuiz();
   }
 
   addQuiz(): void {
