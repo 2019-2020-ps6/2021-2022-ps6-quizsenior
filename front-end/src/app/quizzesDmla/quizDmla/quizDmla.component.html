@@ -7,9 +7,8 @@
           <br>
           Nb de questions : {{quiz.questions.length}}
         </div>
-        <button class="card__button" routerLink="/quiz-gameDmla/{{quiz._id}}">Select</button>
-        <button class="card__button" (click)="delete()">Delete</button>
-        <button class="card__button" routerLink="../edit-quizDmla/{{quiz._id}}">Edit</button>
+        <button class="card__button btn-3" (click)="delete()">Supprimer</button>
+        <button class="card__button btn-3" routerLink="../edit-quizDmla/{{quiz._id}}">Modifier</button>
       </div>
     </div>
 </body>

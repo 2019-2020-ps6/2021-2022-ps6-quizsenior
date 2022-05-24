@@ -35,6 +35,36 @@ button{
   box-sizing: border-box;
 }
 
+
+
+.cardBoutonSupprimer {
+  width: 16.5rem;
+  height: 50%;
+  max-height: 300px;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(#999, .25);
+  //border: solid red;
+
+  color: white;
+  margin: 1rem 1rem 1rem 1rem;
+
+
+  &__button {
+    padding: 13px;
+    border-radius: 50px;
+    background: #6658d3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+
+  }
+}
+
 .card {
   width: 16.5rem;
   height: 50%;
@@ -69,10 +99,6 @@ button{
     cursor: pointer;
     box-shadow:  8px 8px 22px #0a0a0a,
     -8px -8px 22px #282a28;
-    transition: 0.3s all ease-in-out;
-    &:hover{
-      margin-top:-10px;
-    }
   }
   &__header {
     text-transform: uppercase;
@@ -80,35 +106,8 @@ button{
     margin: 15px auto;
   }
   &__button {
-    padding: 10px;
-    border-radius: 50px;
-    background: #6658d3;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-
-  }
-}
-
-.cardBoutonSupprimer {
-  width: 16.5rem;
-  height: 50%;
-  max-height: 300px;
-  text-align: center;
-  background: #242625;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px 0 rgba(#999, .25);
-  //border: solid red;
-
-  color: white;
-  margin: 1rem 1rem 1rem 1rem;
-
-
-  &__button {
-    padding: 13px;
+    padding: 12px;
+    width: auto;
     border-radius: 50px;
     background: #6658d3;
     color: white;
