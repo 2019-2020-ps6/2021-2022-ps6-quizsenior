@@ -1,11 +1,13 @@
 @import '../../../styles/card.scss';
 @import '../../../styles.scss';
 
+
 .center {
   text-align: center;
   margin: 5%;
   overflow-inline: scroll;
   line-height: 6rem;
+  font-size: 65px; ///
 }
 
 .button_correct {
@@ -98,6 +100,20 @@
   transition-delay: .15s;
   overflow: hidden;
 }
+
+.button {
+  width: 48%;
+  height: 30%;
+  margin: 1% 1% 1% 1%;
+  padding: 6.5rem;
+  background: #F5F5F5;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
 
 
 

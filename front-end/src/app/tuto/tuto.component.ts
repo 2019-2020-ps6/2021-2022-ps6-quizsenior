@@ -13,10 +13,12 @@ export class TutoComponent implements OnInit {
   public count: number;
   public user: User = null;
   public synth;
+  public sound: boolean;
 
   constructor() {
     this.synth = window.speechSynthesis;
     this.count = 0;
+    this.sound = true;
     this.navigate();
   }
 
@@ -60,14 +62,20 @@ export class TutoComponent implements OnInit {
           console.log('ded', event.key);
           if (nomTouche === 'Enter') {
             this.upCount();
-            this.readTuto();
+            if (this.sound === true) {
+              this.readTuto();
+            }
           }
           if (nomTouche === 'Backspace') {
             this.downCount();
-            this.readTuto();
+            if (this.sound === true) {
+              this.readTuto();
+            }
           }
           if (nomTouche === ' ') {
-            this.readTuto();
+            if (this.sound === true) {
+              this.readTuto();
+            }
           }
         }
       }
@@ -141,6 +149,16 @@ export class TutoComponent implements OnInit {
     const utterThis = new SpeechSynthesisUtterance('tu mets ton texte');
     utterThis.lang = 'fr-FR';
     this.synth.speak(utterThis);
+  }
+
+  soundOff(): void {
+    this.sound = false;
+    this.canceled();
+  }
+
+  soundOn(): void {
+    this.sound = true;
+    this.readTuto();
   }
 
 
