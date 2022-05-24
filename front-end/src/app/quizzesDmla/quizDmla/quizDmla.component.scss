@@ -93,3 +93,32 @@ button{
   }
 }
 
+.cardBoutonSupprimer {
+  width: 16.5rem;
+  height: 50%;
+  max-height: 300px;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(#999, .25);
+  //border: solid red;
+
+  color: white;
+  margin: 1rem 1rem 1rem 1rem;
+
+
+  &__button {
+    padding: 13px;
+    border-radius: 50px;
+    background: #6658d3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+
+  }
+}
+
+

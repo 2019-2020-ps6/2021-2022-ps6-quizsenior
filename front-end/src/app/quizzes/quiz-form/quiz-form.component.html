@@ -14,9 +14,16 @@
         <input type="text" class="input-field" id="theme" [formControlName]="'theme'" value="" required/>
         <label class="input-label">Thème</label>
       </div>
-      <div class="input">
-        <input type="checkbox" id="repetition" (change)="changeRepetition()">
-        <label for="repetition">Répétition(s)</label>
+      <div class="input" *ngIf="repetition===false">
+        <input  type="checkbox" id="repetitionFalse" (change)="changeRepetition()">
+        <label for="repetitionFalse" class="cardREP__buttonREP btn-3">Activer la répétition
+        </label>
+      </div>
+      <div class="input" *ngIf="repetition===true">
+        <input type="checkbox" id="repetitionTrue" (change)="changeRepetition()">
+        <label for="repetitionTrue" class="cardREP__buttonREP btn-3">
+          <div>Desactiver la répétition</div>
+        </label>
       </div>
 
       <ng-container *ngIf="repetition">
