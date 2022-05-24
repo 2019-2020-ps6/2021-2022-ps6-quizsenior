@@ -24,7 +24,7 @@ body {
 
   display: flex;
   //flex-direction: column;
-  border: solid red;
+  //border: solid red;
   flex-direction: column;
   justify-content: center;
 }
@@ -33,30 +33,33 @@ body {
 .titlePsuedo-text {
   width: 100%;
   text-align: center;
-  margin: 1% 0% 0% 0%;
+  margin: 0% 0% 0% 0%;
   //overflow-inline: scroll;
-  line-height: 6rem;
+  line-height: 3rem;
   font-size: 2.4rem;
 
-  border: solid black;
+  margin-bottom: 1rem;
+
+  //border: solid black;
 }
 
 img {
   width: 300px;
   height: 300px;
   border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .imagecentree {
   display: flex;
   justify-content: center;
-  border: #282a28 solid;
+  //border: #282a28 solid;
 }
 
 .reponse {
   display: flex;
   justify-content: center;
-  border: solid blue;
+  //border: solid blue;
   height: 20%;
 }
 
@@ -87,7 +90,8 @@ img {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  border: #00C9B7 solid;
+  border-radius: 10px;
+  //border: #00C9B7 solid;
 }
 
 .psuedo-text_correct {

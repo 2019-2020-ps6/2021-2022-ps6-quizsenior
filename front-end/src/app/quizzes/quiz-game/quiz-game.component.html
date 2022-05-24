@@ -13,25 +13,40 @@
 
       <div class="reponse">
         <ng-container *ngFor="let answer of questions[0].answers">
-          <button
-            [ngClass]="answer.isCorrect && answerSelected ? 'button_correct button-mat btn--7' : 'button3422 button-mat btn--7'"
-            (click)="onAnswer(answer, questions[0])">
-            <div [ngClass]="answer.isCorrect && answerSelected ? 'psuedo-text_correct': 'psuedo-text'" >{{answer.value}}</div>
-          </button>
+
+          <ng-container *ngIf="answer.isCorrect">
+            <button
+              [ngClass]="answer.isCorrect && answerSelected ? 'button_correct' : 'button3422 button-mat btn--7'"
+              (click)="onAnswer(answer, questions[0])">
+              <div
+                [ngClass]="answer.isCorrect && answerSelected ? 'psuedo-text_correct': 'psuedo-text'">{{answer.value}}</div>
+            </button>
+          </ng-container>
+
+          <ng-container *ngIf="!answer.isCorrect">
+            <button
+              [ngClass]="answer.isCorrect && answerSelected ? 'button_correct' : 'button3422 button-mat btn--7'"
+              (click)="onAnswer(answer, questions[0])">
+              <div
+                [ngClass]="answer.isCorrect && answerSelected ? 'psuedo-text_correct': 'psuedo-text'">{{answer.value}}</div>
+            </button>
+          </ng-container>
+
         </ng-container>
       </div>
     </ng-container>
 
     <div *ngIf="!end">
       <ng-container *ngIf="alreadyAnswered(questions[0])">
-        <button class="button button-mat btn--7" style="float: right;" (click)="skip(questions[0])">
+        <button class="button3422 button-mat btn--7" style="float: right;" (click)="skip(questions[0])">
           <div class="psuedo-text">Question suivante</div>
         </button>
       </ng-container>
     </div>
+
     <div *ngIf="end">
       <h1 class="titlePsuedo-text">Vous avez terminé le quiz !</h1>
-      <h2 class="center: whiteBox">Votre score est de {{game.correctAnswers}}/{{quiz.questions.length}}
+      <h2 class="titlePsuedo-text">Votre score est de {{game.correctAnswers}}/{{quiz.questions.length}}
         <br>{{game.correctAnswers > (quiz.questions.length / 2) ? "Bien joué !!" : ""}}
       </h2>
       <button class="button button-mat btn--7" style="float: left" routerLink="/{{user._id}}/menuALZ/Theme">
