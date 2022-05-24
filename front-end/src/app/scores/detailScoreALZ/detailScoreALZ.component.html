@@ -2,7 +2,8 @@
 <div *ngIf="quizALZ !== undefined">
   <button class="scoreCase" routerLink="{{gameALZ._id}}">
     <div class="titreQuiz"> {{quizALZ.name}}</div>
-    <a>Nombre de questions: {{quizALZ.questions.length}}</a>
+    <a>Nombre de questions: {{quizALZ.questions.length}}</a><br>
+    <a>Nombre de répétitions: {{quizALZ.nbRepetition}}</a>
     <div class="info">
       <div class="bonneReponse"> {{gameALZ.correctAnswers}}</div>
       <div class="nauvaiseReponse"> {{gameALZ.incorrectAnswers}}</div>
