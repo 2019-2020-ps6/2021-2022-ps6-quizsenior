@@ -11,7 +11,7 @@ exports.createQuizDMLA = (req, res) => {
         questions: [],
     });
     quizDMLA.save()
-        .then(() => res.status(201).json({message: 'Quiz enregistré !'}))
+        .then((quizDMLA) => res.status(201).json(quizDMLA)) //{message: 'Quiz enregistré !'}
         .catch(error => {
             console.log(error);
             res.status(400).json({erreur: "Il manque une KEY quizDMLA", error});

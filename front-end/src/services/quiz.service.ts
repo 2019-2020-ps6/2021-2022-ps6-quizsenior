@@ -5,6 +5,7 @@ import {Quiz} from '../models/quiz.model';
 import {Question} from '../models/question.model';
 import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {QuizGame} from '../models/quizgame.model';
+import {QuizDmla} from "../models/quizDmla.model";
 
 
 @Injectable({
@@ -48,7 +49,14 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz): void {
-    this.http.post<Quiz>('http://localhost:3000/api/quizzesALZ', quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
+    this.http.post<Quiz>('http://localhost:3000/api/quizzesALZ', quiz, this.httpOptions).subscribe((quizALZ) => {
+      this.setQuizzesFromUrl();
+      this.setSelectedQuiz(quizALZ._id);
+    });
+  }
+
+  resetSelectQuiz(): void {
+    this.quizSelected$.next(null);
   }
 
   setSelectedQuiz(quizId: string): void {
