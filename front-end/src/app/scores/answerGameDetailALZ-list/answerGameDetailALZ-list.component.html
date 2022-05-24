@@ -9,10 +9,29 @@
   </div>
 
   <div class="bodyScore">
-    <a *ngFor="let g of listScoreALZ">
-      <div>
-      <app-answergamedetailalz [setAnswerGameALZ]="g"></app-answergamedetailalz>
-      </div>
-    </a>
+    <t>
+      <thead></thead>
+      <tr>
+        <th><h2>Question</h2></th>
+        <th><h2>Image</h2></th>
+        <th><h2>Réponse de {{user.name}}</h2></th>
+        <th><h2>Réponse attendue</h2></th>
+        <th><h2>Temps de réponse</h2></th>
+      </tr>
+      <ng-container *ngFor="let g of listScoreALZ">
+        <tr>
+          <th>{{g.questionRep.label}}</th>
+          <ng *ngIf="g.questionRep.imageUrl === 'no image'">
+            <th>No image</th>
+          </ng>
+          <ng *ngIf="g.questionRep.imageUrl !== 'no image'">
+            <th><img class="image" alt="QuestionImage" src="{{g.questionRep.imageUrl}}"></th>
+          </ng>
+          <th>{{g.answerRep.value}}</th>
+          <th>{{buildWriteAnswers(g)}}</th>
+          <th>{{g.time/1000}} s</th>
+        </tr>
+      </ng-container>
+    </t>
   </div>
 </body>

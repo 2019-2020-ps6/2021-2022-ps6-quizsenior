@@ -17,7 +17,8 @@ body {
 
 .scoreCase {
   //border: solid #0a0a0a;
-  height: 100%;
+  height: 18em;
+  width: 8em;
   text-align: center;
 
   margin: 0.2em;
@@ -31,6 +32,7 @@ body {
 
 .titreQuiz {
   //border: dashed burlywood;
+  font-family: $police;
 
 }
 

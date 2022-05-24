@@ -66,7 +66,7 @@ export class MenuQuestionnaireAlzComponent implements OnInit {
       type: [''],
       nbRepetition: [''],
       userId: [''],
-      creationDate: [this.datePipe.transform(new Date(), 'yyyy-MM-dd')],
+      creationDate: [this.datePipe.transform(new Date(), 'dd/MM/yyyy')],
       answers: [],
     });
   }

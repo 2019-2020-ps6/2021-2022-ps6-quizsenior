@@ -23,6 +23,7 @@ export class ScoreALZListComponent implements OnInit {
     this.scoreALZService.quizGames$.subscribe(games => {
       this.listScoreALZ = games;
       console.log('games: ', games);
+      this.listScoreALZ.reverse();
     });
 
     this.scoreALZService.userSelected$.subscribe(user => {

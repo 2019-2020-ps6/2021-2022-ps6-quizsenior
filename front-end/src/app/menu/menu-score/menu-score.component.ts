@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ThemeService} from '../../../services/theme.service';
-import {QuizGame} from '../../../models/quizgame.model';
-import {QuizService} from '../../../services/quiz.service';
 import {QuizServiceDmla} from '../../../services/quizDmla.service';
 import {QuizGameDmla} from '../../../models/quizgameDmla.model';
 import {User} from '../../../models/user.model';
@@ -36,6 +33,7 @@ export class MenuScoreComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.setUsersFromUrl();
   }
 
   loadScore(event): void {
@@ -43,10 +41,13 @@ export class MenuScoreComponent implements OnInit {
     console.log('JE SUIS LALANA');
     const userRecherche = this.getUserWithName(recherche);
     console.log('JE SUIS LALANA: ', userRecherche);
-    if (userRecherche.type === 'DMLA') {
+    if (userRecherche === null){
+      console.log('nice');
+    }
+    else if (userRecherche.type === 'DMLA') {
       this.router.navigate(['menu-score/DMLA/' + this.getUserWithName(recherche)._id]);
     }
-    if (userRecherche.type === 'ALZ') {
+    else if (userRecherche.type === 'ALZ') {
       this.router.navigate(['menu-score/ALZ/' + this.getUserWithName(recherche)._id]);
     }
   }

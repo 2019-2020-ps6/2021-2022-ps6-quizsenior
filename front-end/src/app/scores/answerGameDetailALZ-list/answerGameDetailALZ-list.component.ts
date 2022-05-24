@@ -33,5 +33,14 @@ export class AnswerGameDetailALZListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  buildWriteAnswers(g: QuizGameAnswers): string{
+    let answers = '';
+    for (const item of g.questionRep.answers) {
+      if ( item.isCorrect){
+        answers += item.value;
+      }
+    }
+    return answers;
+  }
 }
 

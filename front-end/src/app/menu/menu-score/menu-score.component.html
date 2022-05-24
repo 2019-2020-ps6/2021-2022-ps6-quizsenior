@@ -1,54 +1,29 @@
 <body>
-<div class="barre1">
-  <button class="buttonSmall10 button-mat btn--7" routerLink="/menu/menuSuperUser">
-    <div class="psuedo-text">retour</div>
-  </button>
-  <div class="barre2">
-    <a class="titlePsuedo-text">Historique</a>
+  <div class="barre1">
+    <button class="buttonSmall10 button-mat btn--7" routerLink="/menu/menuSuperUser">
+      <div class="psuedo-text">retour</div>
+    </button>
+    <div class="barre2">
+      <a class="titlePsuedo-text">Historique</a>
+    </div>
   </div>
-</div>
 
 
-<div class="newHeaderRecherche">
-  <form action="" class="listUserRecherche">
+  <div class="newHeaderRecherche">
+    <form action="" class="listUserRecherche">
 
-    Recherche utilisateur :
-    <input type="text" list="personne" id="recherche" value="" (change)="loadScore($event)">
-    <datalist id="personne">
-      <option *ngFor="let u of user">{{u.name}}</option>
-    </datalist>
-  </form>
-</div>
+      Recherche utilisateur :
+      <input type="text" list="personne" id="recherche" value="" (change)="loadScore($event)">
+      <datalist id="personne">
+        <option *ngFor="let u of user">{{u.name}}</option>
+      </datalist>
+    </form>
+  </div>
+  <div class="globallistUser">
+    <div class="user" *ngFor="let user of user">
+      <app-user-score [user]="user"></app-user-score>
+    </div>
+  </div>
 
-<!--<div class="listUser">-->
-<!--  <div class="user" *ngFor="let user of user">-->
-<!--    <app-usermenuscore [user]="user"></app-usermenuscore>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--  <div>-->
-<!--    <div>-->
-<!--      <a *ngFor="let game of quizGames">-->
-<!--        <button>-->
-<!--          <div>type: {{game.type}}  incorrectAnswers: {{game.incorrectAnswers}}-->
-<!--            correctAnswers: {{game.correctAnswers}}  userId: {{game.userId}} quizId: {{game.quizId}}</div>-->
-<!--        </button>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  </div>-->
 </body>
-
-
-<!--<body>-->
-<!--<header class="main-head">-->
-
-<!--  <button routerLink="/select-desease">-->
-<!--    <div class="NewButtonRetour">retour</div>-->
-<!--  </button>-->
-
-<!--  <h1 class="titre">-->
-<!--    <a class="newTitle"> Scores </a>-->
-<!--  </h1>-->
-<!--</header>-->
-<!--</body>-->
 

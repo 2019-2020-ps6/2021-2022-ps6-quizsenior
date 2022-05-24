@@ -27,4 +27,18 @@ body {
   flex-wrap: wrap;
 }
 
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th, td{
+  padding: 10px 10px;
+  border: 1px solid #000;
+  justify-content: center;
+}
+.image {
+  width: 91px;
+  height: 91px;
+}
+
 

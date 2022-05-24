@@ -1,0 +1,23 @@
+<img class="image button-matA" *ngIf="user.picture.includes('http')" src="{{user.picture}}">
+<img class="image button-matA" *ngIf="!user.picture.includes('http')"
+     src="https://fnege-medias.fr/wp-content/uploads/2021/07/user.jpg">
+<div class="namePsuedo-text">{{user.name}}</div>
+<ng-container *ngIf="user.type === 'DMLA'">
+  <div class="bonttons">
+    <button class="bouttonConnextionUser btn-3" (click)="userSelected()" routerLink="/menu-score/DMLA/{{user._id}}">Voir les scores
+    </button>
+  </div>
+</ng-container>
+<ng-container *ngIf="user.type === 'ALZ'">
+  <div class="bonttons">
+    <button class="bouttonConnextionUser btn-3" (click)="userSelected()" routerLink="/menu-score/ALZ/{{user._id}}">Voir les scores
+    </button>
+  </div>
+</ng-container>
+
+
+
+
+
+
+
