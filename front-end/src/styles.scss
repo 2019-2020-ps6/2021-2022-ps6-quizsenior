@@ -85,13 +85,12 @@ button {
   color: #5533ff;
   position: relative;
   top: 0;
-  height: 100%;
   width: 100%;
   display: inline;
-  height: auto;
   font-size: 80%;
   transition: .25s ease-in;
-  transition-delay: .05s; }
+  transition-delay: .05s;
+}
 
 .psuedo-text2 {
   color: red;
@@ -123,7 +122,10 @@ button {
   text-transform: uppercase;
   font-size: 1.8rem;
   font-weight: 600;
+
+  text-shadow: 3px 3px 6px  black;;
 }
+
 .titlePsuedoSmaillVersion-text {
   color: #F5F5F5;
   //border: dashed blue;
