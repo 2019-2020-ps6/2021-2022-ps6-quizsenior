@@ -10,6 +10,8 @@ export class QuizDmlaComponent implements OnInit {
 
   @Input()
   quiz: QuizDmla;
+  supprimer: boolean;
+
 
   @Output()
   quizSelected: EventEmitter<QuizDmla> = new EventEmitter<QuizDmla>();
@@ -24,6 +26,7 @@ export class QuizDmlaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.supprimer = false;
   }
 
   selectQuiz(): void {
@@ -36,5 +39,13 @@ export class QuizDmlaComponent implements OnInit {
 
   delete(): void {
     this.deleteQuiz.emit(this.quiz);
+  }
+
+  cancelDeletion(): void {
+    this.supprimer = false;
+  }
+
+  confirmDeletion(): void {
+    this.supprimer = true;
   }
 }
