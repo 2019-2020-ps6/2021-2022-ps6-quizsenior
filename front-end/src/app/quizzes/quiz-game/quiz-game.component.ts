@@ -92,7 +92,9 @@ export class QuizGameComponent implements OnInit {
     for (const item of questions) {
       console.log('createQuestions item', item);
       for (let j = 0; j < Number(String(this.quiz.nbRepetition) + 1); j++) {
-        result.push(item);
+        if (item.answers.length - 1 > j) {
+          result.push(item);
+        }
       }
     }
     console.log(this.quiz.nbRepetition);
