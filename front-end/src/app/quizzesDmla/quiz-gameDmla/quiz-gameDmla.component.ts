@@ -148,9 +148,8 @@ export class QuizGameDmlaComponent implements OnInit {
         this.gameDMLA.incorrectAnswers = String(Number(this.gameDMLA.incorrectAnswers) + 1);
       }
     }
-    if (this.currentQuestion >= this.quiz.questions.length) {
-      this.quizService.updateQuizGame(this.gameDMLA);
-    }
+    console.log('qfskjlgnvvqmlns c');
+    this.quizService.updateQuizGame(this.gameDMLA);
   }
 
   navigate(): void {
