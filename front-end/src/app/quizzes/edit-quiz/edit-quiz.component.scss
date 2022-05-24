@@ -14,22 +14,26 @@ body {
   width: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  display: flex;
   //border: dashed black;
 
   flex-direction: column;
 }
 
-div.containercenter {
-  height: 10em;
-  position: relative }
-div.containercenter {
-  margin: 0;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%) }
+.question-list2 {
+  display: flex;
+  margin-top: 1em;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: solid red;
+  border-width: 200px;
+
+}
+
+.containercenter{
+  //border: solid black;
+
+}
 
 ///
 

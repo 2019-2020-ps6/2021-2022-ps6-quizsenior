@@ -69,10 +69,6 @@ button{
     cursor: pointer;
     box-shadow:  8px 8px 22px #0a0a0a,
     -8px -8px 22px #282a28;
-    transition: 0.3s all ease-in-out;
-    &:hover{
-      margin-top:-10px;
-    }
   }
   &__header {
     text-transform: uppercase;
@@ -80,7 +76,8 @@ button{
     margin: 15px auto;
   }
   &__button {
-    padding: 10px;
+    padding: 12px;
+    width: auto;
     border-radius: 50px;
     background: #6658d3;
     color: white;

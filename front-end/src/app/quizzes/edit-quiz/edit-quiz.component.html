@@ -8,16 +8,14 @@
   </div>
 </div>
 
-<ng-container *ngIf="quiz">
-  <div class="containercenter">
-    <app-question-form [quiz]="quiz">
-        <p style="color:blue">Quiz : {{quiz.name}}</p>
-    </app-question-form>
-    <div class="quiz-list">
-      <app-question-list [quiz]="quiz"></app-question-list>
-    </div>
+<div class="containercenter" *ngIf="quiz">
+  <app-question-form [quiz]="quiz">
+    <p style="color:blue">Quiz : {{quiz.name}}</p>
+  </app-question-form>
+  <div class="quiz-list2">
+    <app-question-list [quiz]="quiz"></app-question-list>
   </div>
-</ng-container>
+</div>
 </body>
 
 

@@ -1,5 +1,6 @@
 @import '../../../styles/card.scss';
 
 .question-list {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
 }

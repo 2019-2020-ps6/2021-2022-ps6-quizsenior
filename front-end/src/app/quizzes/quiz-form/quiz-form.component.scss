@@ -1,5 +1,6 @@
 @import '../../../styles/card.scss';
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import '../../../styles/modelTypeMoche.scss';
 
 
 *, *:after, *:before {
@@ -77,6 +78,7 @@ input {
 
 .input {
   display: flex;
+  //border: solid black;
   flex-direction: column-reverse;
   position: relative;
   padding-top: 1.5rem;
@@ -129,6 +131,64 @@ input {
     outline: 0;
   }
 }
+
+.cardREP {
+  //border: solid black;
+  width: 60%;
+  height: 95%;
+  max-height: 300px;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(#999, .25);
+
+  &__buttonREP {
+    //border: solid black;
+    padding: 10px;
+    border-radius: 50px;
+    background: #6658d3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    width: auto;
+
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 
 
 
