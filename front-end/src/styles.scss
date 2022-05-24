@@ -379,10 +379,36 @@ button {
   position: relative;
   will-change: transform; }
 
+.buttonLargeInMiddle {
+  width: 100%;
+  margin: 1% 1% 1% 1%;
+  padding: 11.5rem;
+  background: #F5F5F5;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  will-change: transform; }
+
 .buttonAccueilSU{
   margin: 1%;
   height: 45%;
   width: 48%;
+  padding: 8%;
+  background: #F5F5F5;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
+
+.buttonAccueilScore{
+  margin: 1%;
+  height: 45%;
+  width: 98%;
   padding: 8%;
   background: #F5F5F5;
   text-align: center;
@@ -407,6 +433,13 @@ button {
   position: relative;
   will-change: transform; }
 
+
+.inthemiddle {
+  display: flex;
+  align-items: center;
+  //border: solid black;
+  align-self: center;
+}
 
 
 
