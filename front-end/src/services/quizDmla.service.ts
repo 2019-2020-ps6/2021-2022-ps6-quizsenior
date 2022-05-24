@@ -59,7 +59,14 @@ export class QuizServiceDmla {
 
   addQuiz(quiz: QuizDmla): void {
     console.log('quiz: ', quiz);
-    this.http.post<QuizDmla>('http://localhost:3000/api/quizzesDmla', quiz, this.httpOptions).subscribe(() => this.setQuizzesFromUrl());
+    this.http.post<QuizDmla>('http://localhost:3000/api/quizzesDmla', quiz, this.httpOptions).subscribe((quizDMLA) => {
+      this.setQuizzesFromUrl();
+      this.setSelectedQuiz(quizDMLA._id);
+    });
+  }
+
+  resetSelectQuiz(): void {
+    this.quizSelected$.next(null);
   }
 
   setSelectedQuiz(quizId: string): void {
@@ -95,7 +102,6 @@ export class QuizServiceDmla {
     });
     return null;
   }
-
 
 
   setQuizGamesFromUrl(): void {

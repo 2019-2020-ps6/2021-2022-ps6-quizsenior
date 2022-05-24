@@ -13,7 +13,7 @@ exports.createQuizALZ = (req, res) => {
         nbRepetition: req.body.nbRepetition,
     });
     quizALZ.save()
-        .then(() => res.status(201).json({message: 'Quiz LZ enregistré !'}))
+        .then((quizALZ) => res.status(201).json(quizALZ)) //{message: 'Quiz LZ enregistré !'}
         .catch(error => {
             console.log(error);
             res.status(400).json({erreur: "Il manque une KEY quizALZ", error});

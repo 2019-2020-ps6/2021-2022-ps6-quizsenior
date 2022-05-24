@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
-import { QuizServiceDmla } from '../../../services/quizDmla.service';
-import { QuizDmla } from '../../../models/quizDmla.model';
+import {QuizServiceDmla} from '../../../services/quizDmla.service';
+import {QuizDmla} from '../../../models/quizDmla.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-quiz-formdmla',
@@ -21,11 +22,23 @@ export class QuizFormDmlaComponent implements OnInit {
   public quizForm: FormGroup;
   public repetition = false;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizServiceDmla) {
+  public quizDMLA: QuizDmla = null;
+
+  constructor(public formBuilder: FormBuilder, public quizService: QuizServiceDmla,
+              private router: Router) {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: [''],
     });
+    this.quizService.resetSelectQuiz();
+
+    this.quizService.quizSelected$.subscribe((quizzes: QuizDmla) => {
+      this.quizDMLA = quizzes;
+      if (this.quizDMLA !== null) {
+        this.editQuiz(this.quizDMLA._id);
+      }
+    });
+
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
@@ -40,4 +53,7 @@ export class QuizFormDmlaComponent implements OnInit {
     this.quizService.addQuiz(quizToCreate);
   }
 
+  editQuiz(quizId: string): void {
+    this.router.navigate(['/edit-quizDmla/' + quizId]);
+  }
 }

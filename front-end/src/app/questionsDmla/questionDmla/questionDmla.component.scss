@@ -8,13 +8,12 @@
 .form {
   position: relative;
   display: inline-block;
-  max-width: 700px;
-  min-width: 500px;
+  max-width: 430px;
+  min-width: 200px;
   box-sizing: border-box;
   padding: 30px 25px;
   background-color: white;
-  border-radius: 40px;
-  margin: 40px 0;
+  border-radius: 20px;
   left: 50%;
   transform: translate( -50% , 0 );
   margin: 1% 1% 1% 1%;
@@ -115,10 +114,8 @@
 .boutonAnnuler {
   width: 90%;
   height: 40%;
-
   margin-bottom: 1%;
   margin-top: 1%;
-
   text-align: center;
   margin-right: 0.1em;
   font-size: 90%;

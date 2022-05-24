@@ -2,13 +2,13 @@
   <a *ngIf="supprimer===false">
   <h2>
       <p style="color:#3f51b5">{{question.label}}
-        <ng-container *ngIf="question.imageUrl !== 'no image'">
-          <br><img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
-        </ng-container>
       </p>
+    <ng-container *ngIf="question.imageUrl !== 'no image'">
+      <img class='image' alt="QuestionImage" src="{{question.imageUrl}}"><br>
+    </ng-container>
     </h2>
     <div class="answerdmla" *ngFor="let answer of question.answers; let i=index">
-      <p style="color:#3f51b5">{{i}} - {{answer.value}}
+      <p style="color:#3f51b5">{{i + 1}}  - {{answer.value}}
       <ng-container *ngIf="answer.isCorrect">
         <i class="far fa-check-square"></i>
       </ng-container>
@@ -17,7 +17,7 @@
     <button class="button" (click)="confirmDeletion()">Supprimer</button>
   </a>
   <a *ngIf="supprimer===true">
-    Etes-vous sur de vouloir supprimer le quiz ?
+    Etes-vous sûr(e) de vouloir supprimer le quiz ?
     <div>
       <button class="boutonAnnuler" (click)="cancelDeletion()">Annuler</button>
       <button class="boutonSupprimerQuiz" (click)="delete()">Supprimer</button>
