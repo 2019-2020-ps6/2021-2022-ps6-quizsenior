@@ -1,14 +1,16 @@
 <body>
-<button class="scoreCase">
-  <div *ngIf="quizDMLA !== undefined">
-    <div class="titreQuiz"> {{quizDMLA.name}}</div>
-    <a>Nombre de questions: {{quizDMLA.questions.length}}</a>
-    <div class="info">
-      <div class="bonneReponse"> {{gameDMLA.correctAnswers}}</div>
-      <div class="nauvaiseReponse"> {{gameDMLA.incorrectAnswers}}</div>
+  <button class="scoreCase">
+    <div *ngIf="quizDMLA !== undefined">
+      <div class="titreQuiz"><h3>{{quizDMLA.name}}</h3></div>
+      <a><b>Nombre de questions:</b> {{quizDMLA.questions.length}}</a>
+      <div class="info">
+        <div class="bonneReponse"> {{gameDMLA.correctAnswers}}</div>
+        <div class="nauvaiseReponse"> {{gameDMLA.incorrectAnswers}}</div>
+      </div>
     </div>
-  </div>
-</button>
+  </button>
 </body>
+
+
 
 
