@@ -2,7 +2,7 @@
 
 
 .fullwidthwithborder {
-  background: linear-gradient(to bottom right,#296073, #3596B5);
+  background: linear-gradient(to bottom right, #296073, #3596B5);
   background-size: cover;
   background-repeat: no-repeat;
   position: fixed;
@@ -80,7 +80,7 @@
   background-color: $blueAnswers;
   width: 48%;
   height: 46%;
-  margin-top:3%;
+  margin-top: 3%;
 }
 
 /////////////////////////////////
@@ -91,7 +91,8 @@
   justify-content: center;
   width: 80vw;
   height: 20vw;
-  margin: 10px; }
+  margin: 10px;
+}
 
 h1 {
   font-size: 6rem;
@@ -99,13 +100,15 @@ h1 {
   text-align: center;
   color: white;
   font-weight: 500;
-  margin: 5rem 0 0 0; }
+  margin: 5rem 0 0 0;
+}
 
 button {
   border: none;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.95);
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .div {
   padding-top: 50px;
@@ -115,7 +118,8 @@ button {
   text-align: center;
   position: relative;
   max-width: 1200px;
-  margin: auto; }
+  margin: auto;
+}
 
 .psuedo-text {
   color: #F5F5F5;
@@ -128,7 +132,8 @@ button {
   font-size: 1.7rem;
   font-size: 700;
   transition: .25s ease-in;
-  transition-delay: .05s; }
+  transition-delay: .05s;
+}
 
 .flex-1 {
   //flex: 0px;
@@ -150,7 +155,7 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-   }
+}
 
 
 .buttonS {
@@ -165,7 +170,7 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-   }
+}
 
 .buttonQ {
   width: 50%;
@@ -180,7 +185,8 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  will-change: transform; }
+  will-change: transform;
+}
 
 .button-mat {
   color: transparent;
@@ -188,8 +194,8 @@ button {
   border-radius: .3rem;
   transition: .3s ease-in-out;
   transition-delay: .15s;
-  overflow: hidden; }
-
+  overflow: hidden;
+}
 
 
 .button-matQ {
@@ -198,7 +204,8 @@ button {
   border-radius: .3rem;
   transition: .3s ease-in-out;
   transition-delay: .15s;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .button-matS {
   color: #B93DAF;
@@ -206,8 +213,8 @@ button {
   border-radius: .3rem;
   transition: .3s ease-in-out;
   transition-delay: .15s;
-  overflow: hidden; }
-
+  overflow: hidden;
+}
 
 
 .btn-3 {
@@ -219,41 +226,63 @@ button {
   transition: .3s ease-in-out;
   border-radius: .3rem;
   z-index: 1;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
 .btn-3:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  transform: scale(0.95); }
+  transform: scale(0.95);
+}
 
 
 .btn--5 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 .btn--5:before {
-  transform: translate(-120%, -50%) translateZ(0); }
+  transform: translate(-120%, -50%) translateZ(0);
+}
+
 .btn--5:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
+  transform: translate(-45%, -34%) translateZ(0);
+}
 
 .btn--6 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 .btn--6:before {
-  transform: translate(40%, -50%) translateZ(0); }
+  transform: translate(40%, -50%) translateZ(0);
+}
+
 .btn--6:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
+  transform: translate(-45%, -34%) translateZ(0);
+}
 
 .btn--7 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-.btn--7:before {
-  transform: translate(-110%, -110%) translateZ(0); }
-.btn--7:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
 
+.btn--7:before {
+  transform: translate(-110%, -110%) translateZ(0);
+}
+
+.btn--7:hover:before {
+  transform: translate(-45%, -34%) translateZ(0);
+}
 
 
 .btn--8 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 .btn--8:before {
-  transform: translate(30%, 10%) translateZ(0); }
+  transform: translate(30%, 10%) translateZ(0);
+}
+
 .btn--8:hover:before {
-  transform: translate(-45%, -34%) translateZ(0); }
+  transform: translate(-45%, -34%) translateZ(0);
+}
 
 .psuedo-text2 {
   color: $blueAnswers;
@@ -262,11 +291,10 @@ button {
   height: 100%;
   width: 100%;
   display: inline;
-  height: auto;
   font-size: 1.7rem;
-  font-size: 700;
   transition: .25s ease-in;
-  transition-delay: .05s; }
+  transition-delay: .05s;
+}
 
 /////////////////////////////////
 
@@ -277,13 +305,11 @@ button {
   height: 100%;
   width: 100%;
   display: inline;
-  height: auto;
   font-size: 1.7rem;
-  font-size: 700;
   transition: .25s ease-in;
-  transition-delay: .05s; }
+  transition-delay: .05s;
 
-
+}
 
 
 .buttonC {
@@ -297,7 +323,8 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  will-change: transform; }
+  will-change: transform;
+}
 
 .button-matC {
   color: #009EFA;
@@ -305,7 +332,9 @@ button {
   border-radius: .3rem;
   transition: .3s ease-in-out;
   transition-delay: .15s;
-  overflow: hidden; }
+  overflow: hidden;
+}
+
 .button-matC:before {
   content: '';
   display: block;
@@ -314,10 +343,15 @@ button {
   width: 200%;
   height: 500%;
   border-radius: 100%;
-  transition: 0.16s cubic-bezier(0.4, 0, 1, 1); }
+  transition: 0.16s cubic-bezier(0.4, 0, 1, 1);
+}
+
 .button-matC:hover .psuedo-text3 {
-  color: #F5F5F5; }
+  color: #F5F5F5;
+}
+
 .button-matC:hover {
-  color: transparent; }
+  color: transparent;
+}
 
 

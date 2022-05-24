@@ -19,14 +19,6 @@
       </ng-container>
     </label>
   </div>
-  <ng-container *ngIf="answers.length !==4 ">
-    <button class="button"
-            (click)="addAnswer()"
-            [disabled]="answers.length == 4">
-      Ajouter une réponse
-    </button>
-  </ng-container>
-  <br>
   <div class="answer" formArrayName="answers">
     <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
       <br>
@@ -43,6 +35,13 @@
       </div>
     </div>
   </div>
+  <ng-container *ngIf="answers.length !==4 ">
+    <button class="button"
+            (click)="addAnswer()"
+            [disabled]="answers.length == 4">
+      Ajouter une réponse
+    </button>
+  </ng-container>
   <ng-container *ngIf="answers.length !==0 ">
     <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
   </ng-container>

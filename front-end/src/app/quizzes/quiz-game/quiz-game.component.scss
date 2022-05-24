@@ -2,19 +2,87 @@
 @import '../../../styles.scss';
 
 
-.center {
-  text-align: center;
-  margin: 5%;
-  overflow-inline: scroll;
-  line-height: 6rem;
-  font-size: 65px; ///
+body {
+  background: $degradé1;
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  position: fixed;
+  //left: 0;
+  //top: 0;
+  height: 100%;
+  width: 100%;
+  //overflow-y: scroll;
+  //scroll-behavior: smooth;
+  display: flex;
+  //border: dashed black;
+  flex-direction: column;
 }
+
+.pageQuestion {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  //flex-direction: column;
+  //border: solid red;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.titlePsuedo-text {
+  width: 100%;
+  text-align: center;
+  margin: 0% 0% 0% 0%;
+  //overflow-inline: scroll;
+  line-height: 3rem;
+  font-size: 2.4rem;
+
+  margin-bottom: 1rem;
+
+  //border: solid black;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.imagecentree {
+  display: flex;
+  justify-content: center;
+  //border: #282a28 solid;
+}
+
+.reponse {
+  display: flex;
+  justify-content: center;
+  //border: solid blue;
+  height: 20%;
+}
+
+.button3422 {
+  width: 23%;
+  height: 70%;
+  margin: 1% 1% 1% 1%;
+  //padding: 6.5rem;
+  background: #F5F5F5;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  will-change: transform; }
 
 .button_correct {
   color: white;
-  width: 48%;
+  width: 23%;
+  height: 70%;
   margin: 1% 1% 1% 1%;
-  padding: 6.5rem;
+  //padding: 6.5rem;
   background: #32CD32;
   text-align: center;
   display: inline-block;
@@ -22,8 +90,22 @@
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  will-change: transform;
+  border-radius: 10px;
+  //border: #00C9B7 solid;
 }
+
+.psuedo-text_correct {
+  color: white;
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: inline;
+  font-size: 80%;
+  transition: .25s ease-in;
+  transition-delay: .05s;
+}
+
+////////////////
 
 .button-mat2_correct {
   color: #008BC6;
@@ -49,71 +131,6 @@
   color: transparent;
 }
 
-.button_correct > .psuedo-text2 {
+.button_correct > .psuedo-text {
   color: white;
 }
-
-.whiteBox {
-  background-color: $white;
-  font-family: Verdana, sans-serif;
-  text-align: center;
-  width: 45%;
-  height: 45%;
-  padding: 5%;
-  margin-top: 10%;
-  margin-bottom: 3%;
-  margin-left: 22.5%;
-}
-
-
-.fullwidthwithborder {
-  background-color: $grey;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1000000;
-}
-
-.fullwidth {
-  position: fixed;
-  left: 0;
-  margin-top: 30%;
-  top: 100%;
-  height: 100%;
-  width: 100%;
-  z-index: 1000000;
-}
-
-.image {
-  display: block;
-  margin: 3% auto 5%;
-  width: 30%;
-  border-radius: .3rem;
-}
-
-.image-mat {
-  border: 0px transparent;
-  border-radius: .3rem;
-  transition: .3s ease-in-out;
-  transition-delay: .15s;
-  overflow: hidden;
-}
-
-.button {
-  width: 48%;
-  height: 30%;
-  margin: 1% 1% 1% 1%;
-  padding: 6.5rem;
-  background: #F5F5F5;
-  text-align: center;
-  display: inline-block;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  position: relative;
-  will-change: transform; }
-
-
-

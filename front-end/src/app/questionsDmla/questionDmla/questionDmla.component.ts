@@ -10,6 +10,7 @@ export class QuestionDmlaComponent implements OnInit {
 
   @Input()
   question: QuestionDmla;
+  supprimer: boolean;
 
   @Output()
   deleteQuestion: EventEmitter<QuestionDmla> = new EventEmitter<QuestionDmla>();
@@ -17,10 +18,19 @@ export class QuestionDmlaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.supprimer = false;
   }
 
   delete(): void {
     this.deleteQuestion.emit(this.question);
+  }
+
+  cancelDeletion(): void {
+    this.supprimer = false;
+  }
+
+  confirmDeletion(): void {
+    this.supprimer = true;
   }
 
 }

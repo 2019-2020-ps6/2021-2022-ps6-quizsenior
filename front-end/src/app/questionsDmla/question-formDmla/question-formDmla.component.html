@@ -6,12 +6,6 @@
     <input class="input" type="text" id="label" [formControlName]="'label'" required/>
     <label class="label">Intitulé de la question</label>
   </div>
-  <button class="button"
-          (click)="addAnswer(answers.length)"
-          [disabled]="answers.length==4">
-    Ajouter une réponse
-  </button>
-  <br>
   <div class="answer" formArrayName="answers">
     <div *ngFor="let address of answers.controls | slice:0:4; let i=index;">
       <br>
@@ -28,6 +22,11 @@
       </div>
     </div>
   </div>
+  <button class="button"
+          (click)="addAnswer(answers.length)"
+          [disabled]="answers.length==4">
+    Ajouter une réponse
+  </button>
   <button class="button" type="submit" (click)="addQuestion()">Ajouter la question au Quiz</button>
 </form>
 

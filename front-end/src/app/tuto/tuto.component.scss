@@ -85,7 +85,9 @@ button {
   height: auto;
   font-size: 1.8rem;
   transition: .25s ease-in;
-  transition-delay: .05s; }
+  transition-delay: .05s;
+  text-shadow: 3px 3px 6px black;
+}
 
 .psuedo-text2 {
   position: fixed;

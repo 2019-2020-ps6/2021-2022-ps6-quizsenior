@@ -27,13 +27,14 @@
       </div>
 
       <ng-container *ngIf="repetition">
+        <p style="color:#8597a3">Le nombre de répétitions correspond au nombre de fois pour laquelle une question fausse sera répétée en cas d'erreur</p>
         <div class="input">
           <input type="text" class="input-field" id="nbRepetition" [formControlName]="'nbRepetition'" value="" required/>
           <label class="input-label" >Nombre de répétitions</label>
         </div>
       </ng-container>
       <br>
-      <button class="action-button" type="submit" (click)="addQuiz()">Créer</button>
+      <button class="action-button btn-3" type="submit" (click)="addQuiz()">Créer</button>
     </form>
   </div>
 </body>

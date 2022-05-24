@@ -9,20 +9,19 @@
   <div class="barre2">
     <a class="titlePsuedo-text">Tutoriel</a>
   </div>
-  <button class="buttonAD button-mat btn--7" *ngIf="sound===true" (click)="soundOff()" >
-    <div class="psuedo-text">Desactiver le son</div>
+  <button class="buttonAD button-mat btn--7" *ngIf="sound===true" (click)="soundOff()">
+    <div class="psuedo-text">Désactiver le son</div>
   </button>
-  <button class="buttonAD button-mat btn--7" *ngIf="sound===false" (click)="soundOn()" >
+  <button class="buttonAD button-mat btn--7" *ngIf="sound===false" (click)="soundOn()">
     <div class="psuedo-text">Activer le son</div>
   </button>
 </div>
 <div>
   <ul class="enonce">
     <a class="etape" *ngIf="count===0">
-      <li class="psuedo-text3">Bienvenue dans ce tutoriel pour vous apprendre à jouer. Pour passer à l'étape suivant une
-        fois les informations assimilées, appuyez sur "Entrer", pour réécouter la consigne appuyez sur "espace" et enfin
-        pour revenir en arrière, appuyez sur la barre "effacer"
-        Bon tutoriel !
+      <li class="psuedo-text3">Bienvenue dans ce tutoriel pour vous apprendre à jouer. Pour passer à l'étape suivante, une
+        fois les informations assimilées, appuyez sur la touche "Entrée", pour réécouter la consigne, appuyez sur la barre "Espace"
+        et enfin, pour revenir en arrière, appuyez sur la barre "Effacer".
       </li>
       <br>
       <br>
@@ -31,37 +30,37 @@
       <br>
     </a>
     <a class="etape" *ngIf="count===1">
-      <li class="psuedo-text3">Choisissez votre thème, il répresente un catégorie de question(ex:SPORT)</li>
+      <li class="psuedo-text3">Choisissez votre thème, il répresente une catégorie de question (exemple: SPORT)</li>
       <br>
       <br>
       <li class="psuedo-text3">Ensuite, choisissez votre questionnaire, il correspond au sujet des
-        questions(ex:Football)
+        questions (exemple: Football)
       </li>
       <br>
       <br>
     </a>
     <a class="etape" *ngIf="count===2">
       <li class="psuedo-text3">Comment naviguer pendant le quiz ?<br>
-        Il vous suffit de vous deplacer avec les touches directionnelles de votre clavier<br>
+        Il vous suffit de vous déplacer avec les touches directionnelles de votre clavier<br>
         <img src="https://tidou.fr/images/aide-jeux/fleches-clavier.png"></li>
     </a>
     <a class="etape" *ngIf="count===3">
       <li class="psuedo-text3">Comment lire la question ou lire les réponses ?<br>
-        Il vous suffit de soit vous deplacer, soit appuyer sur la touche espace de votre clavier<br>
+        Il vous suffit de soit vous déplacer, soit appuyer sur la barre espace de votre clavier<br>
         <img
           src="data:image/jpeg;base64,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zGe0doJMXRuWZ4l8XG8uYxlSLZkWJ+Eb6qflvk/VlvFX/ncTSOQyGV82UnKY+H/5JvOn93EwpVVhJW43t8Z9FmT+f+G8bRuVyeNgaUz2kcrnss2Mr5LBxsbDXE+MQqxHliZut8x8/QD+0eFtP4WlMphZzBiVXEuGw2mJbCxFmmSZ+P1+MTB61nyn9N9H4OXyETlspmMvhZjEfHjCzbq2NvVV826N0TCRMR+vxPqbA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1YszYsDVizNiwNWLM2LA1Z5Wk5/uftg9OzyNKT/AHP2wByiQZSdxQPz4E70+qn0h8qs7o/Q+jymaXGWJifxf+y/GJ+O75AdwWugroB+fGyWDiN58TL4TvxPhIze8wfi8UaPfN5HOZXC8sYmPgvhYfmmYSGmKi5iN0Hq10FdAPm/BXh6clo7J5TN4eDiY+W134oiMRVl8Z3iVZouNzQfROsNEq0QytuaGiJiY+Ux8TVdBXQDlhYCIsImGqpHoioqrH6RuLi4Suso6K6T6qywyz+knSugroBzwcJcNYXDRUWPRUWFWP0gxiZXDdoxHwMNnX8rthrLr9GmLg710FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIC10FdAIeNpaf7n7VPXxXhI8zzCxHxk+ezeY1js/pE7ojpG6AOuFO6P1BMCPwxu+f8AIA7af0Y2XxGeFnUPMsjx6Lc/kn5V/wBnleY/pmP+R/8Ai38H85x/zN9ZAxr2427pGvbjbukABr2427pGvbjbukABr2427pGvbjbukABr2427pGvbjbukEAuvbjbuka9uNu6TKlAuvbjbuka9uNu6SFAa9uNu6Rr2427pIALr2427pGvbjbukABr2427pGvbjbukgAuvbjbuka9uNu6QQC69uNu6Rr2427pIALr2427pGvbjbukgAuvbjbuka9uNu6SCQLr2427pGvbjbukggC69uNu6Rrm427pIZkDeubjbuka5uNu6TAA3rm427pGubjbukwQDprm427pGubjbuk5gDpr2427pGubjbukzBJA3r2427pGvbjbukimWA3rm427pGubjbuk5ADrrm427pGubjbuk5ADrrm427pGubjbukwSAOmubjbuka5uNu6TAgDevbjbuka5uNu6TLEA3rm427pGubjbukwAN65uNu6Rrm427pOZQN65uNu6Rr2427pOZpQNa9uNu6Rr2427pMyFA1r2427pGubjbukhkDeubjbuka5uNu6TAA3rm427pGvbjbukwbAa9uNu6Rr2427pAAyzzPrMz9Zs6ZbBfFaMPDSXefRY/mflHUyfZeFP8ARn6gfr0dotMHCw8NlV2WPxNXq0zc103lP3gD/9k=">
       </li>
     </a>
     <a class="etape" *ngIf="count===4">
-      <li class="psuedo-text3">Comment passer au réponse une fois avoir bien compris la question et comme valider vos
-        réponse?<br>
-        Il vous suffit d'appuyer sur la touche entrer de votre clavier<br>
+      <li class="psuedo-text3">Comment passer aux réponses, une fois avoir bien compris la question, et comment valider vos
+        réponses ?<br>
+        Il vous suffit d'appuyer sur la touche "Entrée" de votre clavier.<br>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRThV1NJ1zRMYGZJjadma3tAXRgaKXedg4v1Q&usqp=CAU">
       </li>
     </a>
     <a class="etape" *ngIf="count===5">
       <br>
-      <li class="psuedo-text3">Félicitation, vous êtes fin prêts à vous lancer dans vos premier quiz.
+      <li class="psuedo-text3">Félicitations, vous êtes fin prêts à vous lancer dans vos premiers quiz.
         <br>
         <br>
         <h1>Bonne chance</h1>
@@ -76,6 +75,10 @@
     <button *ngIf="count===0 || count===1 || count===2 || count===3 || count===4" class="buttonT button-mat btn--7"
             (click)="upCount()">
       <div class="psuedo-text">J'ai compris</div>
+    </button>
+    <button *ngIf="count===5" class="buttonT button-mat btn--7"
+            (click)="canceled()" routerLink="../">
+      <div class="psuedo-text">Terminer</div>
     </button>
   </div>
 </div>
