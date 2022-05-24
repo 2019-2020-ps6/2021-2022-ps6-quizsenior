@@ -6,13 +6,13 @@
         <h3>{{quiz.name}}</h3>
           {{quiz.theme}}
           <br>
-          Nb de questions : {{quiz.questions.length}}
+          Nombre de questions : {{quiz.questions.length}}
         </div>
         <button class="card__button btn-3" (click)="confirmDeletion()">Supprimer</button>
         <button class="card__button btn-3" routerLink="../edit-quizDmla/{{quiz._id}}">Modifier</button>
         </a>
         <a *ngIf="supprimer===true">
-          Etes-vous sur de vouloir supprimer le quiz ?
+          Etes-vous sûr(e) de vouloir supprimer le quiz ?
           <div>
             <button class="boutonAnnuler" (click)="cancelDeletion()">Annuler</button>
             <button class="boutonSupprimerQuiz" (click)="delete()">Supprimer</button>
