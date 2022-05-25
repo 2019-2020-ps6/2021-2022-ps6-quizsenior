@@ -2,16 +2,16 @@
   <div class="fullwidthwithborder" *ngIf="currentQuestion < quiz.questions.length">
     <a *ngIf="currentQuestion < quiz.questions.length && showQuestion" class="fullwidthwithborder">
       <button class="buttonQ button-matQ" (click)="passQuestion()">
-        <div class="psuedo-text">QUESTION</div>
+        <div class="psuedo-text">{{quiz.questions[currentQuestion].label}}</div>
       </button>
     </a>
     <div class="fullwidthwithborder" *ngIf="!showQuestion">
       <a *ngFor="let answer of quiz.questions[currentQuestion].answers; index as i">
         <button class="buttonS button-matS " (click)="answerSelectedForClass($event, i, answer)" *ngIf="i===0">
-          <div class="psuedo-text">{{listAnswer[i]}}</div>
+          <div class="psuedo-text">{{answer.value}}</div>
         </button>
         <button class="button button-matA  " (click)="answerSelectedForClass($event, i, answer)" *ngIf="i!==0">
-          <div class="psuedo-text">{{listAnswer[i]}}</div>
+          <div class="psuedo-text">{{answer.value}}</div>
         </button>
       </a>
     </div>

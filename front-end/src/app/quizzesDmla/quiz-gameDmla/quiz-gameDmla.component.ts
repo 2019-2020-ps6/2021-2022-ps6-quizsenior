@@ -23,7 +23,6 @@ export class QuizGameDmlaComponent implements OnInit {
   public correctAnswers: AnswerDmla;
   public gameDMLA: QuizGameDmla;
   public quiz: QuizDmla = null;
-  public listAnswer;
   public showQuestion: boolean;
   public showAnswer: boolean;
   public user: User = null;
@@ -64,7 +63,7 @@ export class QuizGameDmlaComponent implements OnInit {
 
   ngOnInit(): void {
     this.answerSelected = 0;
-    this.listAnswer = ['A', 'B', 'C', 'D'];
+
     this.currentQuestion = 0;
     console.log('this.currentQuestion INIT: ', this.currentQuestion);
     this.showQuestion = true;
@@ -112,6 +111,7 @@ export class QuizGameDmlaComponent implements OnInit {
     } else {
       setTimeout(() => {
         this.currentQuestion++;
+        this.listAnswer = this.quiz.questions[this.currentQuestion];
         this.answerSelected = 0;
         this.showQuestion = true;
         if (this.currentQuestion >= this.quiz.questions.length) {
@@ -150,7 +150,7 @@ export class QuizGameDmlaComponent implements OnInit {
         this.gameDMLA.incorrectAnswers = String(Number(this.gameDMLA.incorrectAnswers) + 1);
       }
     }
-    console.log('qfskjlgnvvqmlns c');
+    console.log('this.quizService.updateQuizGame(this.gameDMLA);');
     this.quizService.updateQuizGame(this.gameDMLA);
   }
 
