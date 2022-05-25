@@ -111,7 +111,6 @@ export class QuizGameDmlaComponent implements OnInit {
     } else {
       setTimeout(() => {
         this.currentQuestion++;
-        this.listAnswer = this.quiz.questions[this.currentQuestion];
         this.answerSelected = 0;
         this.showQuestion = true;
         if (this.currentQuestion >= this.quiz.questions.length) {
